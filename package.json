@@ -1,0 +1,25 @@
+{
+  "name": "memories-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node server/index.js\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulkalait/memories-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulkalait/memories-project/issues"
+  },
+  "homepage": "https://github.com/paulkalait/memories-project#readme",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
