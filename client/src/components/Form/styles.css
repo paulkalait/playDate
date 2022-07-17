@@ -21,6 +21,7 @@ input, select{
 }
 select{
     width: 93% !important;
+    color: rgb(121, 121, 121)
 }
 option{
     background-color: aqua;
@@ -49,4 +50,14 @@ option{
     color:  darkorange;
     font-weight: 700;
     background: rgb(249, 137, 0, .3); 
+}
+
+
+.input-file input[type="file" i]::-webkit-file-upload-button{
+    background-color: white;
+    border: 1px solid lightgray ;
+    border-radius: 5px;
+    color: rgb(122, 122, 122);
+    padding: 5px;
+
 }
