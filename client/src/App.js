@@ -1,13 +1,21 @@
 
-
 import dog from './assets/images/dog.svg'
 import Posts from '../src/components/Posts/Posts'
 import Form from '../src/components/Form/Form'
 import './App.css'
+import { getPosts} from './actions/posts'
+import { useEffect } from 'react'
+import { useDispatch} from 'react-redux'
 
 
 function App() {
+//reassign as useDispatch
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    //call dispatch and call the exported getPosts function
+    dispatch(getPosts())
+  }, [dispatch])
 
   return (
  <div>
