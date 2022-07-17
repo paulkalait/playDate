@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
+import { createPost } from "../../actions/posts";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -16,7 +17,11 @@ const Form = () => {
   
   const dispatch = useDispatch()
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createPost(postData))
+  };
 
   const clear = () => {}
   return (
@@ -36,21 +41,15 @@ const Form = () => {
           variant="outlined"
           placeholder="Title"
           value={postData.title}
-          onChange={(e) => setPostData({ ...postData, name: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
-        <input
-          name="message"
-          variant="outlined"
-          placeholder="Message"
-          value={postData.message}
-          onChange={(e) => setPostData({ ...postData, name: e.target.value })}
-        />
+      
         <input
           name="tags"
           variant="outlined"
           placeholder="Tags"
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, name: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
         <select
           value={postData.size}
@@ -60,6 +59,15 @@ const Form = () => {
           <option>medium</option>
           <option>large</option>
         </select>
+
+        <textarea
+        name="message"
+        variant="outlined"
+        placeholder="Message"
+        className="message-input"
+        value={postData.message}
+        onChange={(e) => setPostData({ ...postData, message: e.target.value })}
+      />
         <div className="input-file">
           <Filebase
             type="file"
