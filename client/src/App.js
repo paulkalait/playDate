@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <header className="header">
-        <h1>playDate</h1>
+        <h1>play<span className="date">Date</span></h1>
         <img src={dog} alt="doglogo" />
       </header>
 

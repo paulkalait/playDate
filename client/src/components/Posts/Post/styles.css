@@ -7,6 +7,7 @@
 .name-size{
     display: flex;
     flex-direction: row;
+    margin: 5px;
     justify-content: space-between;
 }
 
@@ -44,6 +45,7 @@
 .tag-div{
     display: flex;
     flex-direction: row;
+        margin: 5px;
 }
 .tag{
     border: 1px solid lighgray;
@@ -53,6 +55,16 @@
     font-weight: 800;
     padding: 4px 8px ;
     margin: 2px;
+}
+.username{
+    font-size: 1.5rem;
+}
+.size{
+    font-size: 1.2rem;
+}
+.time{
+    font-size: 1rem;
+    color: rgb(130, 130, 130)
 }
 .more {
     z-index: 999;
@@ -64,16 +76,17 @@
     left: 85%;
 }
 p{
-    margin-left: 2px;
+    margin: 5px;
+    text-align: left;
 }
 .thumbsUp{
     transform: rotate(180deg);
-    color: darkgray;
+    color: rgb(130, 130, 130);
 }
 .delete-icon-container{
     background: transparent;
     border: none;
-    color: darkgray;
+    color: rgb(130, 130, 130);
 }
 @media screen and (max-width: 760px){
     .card{

@@ -9,19 +9,24 @@ import "./styles.css";
 const Post = ({ post }) => {
   return (
     <Card className="card">
-    <div className="title-date-img">
-    <div className="title-date">
-    <h2>{post.title}</h2>
-    <h5>{moment(post.createdAt).fromNow()}</h5>
-    </div>
-      <img src={post.selectedFile} alt="usersimage" />
+      <div className="title-date-img">
+        <div className="title-date">
+          <h2>{post.title}</h2>
+          <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
+        </div>
+        <img src={post.selectedFile} alt="usersimage" />
       </div>
 
       <div className="name-size">
-        <h5>Name {post.name}</h5>
-        <h5>{post.size}</h5>
+        <h5 className="username">Name {post.name}</h5>
+        
+        
+ {/*  {post.size && "medium" (<span>mediumsizedog</span>)} */}
+       <h5 className="size">{post.size}</h5>
+
+
       </div>
-    
+
       <div>
         <button className="more" onClick={() => {}}>
           {" "}
@@ -29,24 +34,26 @@ const Post = ({ post }) => {
         </button>
       </div>
 
-      <div className="tag-div">{post.tags.map((tag) => <span className="tag"># {tag}</span>)}</div>
+      <div className="tag-div">
+        {post.tags.map((tag) => (
+          <span className="tag"># {tag}</span>
+        ))}
+      </div>
       <p>{post.message}</p>
 
       <div className="buttons-container">
-      <div className="thumbs-up-div">
-      <button className="thumbs-up" onClick={() => {}}>
-        <ThumbUpAltIcon  className="thumbsUp"/>
-   
-      </button>
-      <span>{post.likeCount} Likes</span>
-    </div>
-    <div>
-      <button onClick={() => {}} className="delete-icon-container">
-        <DeleteIcon />
-      </button>
-    </div>
+        <div className="thumbs-up-div">
+          <button className="thumbs-up" onClick={() => {}}>
+            <ThumbUpAltIcon className="thumbsUp" />
+          </button>
+          <span>{post.likeCount} Likes</span>
+        </div>
+        <div>
+          <button onClick={() => {}} className="delete-icon-container">
+            <DeleteIcon />
+          </button>
+        </div>
       </div>
-     
     </Card>
   );
 };

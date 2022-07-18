@@ -16,17 +16,21 @@ input, select, textarea{
     padding: 5px;
     margin: 5px;
     border: .5px solid lightgray;
+    height: 30px;
+    font-size: 1.1rem;
     background: transparent;
     border-radius: 10px;
+    cursor: pointer;
+}
+input:focus {
+    border: 2px solid black;
 }
 select{
+    height: 30px;
+    font-size: 1.1rem;
     width: 93% !important;
     color: rgb(121, 121, 121)
 }
-option{
-    background-color: aqua;
-}
-
 .buttonContainer{
     display: flex;
     flex-direction: row;
@@ -34,7 +38,7 @@ option{
 }
 .buttonContainer button{
     margin: 5px;
-    width: 75px;
+    width: 80px;
     height: 35px;
     border-radius: 20px;
     min-width: fit-content;
