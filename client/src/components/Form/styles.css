@@ -40,13 +40,13 @@ option{
     min-width: fit-content;
 }
 .submit-button{
-    border: solid 2px  darkgreen;
+    border: solid 1px  darkgreen;
     color:  darkgreen;
     font-weight: 700;
     background: rgb(0, 174, 0, .3);
 }
 .clear-button{
-    border: solid 2px  darkorange;
+    border: solid 1px  darkorange;
     color:  darkorange;
     font-weight: 700;
     background: rgb(249, 137, 0, .3); 

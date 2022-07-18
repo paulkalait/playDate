@@ -1,5 +1,6 @@
 import React from 'react'
 import Post from './Post/Post.js'
+import { CircularProgress} from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import './styles.css'
 
@@ -10,8 +11,18 @@ const Posts = () => {
   console.log(posts)
   return (
     <div className='postsContainer'>
-    <h1>Posts</h1>
-    <Post />
+    {!posts.length ? <CircularProgress /> : (
+        <div className='posts-body'>
+        { 
+          posts.map((post) => (
+            <div key={post._id} className="each-post">
+              <Post   post={post} />
+            </div>
+          ))
+        }
+        </div>
+    )}
+   
     </div>
 
   )

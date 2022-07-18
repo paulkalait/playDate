@@ -1,0 +1,82 @@
+.card{
+    min-height: 400px;
+    width: 100%;
+    position: relative;
+    margin: 5px;
+}
+.name-size{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.more{ 
+    z-index: 999;
+}
+
+.thumbs-up{
+    background-color: transparent;
+    border: none;
+}
+
+.posts-body{
+    align-items: stretch;
+}
+
+.buttons-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.thumbs-up-div{
+    display: flex;
+    align-items: center;
+}
+.title-date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px ;
+    height: 30px;
+}
+.tag-div{
+    display: flex;
+    flex-direction: row;
+}
+.tag{
+    border: 1px solid lighgray;
+    background-color: lightgray;
+    border-radius: 15px;
+    color: black;
+    font-weight: 800;
+    padding: 4px 8px ;
+    margin: 2px;
+}
+.more {
+    z-index: 999;
+    position: absolute;
+    background: transparent;
+    color: white;
+    border: none;
+    top: 10%;
+    left: 85%;
+}
+p{
+    margin-left: 2px;
+}
+.thumbsUp{
+    transform: rotate(180deg);
+    color: darkgray;
+}
+.delete-icon-container{
+    background: transparent;
+    border: none;
+    color: darkgray;
+}
+@media screen and (max-width: 760px){
+    .card{
+        width: 100%;
+    }
+}

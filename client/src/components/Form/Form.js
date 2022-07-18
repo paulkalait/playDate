@@ -14,16 +14,18 @@ const Form = () => {
     tags: "",
     selectedFile: "",
   });
-  
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createPost(postData))
+    //send over a post request with the user inputed data 
+        //dispatch the createPost action
+    dispatch(createPost(postData));
   };
 
-  const clear = () => {}
+  const clear = () => {};
   return (
     <div className="formContainer">
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
@@ -43,7 +45,6 @@ const Form = () => {
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
-      
         <input
           name="tags"
           variant="outlined"
@@ -59,15 +60,16 @@ const Form = () => {
           <option>medium</option>
           <option>large</option>
         </select>
-
         <textarea
-        name="message"
-        variant="outlined"
-        placeholder="Message"
-        className="message-input"
-        value={postData.message}
-        onChange={(e) => setPostData({ ...postData, message: e.target.value })}
-      />
+          name="message"
+          variant="outlined"
+          placeholder="Message"
+          className="message-input"
+          value={postData.message}
+          onChange={(e) =>
+            setPostData({ ...postData, message: e.target.value })
+          }
+        />
         <div className="input-file">
           <Filebase
             type="file"
@@ -80,7 +82,9 @@ const Form = () => {
         </div>
         <div className="buttonContainer">
           <button className="submit-button">Submit</button>
-          <button className="clear-button"  onClick={clear}>Clear</button>
+          <button className="clear-button" onClick={clear}>
+            Clear
+          </button>
         </div>
       </form>
     </div>
