@@ -22,7 +22,7 @@ input, select, textarea{
     border-radius: 10px;
     cursor: pointer;
 }
-input:focus {
+input:focus, textarea:focus {
     border: 2px solid black;
 }
 select{

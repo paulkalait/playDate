@@ -30,7 +30,7 @@ const Post = ({ post }) => {
       <div>
         <button className="more" onClick={() => {}}>
           {" "}
-          <MoreHorizIcon />
+          <MoreHorizIcon  className="more-icon"/>
         </button>
       </div>
 

@@ -14,10 +14,21 @@
 .more{ 
     z-index: 999;
 }
+.more-icon{
+    color: rgb(130, 130, 130);
+    border: 1px solid rgb(94, 94, 94);
+    background: white;
+    padding: 3px;
+    border-radius: 50%;
+}
 
 .thumbs-up{
     background-color: transparent;
     border: none;
+}
+.thumbsUp:active {
+    font-size: 20px;
+    transition: .3s ease-in ease-in-out;
 }
 
 .posts-body{
