@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "./styles.css";
 import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import { createPost } from "../../actions/posts";
+import { createPost, updatePost } from "../../actions/posts";
+import { useSelector } from 'react-redux'
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId}) => {
   const [postData, setPostData] = useState({
     name: "",
     title: "",
@@ -14,22 +15,45 @@ const Form = () => {
     tags: "",
     selectedFile: "",
   });
+  const post = useSelector((state) =>  currentId ? state.posts.find((postToUpdate) => postToUpdate._id === currentId) : null)
 
+
+  //if there is a post id that will be updated then set the form data to its values to be updated
+  useEffect(() => { if(post){setPostData(post)}}, [post])
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if(currentId){
+      dispatch(updatePost(currentId, postData));
+
+    }else{
     //send over a post request with the user inputed data 
         //dispatch the createPost action
-    dispatch(createPost(postData));
+        dispatch(createPost(postData));
+    }
+     clear()
+    
   };
 
-  const clear = () => {};
+  const clear = () => {
+    setCurrentId(null)
+    setPostData({
+      name: "",
+      title: "",
+      //will be a dropdown
+      size: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    })
+  };
   return (
+
     <div className="formContainer">
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-        <h1>Post your companion</h1>{" "}
+        <h1>{currentId ? 'Edit Post of' : 'Post your'} Companion</h1>{" "}
         {/* use spread operator to only affect name in this field*/}
         <input
           name="name"

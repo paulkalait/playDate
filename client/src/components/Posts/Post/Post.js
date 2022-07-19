@@ -5,8 +5,11 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Card } from "@material-ui/core";
 import moment from "moment";
 import "./styles.css";
+import { useDispatch } from 'react-redux';
+import { deletePost } from "../../../actions/posts";
 
-const Post = ({ post }) => {
+const Post = ({ post, currentId, setCurrentId}) => {
+  const dispatch  = useDispatch()
   return (
     <Card className="card">
       <div className="title-date-img">
@@ -14,9 +17,8 @@ const Post = ({ post }) => {
           <h2>{post.title}</h2>
           <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
         </div>
-        <img src={post.selectedFile} alt="usersimage" />
       </div>
-
+      <img src={post.selectedFile} alt="usersimage" />
       <div className="name-size">
         <h5 className="username">Name {post.name}</h5>
         
@@ -28,7 +30,7 @@ const Post = ({ post }) => {
       </div>
 
       <div>
-        <button className="more" onClick={() => {}}>
+        <button className="more" onClick={() => setCurrentId(post._id)}>
           {" "}
           <MoreHorizIcon  className="more-icon"/>
         </button>
@@ -49,7 +51,7 @@ const Post = ({ post }) => {
           <span>{post.likeCount} Likes</span>
         </div>
         <div>
-          <button onClick={() => {}} className="delete-icon-container">
+          <button onClick={() => dispatch(deletePost(post._id))} className="delete-icon-container">
             <DeleteIcon />
           </button>
         </div>

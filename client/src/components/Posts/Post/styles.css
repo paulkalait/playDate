@@ -50,8 +50,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 3px ;
+    padding: 6px ;
     height: 30px;
+    min-height: 35px;
 }
 .tag-div{
     display: flex;
@@ -72,6 +73,9 @@
 }
 .size{
     font-size: 1.2rem;
+}
+img{
+    width: 100%
 }
 .time{
     font-size: 1rem;

@@ -8,7 +8,7 @@ import * as api from "../api";
 export const getPosts = () => async (dispatch) => {
   try {
     //fetch data from api
-    const { data } = await api.fetchPosts;
+    const { data } = await api.fetchPosts();
     //call the async dispatch from thunk
     //payload is the data send the api data into the payload
     dispatch({ type: "FETCH_ALL", payload: data });
@@ -28,3 +28,24 @@ export const createPost = (post) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const updatePost = (id, post) => async (dispatch) => {
+  try{
+   const { data} = await api.updatePost(id, post)
+
+   dispatch({type: 'UPDATE', payload: data})
+  }catch(error){
+      console.log(error)
+  }
+}
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    await api.deletePost(id);
+    dispatch({type: 'DELETE', payload: id})
+
+  } catch (error) {
+    console.log(error)
+    
+  }
+}
