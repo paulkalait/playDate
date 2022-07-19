@@ -6,6 +6,7 @@
 }
 .name-size{
     display: flex;
+    padding: 5px;
     flex-direction: row;
     height: 25px;
     margin: 5px;
@@ -110,16 +111,16 @@ p{
     color: rgb(130, 130, 130);
 }
 .smalldog{
-    height: 20px;
-    width: 20px;
+    height: 27px;
+    width: 27px;
 }
 .mediumdog{
-   height: 35px;
-   width: 35px;
+   height: 45px;
+   width: 45px;
 }
 .largedog{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
 @media screen and (max-width: 760px){
     .card{

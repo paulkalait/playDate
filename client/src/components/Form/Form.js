@@ -33,11 +33,12 @@ const Form = ({ currentId, setCurrentId}) => {
         //dispatch the createPost action
         dispatch(createPost(postData));
     }
-     clear()
+   
     
   };
 
-  const clear = () => {
+  const clear = (e) => {
+    e.preventDefault();
     setCurrentId(null)
     setPostData({
       name: "",
@@ -52,7 +53,7 @@ const Form = ({ currentId, setCurrentId}) => {
   return (
 
     <div className="formContainer">
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form autoComplete="off" noValidate>
         <h1>{currentId ? 'Edit Post of' : 'Post your'} Companion</h1>{" "}
         {/* use spread operator to only affect name in this field*/}
         <input
@@ -107,7 +108,7 @@ const Form = ({ currentId, setCurrentId}) => {
           />
         </div>
         <div className="buttonContainer">
-          <button className="submit-button">Submit</button>
+          <button className="submit-button" onClick={handleSubmit}>Submit</button>
           <button className="clear-button" onClick={clear}>
             Clear
           </button>
