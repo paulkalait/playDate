@@ -51,8 +51,9 @@ const Form = ({ currentId, setCurrentId}) => {
     })
   };
   return (
-
+// got rid of the onSubmit handler on the form tag
     <div className="formContainer">
+    
       <form autoComplete="off" noValidate>
         <h1>{currentId ? 'Edit Post of' : 'Post your'} Companion</h1>{" "}
         {/* use spread operator to only affect name in this field*/}
