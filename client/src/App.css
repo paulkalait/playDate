@@ -6,11 +6,16 @@ border-bottom: 1px solid lightgray;
     justify-content: space-between;
     align-items: center;
 }
-.logo{
+.logo-div{
 width: 200px;
-height: 5%;
+height: 50px;
 padding: 10px;
+background-image: url('../src/assets/images/PLSC.png');
+background-repeat: cover;
+background-size: 100%;
+background-repeat: no-repeat;
 }
+
 .date{
     color: rgb(202, 172, 156);
 }

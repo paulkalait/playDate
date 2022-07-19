@@ -21,7 +21,8 @@ function App() {
   return (
     <div>
       <header className="header">
-        <img src={logo} alt="doglogo" className="logo" />
+      <div className="logo-div"></div>
+     
       </header>
 
       <div className="father">
