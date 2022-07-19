@@ -1,4 +1,4 @@
-import dog from "./assets/images/dog.svg";
+import logo from "./assets/images/PLSC.png";
 import Posts from "../src/components/Posts/Posts";
 import Form from "../src/components/Form/Form";
 import "./App.css";
@@ -21,8 +21,7 @@ function App() {
   return (
     <div>
       <header className="header">
-        <h1>play<span className="date">Date</span></h1>
-        <img src={dog} alt="doglogo" />
+        <img src={logo} alt="doglogo" className="logo" />
       </header>
 
       <div className="father">

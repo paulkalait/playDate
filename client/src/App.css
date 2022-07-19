@@ -6,6 +6,11 @@ border-bottom: 1px solid lightgray;
     justify-content: space-between;
     align-items: center;
 }
+.logo{
+width: 200px;
+height: 5%;
+padding: 10px;
+}
 .date{
     color: rgb(202, 172, 156);
 }
