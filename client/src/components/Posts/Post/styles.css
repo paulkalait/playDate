@@ -7,8 +7,11 @@
 .name-size{
     display: flex;
     flex-direction: row;
+    height: 25px;
     margin: 5px;
     justify-content: space-between;
+    align-content: center;
+    align-items: center;
 }
 
 .more{ 
@@ -87,7 +90,7 @@ img{
     background: transparent;
     color: white;
     border: none;
-    top: 10%;
+    top: 13%;
     left: 85%;
 }
 p{
@@ -102,6 +105,21 @@ p{
     background: transparent;
     border: none;
     color: rgb(130, 130, 130);
+}
+.smalldog, .mediumdog, .largedog{
+    color: rgb(130, 130, 130);
+}
+.smalldog{
+    height: 20px;
+    width: 20px;
+}
+.mediumdog{
+   height: 35px;
+   width: 35px;
+}
+.largedog{
+    height: 50px;
+    width: 50px;
 }
 @media screen and (max-width: 760px){
     .card{

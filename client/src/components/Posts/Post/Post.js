@@ -6,7 +6,8 @@ import { Card } from "@material-ui/core";
 import moment from "moment";
 import "./styles.css";
 import { useDispatch } from 'react-redux';
-import { deletePost } from "../../../actions/posts";
+import { deletePost, likePost } from "../../../actions/posts";
+import dog from '../../../assets/images/doglogo.png'
 
 const Post = ({ post, currentId, setCurrentId}) => {
   const dispatch  = useDispatch()
@@ -23,10 +24,11 @@ const Post = ({ post, currentId, setCurrentId}) => {
         <h5 className="username">Name {post.name}</h5>
         
         
- {/*  {post.size && "medium" (<span>mediumsizedog</span>)} */}
-       <h5 className="size">{post.size}</h5>
-
-
+ {/*   <h5 className="size">{post.size}</h5>*/}
+      
+       {post.size.includes("medium") ?  (<img src={dog} alt="doglogo" className="mediumdog" />) : ("")} 
+       {post.size.includes("small") ?  (<img src={dog} alt="doglogo" className="smalldog" />) : ("")} 
+       {post.size.includes("large") ?  (<img src={dog} alt="doglogo" className="largedog" />) : ("")} 
       </div>
 
       <div>
@@ -45,7 +47,7 @@ const Post = ({ post, currentId, setCurrentId}) => {
 
       <div className="buttons-container">
         <div className="thumbs-up-div">
-          <button className="thumbs-up" onClick={() => {}}>
+          <button className="thumbs-up" onClick={() => dispatch(likePost(post._id))}>
             <ThumbUpAltIcon className="thumbsUp" />
           </button>
           <span>{post.likeCount} Likes</span>

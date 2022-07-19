@@ -76,10 +76,12 @@ const Form = ({ currentId, setCurrentId}) => {
           value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
+        
         <select
           value={postData.size}
           onChange={(e) => setPostData({ ...postData, size: e.target.value })}
         >
+        <option>select size</option>
           <option>small</option>
           <option>medium</option>
           <option>large</option>
