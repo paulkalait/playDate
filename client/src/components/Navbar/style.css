@@ -1,0 +1,17 @@
+header{
+    width: 100%;
+    height: 10%;
+border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-div{
+width: 200px;
+height: 50px;
+padding: 10px;
+background-image: url('../../../src/assets/images/PLSC.png');
+background-repeat: cover;
+background-size: 100%;
+background-repeat: no-repeat;
+}

@@ -1,20 +1,3 @@
-header{
-    width: 100%;
-    height: 10%;
-border-bottom: 1px solid lightgray;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo-div{
-width: 200px;
-height: 50px;
-padding: 10px;
-background-image: url('../src/assets/images/PLSC.png');
-background-repeat: cover;
-background-size: 100%;
-background-repeat: no-repeat;
-}
 
 .date{
     color: rgb(202, 172, 156);
@@ -28,30 +11,8 @@ header img{
 header h1{
     margin-left: 1%;
 }
-.father{
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-}
-.div-for-posts-and-form{
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.Posts-container{
-    flex-direction: column;
-    display: flex;
-    width: 70%;
-    height: 100vh;
-}
 
-.Form-container{
-    width: 30%;
-    flex-direction: column;
-    display: flex;
-    height: 100vh;
-}
+
 
 
 @media screen and (max-width: 760px){

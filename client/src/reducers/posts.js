@@ -1,19 +1,24 @@
 //post will be an array and
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionTypes'
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  LIKE,
+} from "../constants/actionTypes";
 export default (posts = [], action) => {
   switch (action.type) {
-
     case DELETE:
       //keep all the posts that are not equal to the action . payload
-      return posts.filter((post) => post._id !== action.payload)
+      return posts.filter((post) => post._id !== action.payload);
 
-      //since both of these cases do  the same thing
+    //since both of these cases do  the same thing
     case UPDATE:
-       //action.payload is the updated post, if they match then return the latest updated post
-       return posts.map((post) =>
-       post._id === action.payload._id ? action.payload : post
-     );
-    case LIKE: 
+      //action.payload is the updated post, if they match then return the latest updated post
+      return posts.map((post) =>
+        post._id === action.payload._id ? action.payload : post
+      );
+    case LIKE:
       //action.payload is the updated post, if they match then return the latest updated post
       return posts.map((post) =>
         post._id === action.payload._id ? action.payload : post

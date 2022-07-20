@@ -76,7 +76,7 @@ const Form = ({ currentId, setCurrentId}) => {
           variant="outlined"
           placeholder="Tags"
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(', ')})}
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',')})}
         />
         
         <select
