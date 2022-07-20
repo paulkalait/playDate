@@ -16,30 +16,15 @@ const Form = ({ currentId, setCurrentId}) => {
     selectedFile: "",
   });
   const post = useSelector((state) =>  currentId ? state.posts.find((postToUpdate) => postToUpdate._id === currentId) : null)
-
+  const dispatch = useDispatch();
 
   //if there is a post id that will be updated then set the form data to its values to be updated
   useEffect(() => { if(post){setPostData(post)}}, [post])
-  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    if(currentId){
-      dispatch(updatePost(currentId, postData));
-
-    }else{
-    //send over a post request with the user inputed data 
-        //dispatch the createPost action
-        dispatch(createPost(postData));
-    }
+  const clear = () => {
    
-    
-  };
-
-  const clear = (e) => {
-    e.preventDefault();
-    setCurrentId(null)
+    setCurrentId(0)
     setPostData({
       name: "",
       title: "",
@@ -50,11 +35,26 @@ const Form = ({ currentId, setCurrentId}) => {
       selectedFile: "",
     })
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    
+    if (currentId === 0) {
+      dispatch(createPost(postData));
+      clear();
+    } else {
+      dispatch(updatePost(currentId, postData));
+      clear();
+    }
+  };
+
+
   return (
 // got rid of the onSubmit handler on the form tag
     <div className="formContainer">
     
-      <form autoComplete="off" noValidate>
+      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <h1>{currentId ? 'Edit Post of' : 'Post your'} Companion</h1>{" "}
         {/* use spread operator to only affect name in this field*/}
         <input
@@ -76,7 +76,7 @@ const Form = ({ currentId, setCurrentId}) => {
           variant="outlined"
           placeholder="Tags"
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(', ')})}
         />
         
         <select
@@ -109,7 +109,7 @@ const Form = ({ currentId, setCurrentId}) => {
           />
         </div>
         <div className="buttonContainer">
-          <button className="submit-button" onClick={handleSubmit}>Submit</button>
+          <button className="submit-button" type="submit">Submit</button>
           <button className="clear-button" onClick={clear}>
             Clear
           </button>

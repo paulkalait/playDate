@@ -1,4 +1,4 @@
-import * as api from "../api";
+import * as api from "../api/index.js";
 //will allow  to import everything from api file into to this file
 
 //reduc thunk allows an additonal function for async =>   =>
