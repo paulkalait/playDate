@@ -4,19 +4,19 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import loginPhoto from "../../assets/images/auth-login-walking.svg";
 import Input from "./Input";
 const Auth = () => {
-    //base on the change of the variable change the tittle and inputs to reflect
+  //base on the change of the variable change the tittle and inputs to reflect
 
-  const [isSignup, setIsSignUp] = useState(false)
+  const [isSignup, setIsSignUp] = useState(false);
 
-
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   const switchAuth = () => {
-    setShowPassword(false) 
-    setIsSignUp(( hpreviousSignState) => !isSignup)
-}
+    setShowPassword(false);
+    setIsSignUp((hpreviousSignState) => !isSignup);
+  };
   //toggle the password to on and off
-  const handleShowPassword = () => setShowPassword((previousShowPassword) => !previousShowPassword)
+  const handleShowPassword = () =>
+    setShowPassword((previousShowPassword) => !previousShowPassword);
 
   const handleChange = () => {};
 
@@ -56,21 +56,33 @@ const Auth = () => {
               name="password"
               label="Password"
               handleChange={handleChange}
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               handleShowPassword={handleShowPassword}
             />
-            { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password"/>}
+            {isSignup && (
+              <Input
+                name="confirmPassword"
+                label="Repeat Password"
+                handleChange={handleChange}
+                type="password"
+              />
+            )}
           </div>
 
-          <div>
-          <button type="submit" > {isSignup ? 'Sign Up' : 'Sign In'} </button>
+          <div className="auth-form-button-containers">
+            <button type="submit" className="auth-buttons">
+              {" "}
+              {isSignup ? "Sign Up" : "Sign In"}{" "}
+            </button>
 
-
-          <button onClick={switchAuth}> {isSignup ? 'Already Have an account? Sign In' : 'Sign In'} </button>
-          
+            <span className="span-container">
+              {isSignup ? "Already Have an account?" : "Dont Have an Account?"}
+              <button onClick={switchAuth} className="auth-buttons">
+                {" "}
+                {isSignup ? "Sign In" : " Sign Up"}{" "}
+              </button>
+            </span>
           </div>
-         
-           
         </form>
       </div>
     </div>

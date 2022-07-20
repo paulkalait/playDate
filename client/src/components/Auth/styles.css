@@ -9,6 +9,7 @@
     flex-wrap: wrap;
   }
 
+
 .auth-image{
     width: 40%;
     height: 100vh;
@@ -18,10 +19,44 @@
     box-shadow: 8px 0 0px 2px white inset;
 }
 
+
 .auth-form-container{
     width: 50%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+input{
+    width: 90%;
+}
+
+form.auth-form {
+    height: 450px;
+    margin-top: -20%;
+}
+
+.auth-form-button-containers{
+    
+    display: flex;
+    flex-direction: column;
+ width: 100%;
+justify-content: center !important;
+align-content: center;
+margin-top: 3%;
+}
+
+.auth-buttons{
+    /* margin: 5px; */
+    width: 50%;
+    height: 40px;
+   border-radius: 20px;
+   
+}
+.span-container{
+    display: flex;
+    margin-left: 5px;
+    flex-direction: column;
 }
