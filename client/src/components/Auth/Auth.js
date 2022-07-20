@@ -27,7 +27,7 @@ const Auth = () => {
 
       <div className="auth-form-container">
         <form className="auth-form" onSubmit={handleSubmit}>
-          <h3>{isSignup ? "Sign up" : "Sign In"}</h3>
+          <h1>{isSignup ? "Sign up" : "Sign In"}</h1>
           <div>
             {!isSignup && (
               <div>
@@ -77,11 +77,12 @@ const Auth = () => {
 
             <span className="span-container">
               {isSignup ? "Already Have an account?" : "Dont Have an Account?"}
-              <button onClick={switchAuth} className="auth-buttons">
+              
+            </span>
+            <button onClick={switchAuth} className="auth-buttons">
                 {" "}
                 {isSignup ? "Sign In" : " Sign Up"}{" "}
               </button>
-            </span>
           </div>
         </form>
       </div>

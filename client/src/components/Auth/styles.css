@@ -1,62 +1,70 @@
 .\.container {
-    width: 100%;
-    /* max-width: 1200px; */
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-
-.auth-image{
-    width: 40%;
-    height: 100vh;
-    background-image: url('../../assets/images/auth-login-walking.svg') ;
-    background-repeat: no-repeat;
-    margin-top: 10%;
-    box-shadow: 8px 0 0px 2px white inset;
+  width: 100%;
+  /* max-width: 1200px; */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-
-.auth-form-container{
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.auth-image {
+  width: 40%;
+  height: 100vh;
+  background-image: url("../../assets/images/auth-login-walking.svg");
+  background-repeat: no-repeat;
+  margin-top: 10%;
+  box-shadow: 8px 0 0px 2px white inset;
 }
 
-input{
-    width: 90%;
+.auth-form-container {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 90%;
 }
 
 form.auth-form {
-    height: 450px;
-    margin-top: -20%;
+  height: 450px;
+  margin-top: -20%;
 }
-
-.auth-form-button-containers{
+.auth-form h1 {
+    text-align: center;
+    border-bottom: .5px solid turquoise;
     
-    display: flex;
-    flex-direction: column;
- width: 100%;
-justify-content: center !important;
-align-content: center;
-margin-top: 3%;
+}
+.auth-form-button-containers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center !important;
+  align-items: center;
+  margin-top: 3%;
 }
 
-.auth-buttons{
-    /* margin: 5px; */
-    width: 50%;
-    height: 40px;
-   border-radius: 20px;
-   
+.auth-buttons {
+  /* margin: 5px; */
+  width: 50%;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid rgb(62, 195, 181); 
+  background-color: rgb(62, 195, 181, .4);
+  color: black;
+  font-weight: 900;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.span-container{
-    display: flex;
-    margin-left: 5px;
-    flex-direction: column;
+.auth-buttons:hover{
+    box-shadow: none;
+    transition: .2s ease-in;
+}
+.span-container {
+  display: flex;
+  margin: 5px;
+  flex-direction: column;
 }
