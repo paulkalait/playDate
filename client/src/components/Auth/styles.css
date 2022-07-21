@@ -31,13 +31,19 @@ input {
 }
 
 form.auth-form {
-  height: 450px;
+  height: 550px;
   margin-top: -20%;
+}
+.signup-text-div{
+  display: flex;
+  justify-content: center;
 }
 .auth-form h1 {
     text-align: center;
-    border-bottom: .5px solid turquoise;
-    
+    font-size: 2.0rem;
+    width: 100px;
+    /* text-align: center; */
+    border-bottom: 4px solid turquoise;
 }
 .auth-form-button-containers {
   display: flex;
@@ -48,9 +54,12 @@ form.auth-form {
   margin-top: 3%;
 }
 
-.auth-buttons {
+
+.auth-buttons, .auth-buttons-google {
   /* margin: 5px; */
   width: 50%;
+  font-size: 1.3rem;
+  margin: 5px;
   height: 40px;
   border-radius: 20px;
   border: 2px solid rgb(62, 195, 181); 
@@ -58,6 +67,9 @@ form.auth-form {
   color: black;
   font-weight: 900;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.googleLogin{
+  border-radius: 20px;
 }
 .auth-buttons:hover{
     box-shadow: none;

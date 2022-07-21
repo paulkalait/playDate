@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { GoogleLogin } from "react-google-login";
 import "./styles.css";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import loginPhoto from "../../assets/images/auth-login-walking.svg";
 import Input from "./Input";
+import {signin, signup} from '../../actions/auth.js'
+
+const initialState = {firstName: '', lastName: '', email: '',password: '', confirmPassword: ''}
+
 const Auth = () => {
+  const history = useHistory()
+  const dispatch = useDispatch();
   //base on the change of the variable change the tittle and inputs to reflect
+  const [formData, setFormData] = useState(initialState)
 
   const [isSignup, setIsSignUp] = useState(false);
 
@@ -12,22 +22,32 @@ const Auth = () => {
 
   const switchAuth = () => {
     setShowPassword(false);
-    setIsSignUp((hpreviousSignState) => !isSignup);
+    setIsSignUp((isSignup) => !isSignup);
   };
   //toggle the password to on and off
   const handleShowPassword = () =>
     setShowPassword((previousShowPassword) => !previousShowPassword);
 
-  const handleChange = () => {};
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value})
+  };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    if(isSignup){
+      dispatch(signup(formData, history))
+    }else{
+      dispatch(signin(formData, history))
+    }
+  };
   return (
     <div className=".container">
       <div className="auth-image"></div>
 
       <div className="auth-form-container">
         <form className="auth-form" onSubmit={handleSubmit}>
-          <h1>{isSignup ? "Sign up" : "Sign In"}</h1>
+          <div className="signup-text-div">
+            <h1>{!isSignup ? "Sign up" : "Sign In"}</h1>
+          </div>
           <div>
             {!isSignup && (
               <div>
@@ -37,10 +57,9 @@ const Auth = () => {
                   handleChange={handleChange}
                   autoFocus
                 />
-
                 <Input
-                  name="firstName"
-                  label="First Name"
+                  name="lastName"
+                  label="Last Name"
                   handleChange={handleChange}
                   autoFocus
                 />
@@ -70,19 +89,17 @@ const Auth = () => {
           </div>
 
           <div className="auth-form-button-containers">
-            <button type="submit" className="auth-buttons">
-              {" "}
-              {isSignup ? "Sign Up" : "Sign In"}{" "}
-            </button>
-
             <span className="span-container">
-              {isSignup ? "Already Have an account?" : "Dont Have an Account?"}
-              
+              {!isSignup ? "Already Have an account?" : "Dont Have an Account?"}
             </span>
             <button onClick={switchAuth} className="auth-buttons">
-                {" "}
-                {isSignup ? "Sign In" : " Sign Up"}{" "}
-              </button>
+              {" "}
+              {!isSignup ? "Sign In" : " Sign Up"}{" "}
+            </button>
+            <button type="submit" className="auth-buttons">
+              {" "}
+              {!isSignup ? "Sign Up" : "Sign In"}{" "}
+            </button>
           </div>
         </form>
       </div>
