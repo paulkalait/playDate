@@ -50,7 +50,7 @@ const Post = ({ post, currentId, setCurrentId}) => {
           <button className="thumbs-up" onClick={() => dispatch(likePost(post._id))}>
             <ThumbUpAltIcon className="thumbsUp" />
           </button>
-          <span>{post.likeCount} Likes</span>
+          <span>{post.likes.length} Likes</span>
         </div>
         <div>
           <button onClick={() => dispatch(deletePost(post._id))} className="delete-icon-container">
