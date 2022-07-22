@@ -22,3 +22,17 @@
     height: 100vh;
 }
 
+
+@media screen and (max-width: 760px){
+    .div-for-posts-and-form {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+    .Posts-container {
+        width: 100%;
+    }
+    .Form-container {
+        width: 100%;
+    }
+}
+  

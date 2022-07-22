@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './App.js';
 import { Provider } from 'react-redux'
 import { configureStore, applyMiddleware, compose} from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
-import reducers from './reducers';
+import reducers from './reducers/index.js';
 //initiate redux
 
       //configureStore

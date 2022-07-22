@@ -6,11 +6,12 @@ import { Card } from "@material-ui/core";
 import moment from "moment";
 import "./styles.css";
 import { useDispatch } from 'react-redux';
-import { deletePost, likePost } from "../../../actions/posts";
+import { deletePost, likePost } from "../../../actions/posts.js";
 import dog from '../../../assets/images/doglogo.png'
 
-const Post = ({ post, currentId, setCurrentId}) => {
+const Post = ({ post, setCurrentId}) => {
   const dispatch  = useDispatch()
+
   return (
     <Card className="card">
       <div className="title-date-img">
@@ -21,7 +22,8 @@ const Post = ({ post, currentId, setCurrentId}) => {
       </div>
       <img src={post.selectedFile} alt="usersimage" />
       <div className="name-size">
-        <h5 className="username">Name {post.name}</h5>
+        <h5 className="username">{post.name}</h5>
+    
         
         
  {/*   <h5 className="size">{post.size}</h5>*/}
@@ -50,7 +52,7 @@ const Post = ({ post, currentId, setCurrentId}) => {
           <button className="thumbs-up" onClick={() => dispatch(likePost(post._id))}>
             <ThumbUpAltIcon className="thumbsUp" />
           </button>
-          <span>{post.likes.length} Likes</span>
+          <span>{post.likes} Likes</span>
         </div>
         <div>
           <button onClick={() => dispatch(deletePost(post._id))} className="delete-icon-container">

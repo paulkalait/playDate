@@ -40,7 +40,7 @@ export const signin = async (req, res) => {
     //if password is correct and user exists
     const token = jwt.sign(
       { email: existingUser.email, id: existingUser._id },
-      "secret",
+      secret,
       { expiresIn: "1h" }
     );
 

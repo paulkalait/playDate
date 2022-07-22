@@ -47,8 +47,7 @@ const Navbar = () => {
    
     <nav>
     {user ? (
-        <div>
-      
+        <div className='login-div'>
          <h4>{user.result.name}</h4>
          <button onClick={logout}>Logout</button>
         </div>

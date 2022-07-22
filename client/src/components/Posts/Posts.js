@@ -15,8 +15,8 @@ const Posts = ({ currentId, setCurrentId}) => {
         <div className='posts-body'>
         { 
           posts.map((post) => (
-            <div className="each-post">
-              <Post  key={post._id}  post={post} currentId={currentId}  setCurrentId={setCurrentId}/>
+            <div key={post._id} className="each-post">
+              <Post post={post} currentId={currentId}  setCurrentId={setCurrentId}/>
             </div>
           ))
         }

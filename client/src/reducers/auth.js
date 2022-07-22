@@ -1,5 +1,5 @@
 
-import * as actionType from '../constants/actionTypes';
+import * as actionType from '../constants/actionTypes.js';
 
 const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from 'react'
-import Form from '../Form/Form';
+import Form from '../Form/Form.js';
 import { getPosts } from "../../actions/posts";
 import { useDispatch } from "react-redux";
-import Posts from '../Posts/Posts';
+import Posts from '../Posts/Posts.js';
 import './styles.css'
 
 const Home = () => {

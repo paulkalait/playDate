@@ -1,4 +1,4 @@
-import { IconButton, InputAdornment } from "@material-ui/core";
+
 import React from "react";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -16,11 +16,11 @@ const Input = ({ name, label, type, autoFocus, handleShowPassword, handleChange 
         inputprops={
           name === "password" ? {
             endAdorment: (
-              <InputAdornment>
-                <IconButton onClick={handleShowPassword}>
+           <span>
+                <button onClick={handleShowPassword}>
                   {type === "password" ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
+                </button>
+            </span>
             ),
           } : null
         }

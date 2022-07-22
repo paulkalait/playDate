@@ -15,3 +15,8 @@ background-repeat: cover;
 background-size: 100%;
 background-repeat: no-repeat;
 }
+
+.login-div {
+    display: flex;
+    align-items: center;
+}

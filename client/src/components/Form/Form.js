@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 const Form = ({ currentId, setCurrentId}) => {
   const [postData, setPostData] = useState({
-    name: "",
+
     title: "",
     //will be a dropdown
     size: "",
@@ -17,6 +17,8 @@ const Form = ({ currentId, setCurrentId}) => {
   });
   const post = useSelector((state) =>  currentId ? state.posts.find((postToUpdate) => postToUpdate._id === currentId) : null)
   const dispatch = useDispatch();
+  
+  const user = JSON.parse(localStorage.getItem('profile'))
 
   //if there is a post id that will be updated then set the form data to its values to be updated
   useEffect(() => { if(post){setPostData(post)}}, [post])
@@ -26,7 +28,6 @@ const Form = ({ currentId, setCurrentId}) => {
    
     setCurrentId(0)
     setPostData({
-      name: "",
       title: "",
       //will be a dropdown
       size: "",
@@ -41,15 +42,21 @@ const Form = ({ currentId, setCurrentId}) => {
 
     
     if (currentId === 0) {
-      dispatch(createPost(postData));
+      dispatch(createPost({...postData, name: user?.result?.name}));
       clear();
     } else {
-      dispatch(updatePost(currentId, postData));
+      dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
       clear();
     }
   };
 
-
+  if(!user?.result?.name){
+    return(
+      <div>
+      <h1> Please Sign in to create and like a post</h1>
+      </div>
+    )
+  }
   return (
 // got rid of the onSubmit handler on the form tag
     <div className="formContainer">
@@ -57,13 +64,7 @@ const Form = ({ currentId, setCurrentId}) => {
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <h1>{currentId ? 'Edit Post of' : 'Post your'} Companion</h1>{" "}
         {/* use spread operator to only affect name in this field*/}
-        <input
-          name="name"
-          variant="outlined"
-          placeholder="Name"
-          value={postData.name}
-          onChange={(e) => setPostData({ ...postData, name: e.target.value })}
-        />
+  
         <input
           name="title"
           variant="outlined"

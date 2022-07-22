@@ -1,6 +1,7 @@
-import * as api from "../api/index.js";
+
 import { FETCH_ALL, CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
+import * as api from "../api/index.js";
 
 //reduc thunk allows an additonal function for async =>   =>
 
@@ -22,6 +23,7 @@ export const getPosts = () => async (dispatch) => {
 export const createPost = (post) => async (dispatch) => {
   try {
     //post api request to our backend server 
+    console.log("hello")
     const { data } = await api.createPost(post);
 
     dispatch({ type: CREATE, payload: data });
