@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { GoogleLogin } from "react-google-login";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import loginPhoto from "../../assets/images/auth-login-walking.svg";
 import Input from "./Input";
-import {signin, signup} from '../../actions/auth.js'
+import {signin, signUp} from '../../actions/auth.js'
 
 const initialState = {firstName: '', lastName: '', email: '',password: '', confirmPassword: ''}
 
@@ -33,8 +30,10 @@ const Auth = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData)
     if(isSignup){
-      dispatch(signup(formData, history))
+      dispatch(signUp(formData, history))
     }else{
       dispatch(signin(formData, history))
     }
@@ -46,10 +45,10 @@ const Auth = () => {
       <div className="auth-form-container">
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="signup-text-div">
-            <h1>{!isSignup ? "Sign up" : "Sign In"}</h1>
+            <h1>{isSignup ? "Sign up" : "Sign In"}</h1>
           </div>
           <div>
-            {!isSignup && (
+            {isSignup && (
               <div>
                 <Input
                   name="firstName"
@@ -78,8 +77,10 @@ const Auth = () => {
               type={showPassword ? "text" : "password"}
               handleShowPassword={handleShowPassword}
             />
+            
             {isSignup && (
               <Input
+
                 name="confirmPassword"
                 label="Repeat Password"
                 handleChange={handleChange}
@@ -90,15 +91,15 @@ const Auth = () => {
 
           <div className="auth-form-button-containers">
             <span className="span-container">
-              {!isSignup ? "Already Have an account?" : "Dont Have an Account?"}
+              {isSignup ? "Already Have an account?" : "Dont Have an Account?"}
             </span>
             <button onClick={switchAuth} className="auth-buttons">
               {" "}
-              {!isSignup ? "Sign In" : " Sign Up"}{" "}
+              {isSignup ? "Sign In" : " Sign Up"}{" "}
             </button>
             <button type="submit" className="auth-buttons">
               {" "}
-              {!isSignup ? "Sign Up" : "Sign In"}{" "}
+              {isSignup ? "Sign Up" : "Sign In"}{" "}
             </button>
           </div>
         </form>

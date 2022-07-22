@@ -1,5 +1,5 @@
 //hash password
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 //import json web token
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
@@ -7,15 +7,18 @@ import User from "../models/user.js";
 const secret = 'test'
 
 
-export const getUsers = async (req, res) => {
-  try {
-    const User = await User.find();
-    res.status(200).json(User);
-  } catch (error) {
-    res.status(404).json({ message: "Cant get users"});
-  }
-}
-export const signIn = async (req, res) => {
+// export const getUsers = async (req, res) => {
+//   try {
+    
+//     const User = await User.find();
+//     res.status(200).json(User);
+//   } catch (error) {
+//     res.status(404).json({ message: "Cant get users"});
+//   }
+// }
+
+
+export const signin = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -47,7 +50,7 @@ export const signIn = async (req, res) => {
     res.status(500).json({ message: "something went wrong" });
   }
 };
-export const signUp = async (req, res) => {
+export const signup = async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
   try {

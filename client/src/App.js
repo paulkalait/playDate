@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import Home from "./components/Home/Home";
 import Auth from './components/Auth/Auth'
+
 function App() {
   return (
     <BrowserRouter>

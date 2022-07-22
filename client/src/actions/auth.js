@@ -1,21 +1,33 @@
-import { AUTH } from "../constants/actionTypes.js";
+import { AUTH } from "../constants/actionTypes";
 import * as api from "../api/index.js";
 
-export const signin = (formData, history) => async(dispatch) => {
-try {
-   /// login the user
+//-----------------------dispatches-------------
 
- history.push('/')
-} catch (error) {
-    console.log(error)
-}
-}
-export const signup = (formData, history) => async(dispatch) => {
-    try {
-       /// sign up the user
+export const signUp = (formData, router) => async (dispatch) => {
+  try {
+    /// sign up the user
+    console.log('test')
+    const { data } = await api.signUp(formData);
+
+    dispatch({ type: AUTH, data });
+
     
-     history.push('/')
-    } catch (error) {
-        console.log(error)
-    }
-    }
+  router.push("/");
+  } catch (error) {
+    console.error("error response",error.response?.data);
+  }
+};
+
+export const signin = (formData, history) => async (dispatch) => {
+  try {
+    
+    /// login the user this action makes a call to the axios api
+    const { data } = await api.signin(formData);
+
+    dispatch({ type: AUTH, data });
+ 
+  history.push("/");
+  } catch (error) {
+    console.error("error response", error.response?.data);
+  }
+};

@@ -26,7 +26,7 @@ const auth = async (req, res, next) => {
     }
 
     //if the auth middleare approves the jwt verify then do this next
-    next();
+  next();
   } catch (error) {
     console.log(error);
   }
