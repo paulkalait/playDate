@@ -3,7 +3,10 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
+//routes
 import postRoutes from './routes/posts.js'
+import userRoutes from './routes/user.js'
+
 //call dotenv
 dotenv.config();
 //initialize this app
@@ -20,7 +23,7 @@ app.use(cors())
 
 //use middleware for the prefix routes th post routes will be reached bu localhost:5000/posts/ ....
 app.use('/posts', postRoutes)
-
+app.use('/user', userRoutes)
 
 //host data base thorugh the cloud 
 const PORT = process.env.PORT || 3001;
