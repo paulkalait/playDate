@@ -4,6 +4,8 @@ import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
 import { useSelector } from 'react-redux'
+import { Link} from 'react-router-dom'
+import UNLOCK from '../../assets/images/unlock.svg'
 
 const Form = ({ currentId, setCurrentId}) => {
   const [postData, setPostData] = useState({
@@ -52,8 +54,11 @@ const Form = ({ currentId, setCurrentId}) => {
 
   if(!user?.result?.name){
     return(
-      <div>
-      <h1> Please Sign in to create and like a post</h1>
+      <div className="please-sign-in-div">
+      <h1> Please <span><Link to='/auth' className="sign-in-link">Sign in</Link></span> to create and like a post</h1>
+      <div className="sign-in-image-container">
+      <img src={UNLOCK} alt="sign in to join" className="sign-in-image" />
+      </div>
       </div>
     )
   }

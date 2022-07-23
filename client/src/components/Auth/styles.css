@@ -31,7 +31,7 @@ input {
 }
 
 form.auth-form {
-  height: 550px;
+  height: auto;
   margin-top: -20%;
 }
 .signup-text-div{
@@ -43,7 +43,7 @@ form.auth-form {
     font-size: 2.0rem;
     width: 100px;
     /* text-align: center; */
-    border-bottom: 4px solid turquoise;
+    border-bottom: 4px solid rgb(62, 195, 181);
 }
 .auth-form-button-containers {
   display: flex;
@@ -54,7 +54,24 @@ form.auth-form {
   margin-top: 3%;
 }
 
-
+.span-container{
+  font-size: 1rem;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+#dont-have-account-btn{
+  font-size: 1rem;
+ border: none;
+ background: transparent;
+ color: rgb(62, 195, 181);
+}
+#dont-have-account-btn:hover{
+  border: solid 1px lightgray;
+  color: black;
+  background: lightgray;
+}
 .auth-buttons, .auth-buttons-google {
   /* margin: 5px; */
   width: 50%;
@@ -75,8 +92,34 @@ form.auth-form {
     box-shadow: none;
     transition: .2s ease-in;
 }
-.span-container {
-  display: flex;
-  margin: 5px;
-  flex-direction: column;
+
+
+@media screen and (max-width: 900px) {
+  .\.container {
+    flex-direction: column-reverse;
+    width: 100%;
+}
+.auth-image {
+    width: 100%;
+    pointer-events: none;
+    
+    width: 100%;
+
+}
+.auth-form-container {
+  /* margin-top: 7%; */
+  width: 100%;
+}
+form.auth-form {
+  height: auto;
+  margin-top: -20%;
+  padding-bottom: 10px;
+
+}
+button.auth-buttons {
+  width: 100%;
+}
+input {
+  width: 95%;
+}
 }

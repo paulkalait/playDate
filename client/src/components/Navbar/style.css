@@ -20,3 +20,29 @@ background-repeat: no-repeat;
     display: flex;
     align-items: center;
 }
+.login-div h4{
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+img.avatar {
+    height: 30px;
+    width: 30px;
+}
+button, .signin-btn {
+    margin-left: 15px;
+    border: .5px solid lightgray;
+    font-size: 1.1rem;
+    border-radius: 15px;
+}
+
+.signin-btn-link{
+    color: black;
+
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 15px;
+}
+.logout-btn:hover, .signin-btn:hover {
+    border: 1px solid black;
+}
+

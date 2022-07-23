@@ -92,12 +92,13 @@ const Auth = () => {
           <div className="auth-form-button-containers">
             <span className="span-container">
               {isSignup ? "Already Have an account?" : "Dont Have an Account?"}
-            </span>
-            <button onClick={switchAuth} className="auth-buttons">
+              <button onClick={switchAuth} id="dont-have-account-btn" className="">
               {" "}
               {isSignup ? "Sign In" : " Sign Up"}{" "}
             </button>
-            <button type="submit" className="auth-buttons">
+            </span>
+           
+            <button type="submit"  className="auth-buttons">
               {" "}
               {isSignup ? "Sign Up" : "Sign In"}{" "}
             </button>

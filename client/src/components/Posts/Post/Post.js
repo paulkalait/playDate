@@ -8,6 +8,7 @@ import "./styles.css";
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from "../../../actions/posts.js";
 import dog from '../../../assets/images/doglogo.png'
+import PLACEHOLDER from '../../../assets/images/placeholder-image.png'
 
 const Post = ({ post, setCurrentId}) => {
   const dispatch  = useDispatch()
@@ -20,7 +21,8 @@ const Post = ({ post, setCurrentId}) => {
           <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
         </div>
       </div>
-      <img src={post.selectedFile} alt="usersimage" />
+      {post.selectedFile  ?  (<img src={post.selectedFile} alt="usersimage" />) : (<img src={PLACEHOLDER} alt="usersimage" />)}
+      
       <div className="name-size">
         <h5 className="username">{post.name}</h5>
     

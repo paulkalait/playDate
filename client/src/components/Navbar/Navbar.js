@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Link} from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router-dom'
 import decode from 'jwt-decode';
+import AVATAR from '../../assets/images/avatar-stock.jpeg'
 
 
 const Navbar = () => {
@@ -48,12 +49,13 @@ const Navbar = () => {
     <nav>
     {user ? (
         <div className='login-div'>
+        <img src={AVATAR} alt="userprofileimage" className='avatar' />
          <h4>{user.result.name}</h4>
-         <button onClick={logout}>Logout</button>
+         <button className="logout-btn" onClick={logout}>Logout</button>
         </div>
 
     ) : (
-        <button><Link to='/auth' >Sign In</Link></button>
+        <button className="signin-btn"><Link to='/auth' className='signin-btn-link'>Sign In</Link></button>
     )}
      
     </nav>

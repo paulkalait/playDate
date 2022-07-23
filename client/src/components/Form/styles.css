@@ -55,8 +55,28 @@ select{
     font-weight: 700;
     background: rgb(249, 137, 0, .3); 
 }
-
-
+.please-sign-in-div{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+    margin-left: 10px;
+}
+.sign-in-image-container{
+    display: flex;
+    justify-content: center;
+}
+.sign-in-image{
+    width: 40%;
+    height: 40%;
+}
+.sign-in-link{
+    text-decoration: none;
+    color: rgb(62, 195, 181) ;
+}
+.sign-in-link:hover{
+    border-bottom: 3px solid  rgb(62, 195, 181);
+}
 .input-file input[type="file" i]::-webkit-file-upload-button{
     background-color: white;
     border: 1px solid lightgray ;
@@ -67,4 +87,9 @@ select{
 
 .message-input{
     height: 100px
+}
+@media screen and (max-width: 900px) {
+    .please-sign-in-div{
+        margin-top: 10%;
+    }
 }
