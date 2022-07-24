@@ -17,9 +17,10 @@ const Form = ({ currentId, setCurrentId}) => {
 
   useEffect(() => {
     if (post) setPostData(post);
-  }, [post]);
+  }, [post, currentId]);
 
   const clear = () => {
+    console.log('cleared')
     setCurrentId(0);
     setPostData({ title: '', message: '', tags: '', size: '', selectedFile: '' });
   };
@@ -101,11 +102,12 @@ const Form = ({ currentId, setCurrentId}) => {
         </div>
         <div className="buttonContainer">
           <button className="submit-button" type="submit">Submit</button>
-          <button className="clear-button" onClick={clear}>
+          <button className="clear-button" type="reset" onClick={clear}>
             Clear
-          </button>
+       </button>
         </div>
       </form>
+     
     </div>
   );
 };
