@@ -102,6 +102,10 @@ p{
     transform: rotate(180deg);
     color: rgb(130, 130, 130);
 }
+button.thumbs-up {
+    display: flex;
+    align-items: center;
+}
 .delete-icon-container{
     background: transparent;
     border: none;
