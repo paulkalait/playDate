@@ -7,7 +7,7 @@ import './styles.css'
 
 const Home = () => {
       //if we dont have a selected id selected then its null
-  const [currentId, setCurrentId] = useState(null)
+  const [currentId, setCurrentId] = useState(0)
   //reassign as useDispatch
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const Home = () => {
     <div className="father">
     <div className="div-for-posts-and-form">
       <div className="Posts-container">
-        <Posts currentId={currentId}  setCurrentId={setCurrentId} />
+        <Posts  setCurrentId={setCurrentId} />
       </div>
       <div className="Form-container">
         <Form  currentId={currentId}  setCurrentId={setCurrentId} />

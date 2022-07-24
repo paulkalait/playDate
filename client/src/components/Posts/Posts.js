@@ -4,9 +4,9 @@ import { CircularProgress} from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import './styles.css'
 
-const Posts = ({ currentId, setCurrentId}) => {
+const Posts = ({ setCurrentId}) => {
       // get access to the global state in the reducers /posts.js file ..
-  const posts = useSelector((state) =>  state.posts)
+  const posts = useSelector((state) =>  state.posts);
 
   console.log(posts)
   return (
@@ -16,7 +16,7 @@ const Posts = ({ currentId, setCurrentId}) => {
         { 
           posts.map((post) => (
             <div key={post._id} className="each-post">
-              <Post post={post} currentId={currentId}  setCurrentId={setCurrentId}/>
+              <Post post={post} setCurrentId={setCurrentId} />
             </div>
           ))
         }

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Link} from 'react-router-dom'
 import { useHistory, useLocation } from 'react-router-dom'
 import decode from 'jwt-decode';
-import AVATAR from '../../assets/images/avatar-stock.jpeg'
+import AVATAR from '../../assets/images/account-logo.svg'
 
 
 const Navbar = () => {
@@ -12,14 +12,14 @@ const Navbar = () => {
   const location = useLocation();
  const dispatch = useDispatch();
  
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")))
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
     console.log(user)
 
 
     const logout = () => {
       dispatch({type: 'LOGOUT'})
-      history.push('/')
+      history.push('/auth')
       setUser(null)
     }
     
@@ -29,10 +29,11 @@ const Navbar = () => {
       if(token) {
         const decodedToken = decode(token);
   
+        //if the coded token in millicends is lower than the current time
         if (decodedToken.exp * 1000 < new Date().getTime()) logout();
       }
 
-      setUser(JSON.parse(localStorage.getItem("profile")))
+      setUser(JSON.parse(localStorage.getItem('profile')))
 
       //when location changes...set the user
     }, [location])

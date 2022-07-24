@@ -8,50 +8,35 @@ import { Link} from 'react-router-dom'
 import UNLOCK from '../../assets/images/unlock.svg'
 
 const Form = ({ currentId, setCurrentId}) => {
-  const [postData, setPostData] = useState({
-
-    title: "",
-    //will be a dropdown
-    size: "",
-    message: "",
-    tags: "",
-    selectedFile: "",
-  });
-  const post = useSelector((state) =>  currentId ? state.posts.find((postToUpdate) => postToUpdate._id === currentId) : null)
+  const [postData, setPostData] = useState({ title: '', message: '', tags: '', size: '', selectedFile: '' });
+  const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
-  
-  const user = JSON.parse(localStorage.getItem('profile'))
 
-  //if there is a post id that will be updated then set the form data to its values to be updated
-  useEffect(() => { if(post){setPostData(post)}}, [post])
+  //retrieve from local storage in JS data structure
+  const user = JSON.parse(localStorage.getItem('profile'));
 
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
 
   const clear = () => {
-   
-    setCurrentId(0)
-    setPostData({
-      title: "",
-      //will be a dropdown
-      size: "",
-      message: "",
-      tags: "",
-      selectedFile: "",
-    })
+    setCurrentId(0);
+    setPostData({ title: '', message: '', tags: '', size: '', selectedFile: '' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     if (currentId === 0) {
-      dispatch(createPost({...postData, name: user?.result?.name}));
-      clear();
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
+     
     } else {
-      dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
-      clear();
+      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
+     
     }
+    clear();
   };
-
+  
   if(!user?.result?.name){
     return(
       <div className="please-sign-in-div">

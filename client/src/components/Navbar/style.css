@@ -27,6 +27,7 @@ background-repeat: no-repeat;
 img.avatar {
     height: 30px;
     width: 30px;
+    margin-right: 3px;
 }
 button, .signin-btn {
     margin-left: 15px;

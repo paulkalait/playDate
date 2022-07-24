@@ -1,4 +1,4 @@
-import express from 'express'
+import express from "express";
 import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
 
@@ -14,70 +14,88 @@ export const getPosts = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
-    const post = req.body
+  const post = req.body;
 
-    const newPost = new PostMessage({...post, creator: req.userId, createdAt: new Date().toISOString() })
+  const newPost = new PostMessage({
+    ...post,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
   try {
-     await newPost.save();
-    console.log("posted")
-     res.status(201).json(newPost)
+    await newPost.save();
+    console.log("posted");
+    res.status(201).json(newPost);
   } catch (error) {
-    res.status(409).json({message: error.message})
-    
+    res.status(409).json({ message: error.message });
   }
 };
 
 //posts/29283ue1
 export const updatePost = async (req, res) => {
-const { id } = req.params
-const { title, message, name, tags, selectedFile, size} = req.body;
+  const { id } = req.params;
+  const { title, message, name, tags, selectedFile, size } = req.body;
+  console.log("updated");
 
-  if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('no post with this id')
-  const updatedPost = {  title, message, name, tags, selectedFile, size, _id: id};
-  await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true});
- 
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(401).send("no post with this id");
+  }
 
-   res.json(updatedPost)
-}
+  const updatedPost = {
+    title,
+    message,
+    name,
+    tags,
+    selectedFile,
+    size,
+    _id: id,
+  };
+  try {
+    await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
+    res.json(updatedPost);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export const deletePost = async (req, res ) => {
-  const { id} = req.params;
+export const deletePost = async (req, res) => {
+  const { id } = req.params;
 
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("no post with this id");
 
+  await PostMessage.findByIdAndRemove(id);
 
-  if(!mongoose.Types.ObjectId.isValid(id)) return res.statu(404).send('no post with this id')
+  console.log("Delete");
 
- await PostMessage.findByIdAndRemove(id);
-
- console.log('Delete')
-
-  res.json({message: 'Post Deleted'})
-}
+  res.json({ message: "Post Deleted" });
+};
 
 export const likePost = async (req, res) => {
-  const { id} = req.params;
+  const { id } = req.params;
 
- if(!req.userId)return res.json({message: 'Unauthenticated'})
-  if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('no post with this id')
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("no post with this id");
 
   const post = await PostMessage.findById(id);
 
   //each like will be from the id of a specific user
-  const index = post.likes.findIndex((id) => id === String(req.userId))
+  const index = post.likes.findIndex((id) => id === String(req.userId));
 
-  if(index === -1){
+  if (index === -1) {
     //like post
     //push his id in the likes array
-    post.likes.push(req.userId)
-  }else{
+    post.likes.push(req.userId);
+  } else {
     //dislike a post
     //gives the array of all users other than the user who is getting filtered out
-    post.likes.filter((id) => id !== String(req.userId))
+    post.likes.filter((id) => id !== String(req.userId));
   }
-  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true})
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
+    new: true,
+  });
 
-  res.json(updatedPost)
-}
+  res.json(updatedPost);
+};
 
-
-export default router
+export default router;

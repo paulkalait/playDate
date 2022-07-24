@@ -7,7 +7,7 @@ const API = axios.create({ baseURL: 'http://localhost:3001' });
 // a function on each request. gets a request as first param to check if we are logged in 
 //
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem("profile")) {
+  if (localStorage.getItem('profile')) {
     //set the req.headers.Auth to the token 
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
   }
