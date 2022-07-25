@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Input from "./Input";
 import {signin, signUp} from '../../actions/auth.js'
+import BACKGROUND from '../../assets/images/auth-login-walking.svg'
 
 const initialState = {firstName: '', lastName: '', email: '',password: '', confirmPassword: ''}
 
@@ -40,7 +41,9 @@ const Auth = () => {
   };
   return (
     <div className=".container">
-      <div className="auth-image"></div>
+      <div className="auth-image">
+        <img  src={BACKGROUND} />
+      </div>
 
       <div className="auth-form-container">
         <form className="auth-form" onSubmit={handleSubmit}>

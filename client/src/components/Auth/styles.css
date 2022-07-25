@@ -7,16 +7,16 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+ margin-top: -5%;
 }
 
 .auth-image {
-  width: 40%;
+  width: 30%;
   height: 100vh;
-  background-image: url("../../assets/images/auth-login-walking.svg");
-  background-repeat: no-repeat;
-  margin-top: 10%;
-  box-shadow: 8px 0 0px 2px white inset;
+  display: flex;
+  
 }
+
 
 .auth-form-container {
   width: 50%;
@@ -24,6 +24,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../../assets//images//background.svg);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: contain;
+  
 }
 
 input {
@@ -32,7 +37,8 @@ input {
 
 form.auth-form {
   height: auto;
-  margin-top: -20%;
+  background-color: white;
+  border-radius: 15px;
 }
 .signup-text-div{
   display: flex;
@@ -74,19 +80,17 @@ form.auth-form {
 }
 .auth-buttons, .auth-buttons-google {
   /* margin: 5px; */
-  width: 50%;
+  width: 40%;
   font-size: 1.3rem;
   margin: 5px;
   height: 40px;
   border-radius: 20px;
-  border: 2px solid rgb(62, 195, 181); 
+
   background-color: rgb(62, 195, 181, .4);
   color: black;
   font-weight: 900;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.googleLogin{
-  border-radius: 20px;
+    box-shadow: 0px 2px 3px 1px #0000008c;
+    transition: 300ms;
 }
 .auth-buttons:hover{
     box-shadow: none;
@@ -102,7 +106,7 @@ form.auth-form {
 .auth-image {
     width: 100%;
     pointer-events: none;
-    
+    align-items:start;
     width: 100%;
 
 }
@@ -115,6 +119,9 @@ form.auth-form {
   margin-top: -20%;
   padding-bottom: 10px;
 
+}
+span.span-container {
+  flex-direction: column;
 }
 button.auth-buttons {
   width: 100%;

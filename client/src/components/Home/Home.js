@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import Posts from "../Posts/Posts.js";
 import Paginate from "../Pagination.js";
 import "./styles.css";
+// import BACKGROUND from '../../assets/images/background.svg'
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);

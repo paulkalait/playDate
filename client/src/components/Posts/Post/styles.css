@@ -10,7 +10,7 @@
     padding: 5px;
     flex-direction: row;
     height: 25px;
-    margin: 5px;
+    margin: 5px 0 5px 0;
     justify-content: space-between;
     align-content: center;
     align-items: center;
@@ -62,7 +62,7 @@
 .tag-div{
     display: flex;
     flex-direction: row;
-        margin: 5px;
+        
 }
 .tag{
     border: 1px solid lighgray;
@@ -95,13 +95,15 @@ img{
     top: 13%;
     left: 85%;
 }
-p{
-    margin: 5px;
+p,.tag-div, .username, h2{
+    margin-left: 3%;
     text-align: left;
 }
-.thumbsUp{
-    transform: rotate(180deg);
-    color: rgb(130, 130, 130);
+.heart{
+    color: rgb(236, 25, 25);
+}
+.hearts-outline{
+    color: rgb(59, 59, 59) !important;
 }
 button.thumbs-up {
     display: flex;
@@ -127,7 +129,13 @@ button.thumbs-up {
     height: 60px;
     width: 60px;
 }
+@media screen and (max-width:1600px){
+    .card{
+        min-width: 300px
+    }
+}
 @media screen and (max-width: 760px){
+
     .card{
         width: 100%;
     }

@@ -2,6 +2,10 @@
   display: flex;
   justify-content: center;
   margin-top: 2%;
+  background-image: url(../../assets//images//background.svg);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: contain;
 }
 .div-for-posts-and-form {
   width: 90%;
@@ -39,6 +43,13 @@ nav.search-nav div {
 }
 .search-input {
   width: 80%;
+  border-radius: 20px;
+  transition: 300ms;
+}
+input.search-input:focus {
+  background: transparent;
+    border: none;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 nav.search-nav div button {
   min-height: 10%;
@@ -73,6 +84,12 @@ input.MuiInputBase-input.MuiInput-input.WAMuiChipInput-input-3.WAMuiChipInput-st
 }
 
 @media screen and (max-width: 760px) {
+  .Form-container{
+    height: 700px;
+    width: 100%;
+    justify-content: center;
+  }
+ 
   .div-for-posts-and-form {
     flex-direction: column-reverse;
     width: 100%;

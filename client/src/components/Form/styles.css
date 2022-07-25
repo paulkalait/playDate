@@ -8,6 +8,7 @@ form{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
     padding: 10px;
+    background-color: white;
 }
 
 input, select, textarea{
@@ -26,7 +27,7 @@ input:focus, textarea:focus {
     border: 2px solid black;
 }
 select{
-    height: 35px;
+    height: fit-content;
     font-size: 1.1rem;
     width: 92% !important;
     color: rgb(121, 121, 121)
@@ -60,7 +61,7 @@ select{
     border-radius: 15px;
     padding: 10px;
     width: 100%;
-    margin-left: 10px;
+    margin-left: 5%;
 }
 .sign-in-image-container{
     display: flex;
@@ -89,7 +90,16 @@ select{
     height: 100px
 }
 @media screen and (max-width: 900px) {
+    form{
+        width: 100%;
+    }
     .please-sign-in-div{
         margin-top: 10%;
+    }
+    select{
+        width: 98% !important;
+    }
+    textarea{
+        width: 95%;
     }
 }

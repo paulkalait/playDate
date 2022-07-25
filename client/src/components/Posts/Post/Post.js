@@ -1,6 +1,6 @@
 import React from "react";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbDownAlt";
-import ThumbUpAltOutlined from "@material-ui/icons/ThumbDownAltOutlined";
+import Favorite from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import DeleteIcon from "@material-ui/icons/DeleteForever";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Card } from "@material-ui/core";
@@ -13,16 +13,15 @@ import PLACEHOLDER from "../../../assets/images/placeholder-image.png";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   const Likes = () => {
-
-    //async call meaning at some point prior post.likes is undefined so put a ? 
+    //async call meaning at some point prior post.likes is undefined so put a ?
     if (post.likes?.length > 0) {
-      console.log(post.likes.length)
+      console.log(post.likes.length);
       return post.likes.find((like) => like === user?.result?._id) ? (
         <>
-          <ThumbUpAltIcon className="thumbsUp" fontSize="small" />
+          <Favorite className="heart" fontSize="small" />
           &nbsp;
           {post.likes?.length > 2
             ? `You and ${post.likes.length - 1} others`
@@ -30,25 +29,27 @@ const Post = ({ post, setCurrentId }) => {
         </>
       ) : (
         <>
-          <ThumbUpAltOutlined className="thumbsUp" fontSize="small" />
-          &nbsp;{post.likes?.length} {post.likes.length === 1 ? "Like" : "Likes"}
+          <FavoriteBorder className="hearts-outline" fontSize="small" />
+          &nbsp;{post.likes?.length}{" "}
+          {post.likes.length === 1 ? "Like" : "Likes"}
         </>
       );
     }
 
     return (
       <>
-        <ThumbUpAltOutlined fontSize="small" className="thumbsUp" />
+        <FavoriteBorder fontSize="hearts-outline" />
         &nbsp;Like
       </>
     );
   };
 
   return (
-    <Card className="card" raised elevation={4} >
+    <Card className="card" raised elevation={4}>
       <div className="title-date-img">
         <div className="title-date">
-          <h2>{post.title}</h2>
+          <h5 className="username">{post.name}</h5>
+
           <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
         </div>
       </div>
@@ -59,7 +60,7 @@ const Post = ({ post, setCurrentId }) => {
       )}
 
       <div className="name-size">
-        <h5 className="username">{post.name}</h5>
+        <h2>{post.title}</h2>
 
         {/*   <h5 className="size">{post.size}</h5>*/}
 
