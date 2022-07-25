@@ -23,6 +23,27 @@
 }
 
 
+/* top search */
+nav.search-nav {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2%;
+}
+nav.search-nav div {
+    width: 50%;
+    justify-content: center;
+    flex-direction: row;
+}
+nav.search-nav input {
+    width: 80%;
+}
+nav.search-nav button{ 
+   width: 10%;
+}
+
 @media screen and (max-width: 760px){
     .div-for-posts-and-form {
         flex-direction: column-reverse;

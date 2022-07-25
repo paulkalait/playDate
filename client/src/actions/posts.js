@@ -20,6 +20,15 @@ export const getPosts = () => async (dispatch) => {
   //payload is the data where we store all of our posts
 };
 
+export const getPostBySearch = (searchQuery) => async (dispatch) => {
+  try {
+    const { data: { data} } = await api.fetchPostBySearch(searchQuery)
+    console.log(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const createPost = (post) => async (dispatch) => {
   try {
     //post api request to our backend server 

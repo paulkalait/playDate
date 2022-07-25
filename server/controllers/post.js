@@ -13,6 +13,22 @@ export const getPosts = async (req, res) => {
   }
 };
 
+export const getPostBySearch = async (req, res) => {
+  const { searchQuery, tags} = req.query
+  try {
+                //convert for a regular expression for mongo is ignore case example Test and test is = 
+    const title = new RegExp(searchQuery, `i`)
+
+                                        //find title or tags
+                                                            //is there a tag in this array of tags?
+    const posts = await PostMessage.find({ $or: [ { title}, { tags: { $in: tags.split(',')}}]})
+
+    res.json({data: posts})
+  } catch (error) {
+    res.status(404).json({message: error.message})
+  }
+}
+
 export const createPost = async (req, res) => {
   const post = req.body;
 
