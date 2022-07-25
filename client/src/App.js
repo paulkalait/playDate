@@ -16,7 +16,7 @@ function App() {
           {/* if localhost:3000/ it will redirect to localhost:3000/posts  */}
           <Route path="/" exact component={() => <Redirect to="/posts" />} />
           <Route path="/posts" exact component={Home} />
-          <Route path="/posts/search?search" exact component={Home} />
+          <Route path="/posts/search" exact component={Home} />
           <Route path="/posts/:id" exact component={PostDetails} />
 
           {/* dont let a signed in user navigate to the auth component */}

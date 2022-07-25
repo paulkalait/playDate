@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import ChipInput from "material-ui-chip-input";
 import Form from "../Form/Form.js";
+import SearchIcon from '@material-ui/icons/Search';
 import { getPosts, getPostBySearch } from "../../actions/posts";
 import { useDispatch } from "react-redux";
 import Posts from "../Posts/Posts.js";
@@ -42,9 +43,12 @@ const Home = () => {
   const handleAdd = (tag) => setTags([...tags, tag]);
 
   const searchPost = () => {
-    if (search.trim()) {
+    //if there is a search value or a tags value then dispatch
+    if (search.trim() || tags) {
       //converts the array to the string with a comma
       dispatch(getPostBySearch({ search, tags: tags.join(",") }));
+      //history.push          comes from state
+      history.push(`/posts/search?searchQuery=${search  || 'none'}&tags=${tags.join(',')}`)
     } else {
       history.push("/");
     }
@@ -57,19 +61,23 @@ const Home = () => {
       <nav className="search-nav">
         <div>
         <input
+          className="search-input"
           name="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-<button onClick={searchPost}> Search</button>
+<button onClick={searchPost}> <SearchIcon /></button>
         </div>
       
         <ChipInput
+        className="chipInput"
           value={tags}
           onAdd={handleAdd}
           onDelete={handleDelete}
+          size='small'
           label="Search Tags"
+          
         />
         
       </nav>

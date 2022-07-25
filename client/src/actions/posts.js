@@ -1,5 +1,5 @@
 
-import { FETCH_ALL, CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
+import { FETCH_ALL, FETCH_BY_SEARCH, CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
 
@@ -22,8 +22,10 @@ export const getPosts = () => async (dispatch) => {
 
 export const getPostBySearch = (searchQuery) => async (dispatch) => {
   try {
+    //sends data to reducers
     const { data: { data} } = await api.fetchPostBySearch(searchQuery)
-    console.log(data)
+  
+    dispatch({ type: FETCH_BY_SEARCH, payload: data });
   } catch (error) {
     console.log(error)
   }

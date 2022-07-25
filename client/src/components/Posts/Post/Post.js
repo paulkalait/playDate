@@ -45,7 +45,7 @@ const Post = ({ post, setCurrentId }) => {
   };
 
   return (
-    <Card className="card">
+    <Card className="card" raised elevation={4} >
       <div className="title-date-img">
         <div className="title-date">
           <h2>{post.title}</h2>

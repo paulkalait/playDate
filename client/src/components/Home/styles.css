@@ -1,59 +1,92 @@
-.father{
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
+.father {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 }
-.div-for-posts-and-form{
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.div-for-posts-and-form {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
-.Posts-container{
-    flex-direction: column;
-    display: flex;
-    width: 65%;
-    height: 100vh;
+.Posts-container {
+  flex-direction: column;
+  display: flex;
+  width: 65%;
+  height: 100vh;
 }
-.Form-container{
-    width: 35%;
-    flex-direction: column;
-    display: flex;
-    height: 100vh;
+.Form-container {
+  width: 35%;
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
 }
-
 
 /* top search */
 nav.search-nav {
-    justify-content: center;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 2%;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2%;
 }
 nav.search-nav div {
-    width: 50%;
-    justify-content: center;
-    flex-direction: row;
+  width: 50%;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
 }
-nav.search-nav input {
-    width: 80%;
+.search-input {
+  width: 80%;
 }
-nav.search-nav button{ 
-   width: 10%;
+nav.search-nav div button {
+  min-height: 10%;
+  position: absolute;
+  right: 19% ;
+  background-color: white;
+  top: 12px;
+  border: none;
+}
+.MuiFormControl-root.WAMuiChipInput-root-1 {
+  border: none;
+  width: 40%;
+  color: black;
+  /* margin: 7px 0 7px 0; */
+  margin-right: 9%;
+  
+}
+.chipInput:active {
+  color: black;
+}
+.WAMuiChipInput-standard-6.WAMuiChipInput-chipContainer-4.WAMuiChipInput-underline-14.WAMuiChipInput-labeled-8 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.MuiButtonBase-root.MuiChip-root.WAMuiChipInput-chip-16.MuiChip-clickable.MuiChip-deletable {
+  width: 15%;
+}
+input.MuiInputBase-input.MuiInput-input.WAMuiChipInput-input-3.WAMuiChipInput-standard-6.MuiInputBase-inputMarginDense.MuiInput-inputMarginDense {
+  border: none !important;
 }
 
-@media screen and (max-width: 760px){
-    .div-for-posts-and-form {
-        flex-direction: column-reverse;
-        width: 100%;
-    }
-    .Posts-container {
-        width: 100%;
-    }
-    .Form-container {
-        width: 100%;
-    }
+@media screen and (max-width: 760px) {
+  .div-for-posts-and-form {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .Posts-container {
+    width: 100%;
+  }
+  .Form-container {
+    width: 100%;
+  }
+  nav.search-nav div {
+    width: 100%;
+  }
+  .MuiFormControl-root.chipInput.WAMuiChipInput-root-1 {
+    width: 80%;
+  }
 }
-  
