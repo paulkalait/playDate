@@ -3,7 +3,8 @@ import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import DeleteIcon from "@material-ui/icons/DeleteForever";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import { Card } from "@material-ui/core";
+import { useHistory} from 'react-router-dom'
+import AVATAR from '../../../assets/images/account-logo.svg'
 import moment from "moment";
 import "./styles.css";
 import { useDispatch } from "react-redux";
@@ -12,6 +13,7 @@ import dog from "../../../assets/images/doglogo.png";
 import PLACEHOLDER from "../../../assets/images/placeholder-image.png";
 
 const Post = ({ post, setCurrentId }) => {
+  const history = useHistory()
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
 
@@ -44,12 +46,24 @@ const Post = ({ post, setCurrentId }) => {
     );
   };
 
+
+  const openPost = () => {
+    history.push(`/posts/${post._id}`)
+
+  }
+
   return (
-    <Card className="card" raised elevation={4}>
+    <div className="card" raised elevation={4}>
+      <span onClick={openPost}>
+
+    
       <div className="title-date-img">
         <div className="title-date">
+          <div className="username-div">
+          {user?.userImage ? ( <img  src={user.userImage} alt="userprofile" />  ) : (<img src={AVATAR} alt="userprofileimage" className='avatar' />)} 
           <h5 className="username">{post.name}</h5>
 
+          </div>
           <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
         </div>
       </div>
@@ -96,7 +110,7 @@ const Post = ({ post, setCurrentId }) => {
         ))}
       </div>
       <p>{post.message}</p>
-
+      </span>
       <div className="buttons-container">
         <div className="thumbs-up-div">
           <button
@@ -119,7 +133,7 @@ const Post = ({ post, setCurrentId }) => {
           </div>
         )}
       </div>
-    </Card>
+    </div>
   );
 };
 

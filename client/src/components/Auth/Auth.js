@@ -42,7 +42,7 @@ const Auth = () => {
   return (
     <div className=".container">
       <div className="auth-image">
-        <img  src={BACKGROUND} />
+        <img  src={BACKGROUND} alt="cartoonwalkingdog" />
       </div>
 
       <div className="auth-form-container">
@@ -53,28 +53,36 @@ const Auth = () => {
           <div>
             {isSignup && (
               <div>
+              
                 <Input
                   name="firstName"
                   label="First Name"
+                  placeholder="First Name"
                   handleChange={handleChange}
                   autoFocus
                 />
+               
                 <Input
                   name="lastName"
+                  placeholder="Last Name"
                   label="Last Name"
                   handleChange={handleChange}
                   autoFocus
                 />
               </div>
             )}
+      
             <Input
               name="email"
+              placeholder="email"
               label="Email Address"
               handleChange={handleChange}
               type="email"
             />
+              
             <Input
               name="password"
+              placeholder="password"
               label="Password"
               handleChange={handleChange}
               type={showPassword ? "text" : "password"}
@@ -82,9 +90,10 @@ const Auth = () => {
             />
             
             {isSignup && (
+          
               <Input
-
                 name="confirmPassword"
+                placeholder="repeat password"
                 label="Repeat Password"
                 handleChange={handleChange}
                 type="password"

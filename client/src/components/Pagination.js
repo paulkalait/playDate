@@ -26,7 +26,7 @@ const Paginate = ({ page}) => {
     color='primary'
     renderItem={(item) =>  (
         //spread the item inside PagItem
-        <PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`}/>
+        <PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`} />
     )}
     />
   )

@@ -4,7 +4,8 @@ import "./App.css";
 import React from "react";
 import Home from "./components/Home/Home.js";
 import Auth from "./components/Auth/Auth.js";
-import PostDetails from "./components/PostDetails/PostDetails.jsx";
+import PostDetails from "./components/PostDetails/PostDetails.js";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -26,6 +27,7 @@ function App() {
             component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
           />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );

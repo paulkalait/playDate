@@ -13,7 +13,7 @@ const Posts = ({ setCurrentId}) => {
   console.log({posts})
   return (
     <div className='postsContainer'>
-    {isLoading ? <CircularProgress /> : (
+    {isLoading ? <div className='circular-loading'><CircularProgress /> </div>: (
         <div className='posts-body'>
         { 
           posts.map((post) => (

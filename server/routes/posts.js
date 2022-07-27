@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPosts, createPost, updatePost, deletePost, likePost, getPostBySearch } from '../controllers/post.js'
+import { getPosts, getPost, createPost, updatePost, deletePost, likePost, getPostBySearch } from '../controllers/post.js'
 const router = express.Router()
 
 
@@ -7,6 +7,7 @@ const router = express.Router()
 import auth from '../middleware/auth.js'
 //auth  checks if the user is signed up
 
+router.get('/:id', getPost)
 router.get('/search', getPostBySearch )
 router.get('/', getPosts)
 router.post('/', auth,createPost)

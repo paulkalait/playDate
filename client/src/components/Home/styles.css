@@ -18,6 +18,7 @@
   display: flex;
   width: 65%;
   height: 100vh;
+  margin-bottom: 10%;
 }
 .Form-container {
   width: 35%;
@@ -81,6 +82,21 @@ nav.search-nav div button {
 }
 input.MuiInputBase-input.MuiInput-input.WAMuiChipInput-input-3.WAMuiChipInput-standard-6.MuiInputBase-inputMarginDense.MuiInput-inputMarginDense {
   border: none !important;
+}
+.MuiPagination-ul {
+  display: flex;
+ 
+  width: 100%;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  align-items: center;
+}
+.pag-div{
+  margin-left: 3%;
+  margin-top: 5%;
+  width: 100%;
 }
 
 @media screen and (max-width: 760px) {

@@ -1,5 +1,5 @@
 
-import { FETCH_ALL, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
+import { FETCH_ALL, FETCH_POST, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
 
@@ -25,6 +25,20 @@ export const getPosts = (page) => async (dispatch) => {
   }
   //payload is the data where we store all of our posts
 };
+
+export const getPost = (id) => async (dispatch) => {
+  try {
+    dispatch({type: START_LOADING})
+    const { data} = await api.fetchPost(id)
+  
+  
+    dispatch({ type: FETCH_POST, payload: {post: data}})  
+    dispatch({type: END_LOADING})
+  } catch (error) {
+    console.log(error.response?.data)
+  }
+ 
+}
 
 export const getPostBySearch = (searchQuery) => async (dispatch) => {
   try {

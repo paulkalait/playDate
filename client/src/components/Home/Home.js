@@ -94,17 +94,18 @@ const Home = () => {
 
           <div className="Form-container">
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-
-          {/* if we dont have any tags or search query then render pagination */}
-            {!searchQuery && !tags.length && (
-              <div>
+  {/* if we dont have any tags or search query then render pagination */}
+  {!searchQuery && !tags.length && (
+              <div className="pag-div">
                 {/* Import Pagination */}
                 <Paginate page={page} />
               </div>
             )}
+       
           </div>
         </div>
       </div>
+       
     </>
   );
 };
