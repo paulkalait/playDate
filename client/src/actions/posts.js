@@ -1,5 +1,5 @@
 
-import { FETCH_ALL, FETCH_BY_SEARCH, CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
+import { FETCH_ALL, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
 
@@ -7,25 +7,33 @@ import * as api from "../api/index.js";
 
 //Action Creators are functions that return an action type and table
 
-export const getPosts = () => async (dispatch) => {
+//only fetch post for that specific page 
+export const getPosts = (page) => async (dispatch) => {
   try {
+    dispatch({type: START_LOADING})
     //fetch data from api
-    const { data } = await api.fetchPosts();
+                //then pass page into the api
+    const { data: { data, currentPage, numberOfPages} } = await api.fetchPosts(page);
+
+    console.log(data)
     //call the async dispatch from thunk
     //payload is the data send the api data into the payload
-    dispatch({ type: FETCH_ALL, payload: data });
+    dispatch({ type: FETCH_ALL, payload:{ data, currentPage, numberOfPages}  });
+    dispatch({type: END_LOADING})
   } catch (error) {
-    console.log(error);
+    console.log(error.response?.data);
   }
   //payload is the data where we store all of our posts
 };
 
 export const getPostBySearch = (searchQuery) => async (dispatch) => {
   try {
+    dispatch({type: START_LOADING})
     //sends data to reducers
     const { data: { data} } = await api.fetchPostBySearch(searchQuery)
   
     dispatch({ type: FETCH_BY_SEARCH, payload: data });
+    dispatch({type: END_LOADING})
   } catch (error) {
     console.log(error)
   }
@@ -33,11 +41,13 @@ export const getPostBySearch = (searchQuery) => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
   try {
+    dispatch({type: START_LOADING})
     //post api request to our backend server 
     console.log("hello")
     const { data } = await api.createPost(post);
 
     dispatch({ type: CREATE, payload: data });
+    dispatch({type: END_LOADING})
   } catch (error) {
     console.log(error);
   }

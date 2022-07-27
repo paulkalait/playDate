@@ -6,12 +6,14 @@ import './styles.css'
 
 const Posts = ({ setCurrentId}) => {
       // get access to the global state in the reducers /posts.js file ..
-  const posts = useSelector((state) =>  state.posts);
+  const { posts, isLoading }  = useSelector((state) =>  state.posts); // [] => { posts: []}
 
-  console.log(posts)
+  if(!posts?.length && !isLoading) return 'No Posts'
+
+  console.log({posts})
   return (
     <div className='postsContainer'>
-    {!posts.length ? <CircularProgress /> : (
+    {isLoading ? <CircularProgress /> : (
         <div className='posts-body'>
         { 
           posts.map((post) => (

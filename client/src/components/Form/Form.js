@@ -9,7 +9,7 @@ import UNLOCK from '../../assets/images/unlock.svg'
 
 const Form = ({ currentId, setCurrentId}) => {
   const [postData, setPostData] = useState({ title: '', message: '', tags: '', size: '', selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
+  const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
 
   //retrieve from local storage in JS data structure
