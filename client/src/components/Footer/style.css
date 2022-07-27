@@ -7,7 +7,9 @@ footer {
   display: flex;
   font-size: 1rem;
   justify-content: space-between;
-  z-index: 999;
+
+  position: fixed;
+  bottom: 0;
   border-top: 1px solid white;
   
 }

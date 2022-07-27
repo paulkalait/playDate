@@ -149,6 +149,12 @@ button.thumbs-up {
         min-width: 300px
     }
 }
+
+@media screen and (max-width: 900px){
+    .card {
+        width: 100%;
+    }
+}
 @media screen and (max-width: 760px){
 
     .card{

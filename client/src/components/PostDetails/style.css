@@ -6,6 +6,10 @@
     justify-content: center;
     background: #f5ebe0;
 }
+h1,h2,h3, p {
+    font-family: 'PT Sans', sans-serif;
+    color: rgb(95, 95, 95);
+}
 
 .post-details{
     display: flex;
@@ -52,6 +56,7 @@ margin-left: 5px;
     margin-top: 1%;
 }
 .post-image img{
+    background: white;
     width: 100%;
     margin-left: 10px;
     margin-right: 10px;

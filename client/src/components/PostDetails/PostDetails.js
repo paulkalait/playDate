@@ -41,6 +41,11 @@ const PostDetails = () => {
           <h3 className="time">{moment(post.createdAt).fromNow()}</h3>
         </div>
 
+        <div className="tag-div">
+          {post.tags.map((tag) => (
+            <span className="tag"># {tag}</span>
+          ))}
+        </div>
       <div className="postdetail-description-div">
       <p>{post.message}</p>
       </div>
@@ -51,11 +56,7 @@ const PostDetails = () => {
       <div className="post-image">
         <img src={post.selectedFile} />
 
-        <div className="tag-div">
-          {post.tags.map((tag) => (
-            <span className="tag"># {tag}</span>
-          ))}
-        </div>
+       
       </div>
     </div>
   );
