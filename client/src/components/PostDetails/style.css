@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background: #f5ebe0;
+    background: #fbf0e5;
 }
 h1,h2,h3, p {
     font-family: 'PT Sans', sans-serif;
@@ -17,6 +17,7 @@ h1,h2,h3, p {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 40%;
+    height: 400px;
     justify-content: start;
 margin-left: 5px;
     border-radius: 25px;
@@ -55,12 +56,12 @@ margin-left: 5px;
 .tag-div{
     margin-top: 1%;
 }
-.post-image img{
+#postImage{
     background: white;
     width: 100%;
     margin-left: 10px;
     margin-right: 10px;
-    height: 40%;
+    height: 20%;
     border: 3px solid white;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -113,12 +114,22 @@ h5 {
 #recommended-post-avatar{
     box-shadow: none;
 }
-@media screen and (max-width: 850px){
+@media screen and (max-width: 1000px){
     .post-details-container{
         min-height: 100vh;
         flex-direction: column-reverse;
         justify-content: start;
 
+    }
+    .recommended-post {
+        flex-wrap: nowrap;
+        flex-direction: row;
+
+            width: 100%;
+    }
+
+    .each-recommended-post{
+        width:fit-content;
     }
     .post-image{
         width: 100%;

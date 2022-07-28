@@ -4,10 +4,11 @@ import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
 import { useSelector } from 'react-redux'
-import { Link} from 'react-router-dom'
+import { Link, useHistory} from 'react-router-dom'
 import UNLOCK from '../../assets/images/unlock.svg'
 
 const Form = ({ currentId, setCurrentId}) => {
+  const history = useHistory()
   const [postData, setPostData] = useState({ title: '', message: '', tags: '', size: '', selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
@@ -29,8 +30,8 @@ const Form = ({ currentId, setCurrentId}) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
-     
+      dispatch(createPost({ ...postData, name: user?.result?.name }, history));
+    
     } else {
       dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
      

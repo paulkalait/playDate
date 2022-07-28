@@ -77,7 +77,10 @@ const Post = ({ post, setCurrentId }) => {
           </div>
         </div>
         {post.selectedFile ? (
-          <img src={post.selectedFile} alt="usersimage" />
+          <div className="post-image-container">
+               <img src={post.selectedFile} alt="usersimage" />
+          </div>
+         
         ) : (
           <img src={PLACEHOLDER} alt="usersimage" />
         )}
