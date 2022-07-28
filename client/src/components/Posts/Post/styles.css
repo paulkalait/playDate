@@ -63,7 +63,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 6px ;
-    height: 30px;
     min-height: 35px;
 }
 .tag-div{
@@ -108,7 +107,17 @@ img{
     color: white;
     border: none;
     top: 13%;
-    left: 85%;
+    left: 80%;
+}
+
+.select{
+    border: blue solid ;
+    width: 25%;
+    position: absolute;
+    top: 23%;
+    left: 67%;
+    display: none;
+    
 }
 p,.tag-div, .username, h2{
     margin-left: 3%;
