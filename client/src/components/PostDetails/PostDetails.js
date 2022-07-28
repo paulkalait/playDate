@@ -7,6 +7,7 @@ import { useParams, useHistory } from "react-router-dom";
 import "./style.css";
 import { getPost, getPostBySearch } from "../../actions/posts";
 import AVATAR from "../../assets/images/account-logo.svg";
+import CommentSection from "../CommentSection/CommentSection";
 
 const PostDetails = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -43,7 +44,8 @@ const PostDetails = () => {
   return (
     <div className="post-details-container">
       {/* post details */}
-      <div className="post-details">
+      <div className="post-details-and-comments">
+        <div className="post-details">
         <div className="postdetail-title-div">
           <h1>{post.title}</h1>
         </div>
@@ -61,6 +63,13 @@ const PostDetails = () => {
         <div className="postdetail-description-div">
           <p>{post.message}</p>
         </div>
+
+        </div>
+       
+       <div className="comments-section">
+       <CommentSection  post={post} />
+       </div>
+       
       </div>
 
       {/* post image*/}

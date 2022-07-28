@@ -11,18 +11,30 @@ h1,h2,h3, p {
     color: rgb(95, 95, 95);
 }
 
-.post-details{
+.post-details-and-comments{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 40%;
-    height: 400px;
+    /* min-height: 400px; */
     justify-content: start;
 margin-left: 5px;
+    
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    /* background-color: white; */
+
+}
+.post-details{
+    width: 100%;
     border-radius: 25px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-color: white;
+    background: white;
+ 
+}
+.comments-section{
+    width: 100%;
+
+    margin-top: 2%;
 }
 .postdetail-username-div, .postdetail-description-div, .postdetail-title-div{
     display: flex;
