@@ -1,3 +1,7 @@
+.header-container{
+    width: 100%;
+}
+
 header{
     width: 100%;
     height: 10%;
@@ -30,11 +34,13 @@ img.avatar {
     width: 30px;
     margin-right: 3px;
 }
-button, .signin-btn {
+.logout-btn, .signin-btn {
     margin-left: 15px;
     border: .5px solid lightgray;
     font-size: 1.1rem;
-    border-radius: 15px;
+    padding: 7px 10px 7px 10px;
+    border-radius: 20px;
+    transition: 300ms;
 }
 
 .signin-btn-link{
@@ -48,3 +54,10 @@ button, .signin-btn {
     border: 1px solid black;
 }
 
+
+@media screen and (max-width: 1000px){
+    .header-container{
+        width: 100%;
+    }
+    
+}

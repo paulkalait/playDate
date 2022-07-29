@@ -3,13 +3,10 @@ footer {
   height: 75px;
   color: white;
   align-items: center;
-  background-color: #e3d5ca;
+  background-color: #f9ede4;
   display: flex;
   font-size: 1rem;
   justify-content: space-between;
-
-  position: fixed;
-  bottom: 0;
   border-top: 1px solid white;
   
 }
@@ -22,9 +19,11 @@ footer {
 }
 .copyright-div H1{
     font-size: 1.2REM;
+  
 }
 .copy-icon{
  margin-right: 5%;
+  color: rgb(76, 76, 76);
 }
 
 footer p {

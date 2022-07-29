@@ -1,6 +1,9 @@
 *{
     font-family: 'PT Sans', sans-serif;
 }
+.app-div{
+width: 100%;
+}
 .date{
     color: rgb(202, 172, 156);
 }

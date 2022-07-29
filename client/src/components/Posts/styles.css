@@ -21,11 +21,7 @@
     align-items: center;
     height: 100vh;
 }
-@media screen and (max-width: 1400px){
-    .each-post{
-        width: auto;
-    }
-}
+
 
 @media screen and (max-width: 1000px){
 .each-post {
@@ -34,7 +30,7 @@
 }
 @media screen and (max-width: 900px){
     .each-post {
-        width: 90%;
+        width: 100%;
     }
 }
 @media screen and (max-width: 760px){
@@ -45,8 +41,10 @@
     }
     .posts-body {
         display: flex;
-        flex-direction: column;
         width: 100%;
+        min-height: 2200px;
+        flex-direction: column;
+        justify-content: flex-start;
     }
     .each-post {
         width: 100%;

@@ -14,6 +14,18 @@ h2{
     height: 10px;
 }
 
+.time{
+    margin-right: 3%;
+}
+.new-post{
+    background-color: rgb(152, 237, 152, .6);
+    padding: 5px;
+    border-radius: 6px;
+    color: rgb(1, 73, 1);
+    margin-right: 3%;
+}
+
+
 .post-details-and-comments{
     display: flex;
     flex-direction: column;
@@ -44,6 +56,7 @@ margin-left: 5px;
 .postdetail-username-div, .postdetail-description-div, .postdetail-title-div{
     display: flex;
     align-items: center;
+    align-content: center;
     flex-direction: row;
     justify-content: space-between;
     margin: 5px;
@@ -53,10 +66,7 @@ margin-left: 5px;
 .postdetail-title-div{
     margin-left: 3%;
 }
-.postdetail-username-div h3 {
-    margin-right: 5px;
 
-}
 
 .post-image{
     width: 60%;
@@ -97,7 +107,7 @@ margin-left: 5px;
     display: flex;
     height: 100%;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
 
     white-space: nowrap;

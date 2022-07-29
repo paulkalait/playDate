@@ -43,6 +43,7 @@ nav.search-nav div {
   flex-direction: row;
   position: relative;
 }
+
 .search-input {
   width: 80%;
   border-radius: 20px;
@@ -50,13 +51,13 @@ nav.search-nav div {
 }
 input.search-input:focus {
   background: transparent;
-    border: none;
-    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  border: none;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 nav.search-nav div button {
   min-height: 10%;
   position: absolute;
-  right: 19% ;
+  right: 19%;
   background-color: white;
   top: 12px;
   border: none;
@@ -67,9 +68,8 @@ nav.search-nav div button {
   color: black;
   /* margin: 7px 0 7px 0; */
   margin-right: 9%;
-  
 }
-.chipInput:active {
+.chipInput:focus {
   color: black;
 }
 .WAMuiChipInput-standard-6.WAMuiChipInput-chipContainer-4.WAMuiChipInput-underline-14.WAMuiChipInput-labeled-8 {
@@ -86,7 +86,7 @@ input.MuiInputBase-input.MuiInput-input.WAMuiChipInput-input-3.WAMuiChipInput-st
 }
 .MuiPagination-ul {
   display: flex;
- 
+
   width: 100%;
   padding: 0;
   flex-wrap: wrap;
@@ -94,42 +94,61 @@ input.MuiInputBase-input.MuiInput-input.WAMuiChipInput-input-3.WAMuiChipInput-st
   list-style: none;
   align-items: center;
 }
-.pag-div{
+.pag-div {
   margin-left: 3%;
   margin-top: 5%;
   width: 100%;
 }
 
-
-
-
 @media screen and (max-width: 1000px) {
-
-.Posts-container {
-  width: 100%;
+  .Posts-container {
+    width: 100%;
+  }
+  .div-for-posts-and-form {
+    flex-direction: column-reverse;
+  }
+  .Form-container {
+    width: 100%;
+    justify-content: center;
+    height: 700px;
+    margin-bottom: 5%;
+  }
 }
-.div-for-posts-and-form {
-  flex-direction: column-reverse;
-}
-.Form-container {
-  width: 100%;
-
-  justify-content: center;
-  height: 700px;
-
-}
-
-}
-
 
 @media screen and (max-width: 900px) {
-  .Form-container{
+  .search-input-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5%;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .chipInput-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .MuiFormControl-root.WAMuiChipInput-root-1 {
+    width: 100%;
+  }
+  nav.search-nav div button {
+    min-height: 10%;
+    position: absolute;
+    right: 2%;
+    background-color: white;
+    top: 12px;
+    border: none;
+  }
+  .Form-container {
     height: 700px;
     width: 100%;
     justify-content: center;
     margin-bottom: 10%;
   }
- 
+
   .div-for-posts-and-form {
     flex-direction: column-reverse;
     width: 100%;
@@ -146,17 +165,15 @@ input.MuiInputBase-input.MuiInput-input.WAMuiChipInput-input-3.WAMuiChipInput-st
   .MuiFormControl-root.chipInput.WAMuiChipInput-root-1 {
     width: 80%;
   }
-
 }
 
-
 @media screen and (max-width: 760px) {
-  .Form-container{
+  .Form-container {
     height: 700px;
     width: 100%;
     justify-content: center;
   }
- 
+
   .div-for-posts-and-form {
     flex-direction: column-reverse;
     width: 100%;

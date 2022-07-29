@@ -62,7 +62,7 @@ const Home = () => {
   return (
     <>
       <nav className="search-nav">
-        <div>
+        <div className="search-input-container">
           <input
             className="search-input"
             name="search"
@@ -76,6 +76,7 @@ const Home = () => {
           </button>
         </div>
 
+        <div className="chipInput-container">
         <ChipInput
           className="chipInput"
           value={tags}
@@ -84,6 +85,9 @@ const Home = () => {
           size="small"
           label="Search Tags"
         />
+
+        </div>
+       
       </nav>
 
       <div className="father">

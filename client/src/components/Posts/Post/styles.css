@@ -17,16 +17,13 @@
     display: flex;
     padding: 5px;
     flex-direction: row;
-    height: 25px;
     margin: 5px 0 5px 0;
     justify-content: space-between;
     align-content: center;
     align-items: center;
 }
 
-.more{ 
-    z-index: 999;
-}
+/*  */
 .more-icon{
     color: rgb(130, 130, 130);
     border: 1px solid rgb(94, 94, 94);
@@ -53,6 +50,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    margin-bottom: 5px;
 }
 .thumbs-up-div{
     display: flex;

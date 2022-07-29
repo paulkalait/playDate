@@ -11,7 +11,7 @@ function App() {
   const user = JSON.parse(localStorage.getItem("profile"));
   return (
     <BrowserRouter>
-      <div>
+      <div className="app-div">
         <Navbar />
         <Switch>
           {/* if localhost:3000/ it will redirect to localhost:3000/posts  */}

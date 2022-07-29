@@ -48,6 +48,14 @@ const PostDetails = () => {
         <div className="post-details">
         <div className="postdetail-title-div">
           <h1>{post.title}</h1>
+
+    
+            {moment(post.createdAt).fromNow().includes('an hour ago') && (
+              <span className="new-post">new post</span>
+            )}
+      
+            
+      
         </div>
 
         <div className="postdetail-username-div">

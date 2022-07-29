@@ -90,9 +90,21 @@ select{
 .message-input{
     height: 100px
 }
+
+@media screen and (max-width: 1000px) {
+    .formContainer, .please-sign-in-div{
+        margin-top: 20%;
+    }
+
+
+    .please-sign-in-div {
+        width: 90%;
+    }
+
+}
 @media screen and (max-width: 900px) {
-    .formContainer{
-        margin-top: 25%;
+    .formContainer, .please-sign-in-div{
+        margin-top: 15%;
     }
     form{
         width: 100%;

@@ -34,11 +34,11 @@ const Navbar = () => {
     setUser(JSON.parse(localStorage.getItem("profile")));
 
     //when location changes...set the user
-  }, [location]);
+  }, [location, dispatch]);
 
   //  <img alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</img>
   return (
-    <div>
+    <div className="header-container">
       <header className="header" component={Link} to="/">
 
         <Link to="/" >
