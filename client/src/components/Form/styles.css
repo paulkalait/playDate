@@ -91,6 +91,9 @@ select{
     height: 100px
 }
 @media screen and (max-width: 900px) {
+    .formContainer{
+        margin-top: 25%;
+    }
     form{
         width: 100%;
     }

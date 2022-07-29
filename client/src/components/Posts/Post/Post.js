@@ -17,6 +17,7 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
   const [moreOptions, setMoreOptions] = useState(false);
+  const [likes, setLikes] = useState(post?.likes)
 
   // const handleClick =() => {
   //   let moreButtonEl = document.getElementsByClassName('select')
@@ -149,7 +150,7 @@ const Post = ({ post, setCurrentId }) => {
             <span className="tag"># {tag}</span>
           ))}
         </div>
-        <p>{post.message}</p>
+        <p >{post.message}</p>
       </span>
       <div className="buttons-container">
         <div className="thumbs-up-div">

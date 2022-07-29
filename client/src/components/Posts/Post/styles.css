@@ -8,6 +8,7 @@
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: 300ms ease-in-out;
+    word-wrap: break-word;
 }
 .card:hover{
     box-shadow: none;
@@ -63,7 +64,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 6px ;
-    min-height: 35px;
+    height: 40px;
 }
 .tag-div{
     display: flex;
@@ -126,6 +127,18 @@ p,.tag-div, .username, h2{
     margin-left: 3%;
     text-align: left;
 }
+.username{
+    font-size: 1rem;
+    min-width: fit-content;
+}
+p{ 
+    margin-right: 3%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .heart{
     color: rgb(236, 25, 25);
 }
@@ -164,12 +177,12 @@ button.thumbs-up {
 
 @media screen and (max-width: 900px){
     .card {
-        width: 100%;
+        width: 90%;
     }
 }
 @media screen and (max-width: 760px){
 
     .card{
-        width: 100%;
+        width: 99%;
     }
 }

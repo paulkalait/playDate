@@ -75,7 +75,7 @@ const PostDetails = () => {
       {/* post image*/}
       <div className="post-image">
         <img src={post.selectedFile} alt="postImage" id="postImage" />
-        <h5>You might also like</h5>
+        <h5>You might also like..</h5>
         {console.log(recommendedPosts)}
         {!!recommendedPosts.length && (
           <div className="recommended-post-container">

@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPosts, getPost, createPost, updatePost, deletePost, likePost, getPostBySearch } from '../controllers/post.js'
+import { getPosts, getPost, createPost, updatePost, deletePost, likePost, commentPost, getPostBySearch } from '../controllers/post.js'
 const router = express.Router()
 
 
@@ -15,6 +15,6 @@ router.patch('/:id', auth, updatePost)
 router.delete('/:id', auth, deletePost)
 // like post
 router.patch('/:id/likePost', auth, likePost)
-
+router.post('/:id/commentPost', auth, commentPost)
 
 export default router 

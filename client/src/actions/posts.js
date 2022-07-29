@@ -1,5 +1,5 @@
 
-import { FETCH_ALL, FETCH_POST, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE } from "../constants/actionTypes.js";
+import { FETCH_ALL, FETCH_POST, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE, COMMENT } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
 
@@ -101,5 +101,20 @@ export const likePost = (id) => async (dispatch) => {
    dispatch({type: LIKE, payload: data})
   }catch(error){
       console.log(error)
+  }
+}
+
+export const commentPost = (value, id) => async (dispatch) => {
+  try {
+    //calll the api
+    const { data } = await api.comment(value, id);
+
+    console.log(data)
+    //call action type frpm cpnstants then send to our reducer
+    dispatch({type: COMMENT, payload: data})
+
+    return data.comments
+  } catch (error) {
+    console.log(error.response?.data)
   }
 }

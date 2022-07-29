@@ -146,4 +146,20 @@ export const likePost = async (req, res) => {
   res.json(updatedPost);
 };
 
+export const commentPost = async (req, res) => {
+  //get post id
+  const {id} = req.params;
+  //comes from the api request in the frontend { value } of the comment
+  const { value} = req.body
+
+  const post = await PostMessage.findById(id)
+
+  post.comments.push(value)
+
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true})
+
+
+  res.json(updatedPost)
+}
+
 export default router;
