@@ -50,7 +50,7 @@ const PostDetails = () => {
           <h1>{post.title}</h1>
 
     
-            {moment(post.createdAt).fromNow().includes('an hour ago') && (
+            {moment(post.createdAt).fromNow().includes('an hour ago' || 'seconds') && (
               <span className="new-post">new post</span>
             )}
       
