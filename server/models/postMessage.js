@@ -21,6 +21,11 @@ const postSchema = mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+   dogTreats: {
+    type: Number,
+    default: 0,
+    required: false,
+  }
 });
 
 const PostMessage = mongoose.model("PostMessage", postSchema);

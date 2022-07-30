@@ -7,15 +7,6 @@ import User from "../models/user.js";
 const secret = 'test'
 
 
-// export const getUsers = async (req, res) => {
-//   try {
-    
-//     const User = await User.find();
-//     res.status(200).json(User);
-//   } catch (error) {
-//     res.status(404).json({ message: "Cant get users"});
-//   }
-// }
 
 
 export const signin = async (req, res) => {
@@ -71,3 +62,6 @@ export const signup = async (req, res) => {
     console.log(error);
   }
 };
+
+
+

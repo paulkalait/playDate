@@ -11,37 +11,37 @@ export const getPosts = async (req, res) => {
     const LIMIT = 4;
 
     //convert page to a number
-    const startIndex = (Number(page) - 1 ) * LIMIT; //get starting index from every page
-    console.log(startIndex)
+    const startIndex = (Number(page) - 1) * LIMIT; //get starting index from every page
+    console.log(startIndex);
     const total = await PostMessage.countDocuments({});
 
     //gives newest post first
-    const posts = await PostMessage.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
+    const posts = await PostMessage.find()
+      .sort({ _id: -1 })
+      .limit(LIMIT)
+      .skip(startIndex);
 
-    res
-      .status(200)
-      .json({
-        data: posts,
-        currentPage: Number(page),
-        numberOfPages: Math.ceil(total / LIMIT),
-      });
+    res.status(200).json({
+      data: posts,
+      currentPage: Number(page),
+      numberOfPages: Math.ceil(total / LIMIT),
+    });
   } catch (error) {
-   
     res.status(404).json({ message: error.message });
   }
 };
 
 export const getPost = async (req, res) => {
-  const { id} = req.params;
+  const { id } = req.params;
 
   try {
-    const post = await PostMessage.findById(id)
+    const post = await PostMessage.findById(id);
 
-    res.status(200).json(post)
+    res.status(200).json(post);
   } catch (error) {
-    res.status(404).json({message: error.message});
+    res.status(404).json({ message: error.message });
   }
-}
+};
 
 export const getPostBySearch = async (req, res) => {
   const { searchQuery, tags } = req.query;
@@ -148,18 +148,38 @@ export const likePost = async (req, res) => {
 
 export const commentPost = async (req, res) => {
   //get post id
-  const {id} = req.params;
+  const { id } = req.params;
   //comes from the api request in the frontend { value } of the comment
-  const { value} = req.body
+  const { value } = req.body;
 
-  const post = await PostMessage.findById(id)
+  const post = await PostMessage.findById(id);
 
-  post.comments.push(value)
+  post.comments.push(value);
 
-  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true})
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
+    new: true,
+  });
 
+  res.json(updatedPost);
+};
+export const giveTreat = async (req, res) => {
+  //get post id
+  const { id } = req.params;
+  const {dogTreats} = req.body;
+  const post = await PostMessage.findById(id);
 
-  res.json(updatedPost)
+  console.log(dogTreats)     //equal to whatever I put in req.body in insomnia ex {"dogTreats" : 5}
+  
+//should be default 0 + plus the req.body "5"
+        post.dogTreats + dogTreats;   
+
+const updatedPostWithDogTreat= { 
+  dogTreats,
+  _id: id
 }
-
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, updatedPostWithDogTreat, {
+    new: true,
+  });
+  res.json(updatedPost);
+};
 export default router;
