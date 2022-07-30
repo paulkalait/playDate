@@ -77,14 +77,14 @@ const Home = () => {
         </div>
 
         <div className="chipInput-container">
-        <ChipInput
+        {/* <ChipInput
           className="chipInput"
           value={tags}
           onAdd={handleAdd}
           onDelete={handleDelete}
           size="small"
           label="Search Tags"
-        />
+        /> */}
 
         </div>
        

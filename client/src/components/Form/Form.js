@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
 import { useSelector } from 'react-redux'
 import { Link, useHistory} from 'react-router-dom'
-import UNLOCK from '../../assets/images/unlock.svg'
+import UNLOCK from '../../assets/images/lock.svg'
 
 const Form = ({ currentId, setCurrentId}) => {
   const history = useHistory()
