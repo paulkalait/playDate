@@ -29,19 +29,13 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
 
-  // useEffect(() => {
-  //   //call dispatch and call the exported getPosts function
-  //   dispatch(getPosts());
-  //   //as soon as we change the currentid the app will dispatch the getPosts so we get the latest updated posts on the homepage
-  // }, [currentId, dispatch]);
-
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
       searchPost();
     }
   };
 
-  const handleAdd = (tag) => setTags([...tags, tag]);
+  // const handleAdd = (tag) => setTags([...tags, tag]);
 
   const searchPost = () => {
     //if there is a search value or a tags value then dispatch
@@ -57,12 +51,14 @@ const Home = () => {
     }
   };
 
-  const handleDelete = (tagToDelete) =>
-    setTags(tags.filter((tags) => tags !== tagToDelete));
+  // const handleDelete = (tagToDelete) =>
+  //   setTags(tags.filter((tags) => tags !== tagToDelete));
   return (
     <>
       <nav className="search-nav">
+      <h1>Search for a buddy</h1>
         <div className="search-input-container">
+          
           <input
             className="search-input"
             name="search"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import DeleteIcon from "@material-ui/icons/DeleteForever";
+import EditIcon from "@material-ui/icons/Edit"
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { useHistory } from "react-router-dom";
 import AVATAR from "../../../assets/images/account-logo.svg";
@@ -16,17 +17,6 @@ const Post = ({ post, setCurrentId }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
-  const [moreOptions, setMoreOptions] = useState(false);
-  const [likes, setLikes] = useState(post?.likes)
-
-  // const handleClick =() => {
-  //   let moreButtonEl = document.getElementsByClassName('select')
-  //   if(!moreOptions){
-  //     moreButtonEl[0].style.display ='block'
-  //   }
-
-  //   setMoreOptions(!moreOptions)
-  // }
 
   const Likes = () => {
     //async call meaning at some point prior post.likes is undefined so put a ?
@@ -63,7 +53,7 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <div className="card" raised elevation={4}>
-      <span onClick={openPost} >
+      <span onClick={openPost}>
         <div className="title-date-img">
           <div className="title-date">
             <div className="username-div">
@@ -77,11 +67,11 @@ const Post = ({ post, setCurrentId }) => {
             <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
           </div>
         </div>
+        </span>
         {post.selectedFile ? (
           <div className="post-image-container">
-               <img src={post.selectedFile} alt="usersimage" />
+            <img src={post.selectedFile} alt="usersimage" />
           </div>
-         
         ) : (
           <img src={PLACEHOLDER} alt="usersimage" />
         )}
@@ -109,39 +99,27 @@ const Post = ({ post, setCurrentId }) => {
         </div>
 
         {user?.result?._id === post?.creator && (
-          <div>
-            <button
-              className="more"
-              onClick={() => setCurrentId(post._id)}
-    
-            >
+          <div className="div-more">
+            <button className="more">
               {" "}
               <MoreHorizIcon className="more-icon" />
             </button>
 
-          
-            <div
-              className="select"
-      
-            >
-              <div>
-                <h4>More</h4>
-                <button
-                  className="edit"
-          
-                ></button>
+            <div className="select">
+              <div className="absolulte-tip"></div>
+              <div className="more-select-div" onClick={() => setCurrentId(post._id)}>
+                <h4>Edit</h4>
+                <button className="edit-icon-container" >
+                  <EditIcon className="edit-icon"/>
+                </button>
               </div>
-
-              <div>
-                <h4>delete</h4>
-                <button
-                  className="delete-icon-container"
-                >
-                  <DeleteIcon />
+              <div className="delete-select-div" onClick={() => dispatch(deletePost(post._id))}>
+                <h4>Delete</h4>
+                <button className="delete-icon-container" >
+                  <DeleteIcon className="delete-icon" />
                 </button>
               </div>
             </div>
-            
           </div>
         )}
 
@@ -150,8 +128,8 @@ const Post = ({ post, setCurrentId }) => {
             <span className="tag"># {tag}</span>
           ))}
         </div>
-        <p >{post.message}</p>
-      </span>
+        <p>{post.message}</p>
+      
       <div className="buttons-container">
         <div className="thumbs-up-div">
           <button
@@ -163,16 +141,16 @@ const Post = ({ post, setCurrentId }) => {
           </button>
         </div>
 
-        {user?.result?._id === post?.creator && (
+        {/* {user?.result?._id === post?.creator && (
           <div>
             <button
-              onClick={() => dispatch(deletePost(post._id))}
+              
               className="delete-icon-container"
             >
               <DeleteIcon />
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
