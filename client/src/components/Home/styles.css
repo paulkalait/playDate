@@ -6,7 +6,6 @@
   background-repeat: no-repeat;
   background-position: 100%;
   background-size: contain;
-  height: 1500px;
 }
 .div-for-posts-and-form {
   width: 90%;
@@ -109,16 +108,6 @@ nav.search-nav div button {
   }
 }
 
-@media screen and (max-width: 1400px) {
-  .father{
-    min-height: 1500px;
-  }
-}
-@media screen and (max-width: 1400px) {
-  .father{
-    min-height: 2100px;
-  }
-}
 
 @media screen and (max-width: 900px) {
 

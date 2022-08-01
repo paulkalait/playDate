@@ -49,8 +49,13 @@ const Navbar = () => {
         <nav>
           {user ? (
             <div className="login-div">
+
               <img src={AVATAR} alt="userprofileimage" className="avatar" />
-              <h4>{user.result.name}</h4>
+             
+             <div className="select">
+             <h4>{user.result.name}</h4>
+             </div>
+             
               <button className="logout-btn" onClick={logout}>
                 Logout
               </button>

@@ -9,4 +9,5 @@ export const AUTH = "AUTH";
 export const LOGOUT = "LOGOUT";
 export const START_LOADING = 'START_LOADING'
 export const COMMENT = 'COMMENT'
+export const ADD_DOG_TREAT = 'ADD_DOG_TREAT'
 export const END_LOADING = 'END_LOADING'

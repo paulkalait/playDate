@@ -17,14 +17,31 @@ h2{
 .time{
     margin-right: 3%;
 }
+.new-post-and-treat-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
+    width: 50%;
+}
 .new-post{
     background-color: rgb(152, 237, 152, .6);
     padding: 5px;
-    border-radius: 6px;
+    border-radius: 10px;
     color: rgb(1, 73, 1);
     margin-right: 3%;
 }
-
+.give-a-treat-btn{
+    background-color: rgb(128, 1, 128, .3);
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 200ms;
+}
+.give-a-treat-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: rgba(0, 0, 0, 0.40) 0px 1px 4px;
+}
 
 .post-details-and-comments{
     display: flex;
@@ -115,6 +132,7 @@ margin-left: 5px;
     flex-direction: column;
     /* flex-direction: column; */
 }
+
 .each-recommended-post {
  
     width: 50%;
@@ -131,6 +149,7 @@ margin-left: 5px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: 300ms ease-in-out;
 }
+
 .each-recommended-post:hover{
     box-shadow: none;
 }

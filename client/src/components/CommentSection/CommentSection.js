@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { commentPost } from "../../actions/posts";
 import "./styles.css";
-
+import COMMENTPHOTO from '../../assets/images/comment.svg'
 const CommentSection = ({ post }) => {
   const dispatch = useDispatch();
 
@@ -32,9 +32,9 @@ const CommentSection = ({ post }) => {
   return (
     <div>
       <div className="comments-container">
-        <div className="comments-content">
+        <div className={comment ? "comments-content" : 'no-comments'} >
           <h3>Comments</h3>
-          {comments.map((c, i) => (
+          {comment ?  comments.map((c, i) => (
             <span className="comment-and-user-container">
               {" "}
               <span className="user-comment">{c.split(": ")[0]}</span>
@@ -43,7 +43,8 @@ const CommentSection = ({ post }) => {
               </div>
               
             </span>
-          ))}
+          )) : <div className="no-comments-container"><img className="comment-photo" src={COMMENTPHOTO} />     <p>No Comments {user ? ' be the first to leave a comment!' : 'please sign in to leave a comment' }</p></div>}
+         
           <div ref={commentsRef} />
         </div>
 

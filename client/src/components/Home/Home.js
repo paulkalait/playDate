@@ -56,9 +56,8 @@ const Home = () => {
   return (
     <>
       <nav className="search-nav">
-      <h1>Search for a buddy</h1>
+        <h1>Search for a buddy</h1>
         <div className="search-input-container">
-          
           <input
             className="search-input"
             name="search"
@@ -71,19 +70,6 @@ const Home = () => {
             <SearchIcon />
           </button>
         </div>
-
-        <div className="chipInput-container">
-        {/* <ChipInput
-          className="chipInput"
-          value={tags}
-          onAdd={handleAdd}
-          onDelete={handleDelete}
-          size="small"
-          label="Search Tags"
-        /> */}
-
-        </div>
-       
       </nav>
 
       <div className="father">
@@ -94,18 +80,16 @@ const Home = () => {
 
           <div className="Form-container">
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-  {/* if we dont have any tags or search query then render pagination */}
-  {!searchQuery && !tags.length && (
+            {/* if we dont have any tags or search query then render pagination */}
+            {!searchQuery && !tags.length && (
               <div className="pag-div">
                 {/* Import Pagination */}
                 <Paginate page={page} />
               </div>
             )}
-       
           </div>
         </div>
       </div>
-       
     </>
   );
 };

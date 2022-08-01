@@ -9,6 +9,7 @@ import {
   START_LOADING,
   END_LOADING,
   COMMENT,
+  ADD_DOG_TREAT
 } from "../constants/actionTypes";
 
 export default (state = { posts: [], isLoading: true }, action) => {
@@ -63,6 +64,11 @@ export default (state = { posts: [], isLoading: true }, action) => {
           post._id === action.payload._id ? action.payload : post
         ),
       };
+      case ADD_DOG_TREAT:
+        return {
+          ...state,
+          posts: state.posts.map((post) =>  (post._id === action.payload._id ? action.payload : post)),
+        };
     case DELETE:
       return {
         ...state,

@@ -165,21 +165,12 @@ export const commentPost = async (req, res) => {
 export const giveTreat = async (req, res) => {
   //get post id
   const { id } = req.params;
-  const {dogTreats} = req.body;
-  const post = await PostMessage.findById(id);
+if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post found with this id: ${id}`)
 
-  console.log(dogTreats)     //equal to whatever I put in req.body in insomnia ex {"dogTreats" : 5}
-  
-//should be default 0 + plus the req.body "5"
-        post.dogTreats + dogTreats;   
+const post = await PostMessage.findById(id)
 
-const updatedPostWithDogTreat= { 
-  dogTreats,
-  _id: id
-}
-  const updatedPost = await PostMessage.findByIdAndUpdate(id, updatedPostWithDogTreat, {
-    new: true,
-  });
-  res.json(updatedPost);
+const updatedPost = await PostMessage.findByIdAndUpdate(id, { dogTreats: post.dogTreats + 1}, { new: true})
+
+res.json(updatedPost)
 };
 export default router;

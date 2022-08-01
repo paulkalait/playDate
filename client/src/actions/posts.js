@@ -1,5 +1,5 @@
 
-import { FETCH_ALL, FETCH_POST, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE, COMMENT } from "../constants/actionTypes.js";
+import { FETCH_ALL, FETCH_POST,ADD_DOG_TREAT, FETCH_BY_SEARCH,START_LOADING, END_LOADING,  CREATE, UPDATE, LIKE, DELETE, COMMENT } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
 
@@ -114,6 +114,19 @@ export const commentPost = (value, id) => async (dispatch) => {
     dispatch({type: COMMENT, payload: data})
 
     return data.comments
+  } catch (error) {
+    console.log(error.response?.data)
+  }
+}
+
+export const addDogTreat = ( id) => async (dispatch) => {
+  try {
+    const { data} = await api.addDogTreat(id)
+
+    console.log({type: ADD_DOG_TREAT, payload: data})
+
+    dispatch({type: ADD_DOG_TREAT, payload: data})
+
   } catch (error) {
     console.log(error.response?.data)
   }

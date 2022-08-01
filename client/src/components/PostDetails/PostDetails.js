@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import PLACEHOLDER from "../../assets/images/placeholder-image.png";
 import { useParams, useHistory } from "react-router-dom";
 import "./style.css";
-import { getPost, getPostBySearch } from "../../actions/posts";
+import { getPost, getPostBySearch ,addDogTreat} from "../../actions/posts";
 import AVATAR from "../../assets/images/account-logo.svg";
 import CommentSection from "../CommentSection/CommentSection";
+import AddTreatModel from "../AddTreatModel/AddTreatModel.js";
 
 const PostDetails = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
+
   // get data from the useSelctor for the posts
   const { posts, post, isLoading } = useSelector((state) => state.posts);
+  const [showModal, setShowModal] = useState(false)
+  const [treat, setTreat] = useState(post?.dogTreats)
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
@@ -20,6 +23,7 @@ const PostDetails = () => {
   useEffect(() => {
     dispatch(getPost(id));
   }, [id, dispatch]);
+
 
   useEffect(() => {
     if (post) {
@@ -38,11 +42,28 @@ const PostDetails = () => {
       </div>
     );
   }
+
+  const handleToggleModal = () => {
+    setShowModal(!showModal)
+  }
+
+  const handleTreat = async () => {
+    const addedTreat = await dispatch(addDogTreat(post._id))
+
+    setShowModal(false)
+    setTreat(addedTreat)
+  }
+
+  
   //current post cant be in recommneded post
   const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
 
   return (
     <div className="post-details-container">
+
+
+ <AddTreatModel show={showModal} close={handleToggleModal} handleTreat={handleTreat} /> 
+
       {/* post details */}
       <div className="post-details-and-comments">
         <div className="post-details">
@@ -50,9 +71,15 @@ const PostDetails = () => {
           <h1>{post.title}</h1>
 
     
-            {moment(post.createdAt).fromNow().includes('an hour ago' || 'seconds') && (
+        <div className="new-post-and-treat-div">
+        {moment(post.createdAt).fromNow().includes('minutes') && (
               <span className="new-post">new post</span>
             )}
+
+            <button value={treat} onClick={handleToggleModal} className="give-a-treat-btn">Give a Treat</button>
+        </div>
+            
+        
       
             
       
@@ -75,7 +102,8 @@ const PostDetails = () => {
         </div>
        
        <div className="comments-section">
-       <CommentSection  post={post} />
+       <CommentSection  post={post}  />
+      
        </div>
        
       </div>
@@ -90,7 +118,7 @@ const PostDetails = () => {
             <br></br>
             <div className="recommended-post">
               {recommendedPosts.map(
-                ({ title, message, name, likes, selectedFile, _id }) => (
+                ({ title, message, name, selectedFile, _id }) => (
                   <div
                     onClick={() => openPost(_id)}
                     key={_id}
