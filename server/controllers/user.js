@@ -2,11 +2,10 @@
 import bcrypt from "bcryptjs";
 //import json web token
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 import User from "../models/user.js";
 
 const secret = 'test'
-
-
 
 
 export const signin = async (req, res) => {
@@ -63,5 +62,34 @@ export const signup = async (req, res) => {
   }
 };
 
+export const getUser = async (req, res) => {
+   const { id } = req.params
 
+   try {
+     const user = await User.findById(id)
 
+     res.json(user)
+   } catch (error) {
+      res.status(404).json({message: error.response})
+     return 
+   }
+}
+
+export const updateUser = async (req, res) => {
+  const { id } = req.params
+  const { name, companion, bio, email, password, userImage } = req.body;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(401).send("no use with this id found")
+  }
+  
+  const updatedUser = { 
+    name, companion, bio, email, password, userImage, _id: id
+  }
+  try{
+    await User.findByIdAndUpdate(id, updatedUser, { new: true});
+    res.json(updatedUser)
+  }catch(error){
+    console.log(error)
+  }
+}

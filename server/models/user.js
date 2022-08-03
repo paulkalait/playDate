@@ -6,6 +6,14 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  companion: {
+    type: String,
+    required: false
+  },
+  bio: { 
+    type: String,
+    required: false
+  },
   email: {
     type: String,
     required: true,
