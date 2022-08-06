@@ -5,7 +5,6 @@ import * as api from "../api/index.js";
 
 //reduc thunk allows an additonal function for async =>   =>
 
-//Action Creators are functions that return an action type and table
 
 //only fetch post for that specific page 
 export const getPosts = (page) => async (dispatch) => {

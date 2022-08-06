@@ -7,6 +7,7 @@ import decode from "jwt-decode";
 import AVATAR from "../../assets/images/account-logo.svg";
 
 const Navbar = () => {
+  
   const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ const Navbar = () => {
     //when location changes...set the user
   }, [location, dispatch]);
 
+  const getProfile = () => {
+    history.push(`/user/${user.id}`)
+  }
   //  <img alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</img>
   return (
     <div className="header-container">
@@ -50,7 +54,7 @@ const Navbar = () => {
           {user ? (
             <div className="login-div">
 
-              <img src={AVATAR} alt="userprofileimage" className="avatar" />
+              <img src={AVATAR} alt="userprofileimage" className="avatar" onClick={getProfile} />
              
              <div className="select">
              <h4>{user.result.name}</h4>

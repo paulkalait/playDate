@@ -28,3 +28,5 @@ export const addDogTreat = (id) => API.patch(`/posts/${id}/treat`)
 export const getUsers = () => API.get('/users')
 export const signin = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
+export const fetchUser = (id) => API.get(`/user/${id}`)
+export const updateUser = (id, updatedUser) => API.put(`/user/${id}`, updatedUser) 

@@ -5,6 +5,7 @@ import React from "react";
 import Home from "./components/Home/Home.js";
 import Auth from "./components/Auth/Auth.js";
 import PostDetails from "./components/PostDetails/PostDetails.js";
+import Profile from "./components/Profile/Profile";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="/posts" exact component={Home} />
           <Route path="/posts/search" exact component={Home} />
           <Route path="/posts/:id" exact component={PostDetails} />
-    
+          
 
 
           {/* dont let a signed in user navigate to the auth component */}
@@ -27,6 +28,11 @@ function App() {
             path="/auth"
             exact
             component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
+          />
+          <Route
+          path="/user/:id"
+          exact
+          component={Profile}
           />
         </Switch>
       </div>
