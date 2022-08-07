@@ -1,10 +1,12 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../../api";
+import './style.css'
 
-const UserProfileForm = ({ userId, show, close , setUserId}) => {
-  const user = useSelector((state) => (userId ? state.user.find((user) => user._id === userId): null))
+const UserProfileForm = ({ userId, show, close, setUserId }) => {
+  const { user } = useSelector((state) => state.user || {});
+  console.log("user", user);
   const dispatch = useDispatch();
   const [userData, setUserData] = useState({
     name: "",
@@ -12,23 +14,33 @@ const UserProfileForm = ({ userId, show, close , setUserId}) => {
     bio: "",
     userImage: "",
   });
-  const userStorage = JSON.parse(localStorage.getItem("profile"));
+  // const userStorage = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
-    if(user) setUserData(user)
-  }, [user, userId])
+    if (user) setUserData(user._id);
+    setUserId(user._id);
+  }, [user, userId, dispatch, setUserId]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    dispatch(updateUser(userId, { ...userData, name: userStorage?.result.name }));
+  const handleSubmit = async () => {
+    try {
+      dispatch(updateUser(userId, { ...userData, username: user.name }));
+      setUserId(user._id);
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
-  if(!show){
-    return null
+  if (!show) {
+    return null;
   }
   return (
+    <div className="model-containers-father">
+
+  
     <div className="model-container-father">
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form autoComplete="off" noValidate onSubmit={handleSubmit} className="userform">
+        <div>
         <h1>Edit Profile</h1>
         <input
           name="name"
@@ -55,19 +67,20 @@ const UserProfileForm = ({ userId, show, close , setUserId}) => {
             type="file"
             multiple={false}
             onDone={({ base64 }) =>
-              setUserData({ ...userData, UserImage: base64 })
+              setUserData({ ...userData, userImage: base64 })
             }
             className="filebase"
           />
-          <button type="submit" className="submit-button">
+        </div>
+        </div>
+        <div className='buttonContainer'>
+        <button type="submit" className="purchase-button">
             Save
           </button>
-          <button onClick={close}>
-            Close
-          </button>
-    
-        </div>
+          <button onClick={close} className='cancel-button'>Close</button>
+          </div>
       </form>
+    </div>
     </div>
   );
 };

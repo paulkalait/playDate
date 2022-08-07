@@ -35,10 +35,9 @@ const Navbar = () => {
     setUser(JSON.parse(localStorage.getItem("profile")));
 
     //when location changes...set the user
-  }, [location, dispatch]);
-
+  }, [location, dispatch, user?.token]);
   const getProfile = () => {
-    history.push(`/user/${user.id}`)
+    history.push(`/user/${user.result._id}`)
   }
   //  <img alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</img>
   return (

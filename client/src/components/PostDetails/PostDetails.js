@@ -11,7 +11,6 @@ import AddTreatModel from "../AddTreatModel/AddTreatModel.js";
 
 const PostDetails = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
-
   // get data from the useSelctor for the posts
   const { posts, post, isLoading } = useSelector((state) => state.posts);
   const [showModal, setShowModal] = useState(false)

@@ -17,6 +17,6 @@ export const updateUser = (id , user ) => async (dispatch) => {
     dispatch({type: UPDATE_USER, payload: data})
 
   } catch (error) {
-    console.log(error)
+    console.log(error?.response.data)
   }
 }

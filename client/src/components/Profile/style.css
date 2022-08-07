@@ -33,3 +33,42 @@
 .username-and-edit-button > h1 {
     margin-right: 3%;
 }
+.user-container{
+    margin-top: 5%;
+}
+.profile-photo{
+    height: 250px;
+    width: 250px;
+    border-radius: 125px;
+    border: 4px solid white;
+    box-shadow: rgba(0, 0, 0, 0.50) 0px 2px 4px;
+    margin-right: 20px;
+}
+.username-and-edit-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.username-and-edit-button > button{ 
+    background: transparent;
+    border: none;
+    height: fit-content;
+
+    transition: .2s ease-in-out;
+
+}
+.username-and-edit-button > button:hover{
+    background-color:rgb(224, 224, 224);
+
+}
+.back-to-home-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.bio{
+ word-break: break-all;
+ width: fit-content;
+
+}
