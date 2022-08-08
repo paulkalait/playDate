@@ -17,14 +17,15 @@ const UserProfileForm = ({ userId, show, close, setUserId }) => {
   // const userStorage = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
-    if (user) setUserData(user._id);
+    if (user) setUserData(user);
     setUserId(user._id);
   }, [user, userId, dispatch, setUserId]);
 
   const handleSubmit = async () => {
+
     try {
       dispatch(updateUser(userId, { ...userData, username: user.name }));
-      setUserId(user._id);
+      
     } catch (error) {
       console.log(error);
     }

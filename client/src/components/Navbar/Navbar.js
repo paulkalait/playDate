@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import decode from "jwt-decode";
+import EditIcon from "@material-ui/icons/Edit";
 import AVATAR from "../../assets/images/account-logo.svg";
 
 const Navbar = () => {
@@ -52,11 +53,25 @@ const Navbar = () => {
         <nav>
           {user ? (
             <div className="login-div">
-
-              <img src={AVATAR} alt="userprofileimage" className="avatar" onClick={getProfile} />
+              
+              <div className="avatar-div">
+              <img src={AVATAR} alt="userprofileimage" className="avatar"/>
+              
              
-             <div className="select">
-             <h4>{user.result.name}</h4>
+             
+             <div className="account">
+
+             <div className="select-account">
+              <div className="absolute-tip-for-account"></div>
+              <div className="edit-account-div" onClick={getProfile}>
+              <h4>{user.result.name}</h4>
+                <button className="edit-icon-container" >
+                  <EditIcon />
+                </button>
+              </div>
+            </div>
+            </div>
+
              </div>
              
               <button className="logout-btn" onClick={logout}>

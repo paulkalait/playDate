@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { Link, useHistory} from 'react-router-dom'
 import UNLOCK from '../../assets/images/lock.svg'
 
+
 const Form = ({ currentId, setCurrentId}) => {
   const history = useHistory()
   const [postData, setPostData] = useState({ title: '', message: '', tags: '', size: '', selectedFile: '' });

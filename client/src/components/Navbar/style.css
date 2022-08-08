@@ -1,74 +1,118 @@
-.header-container{
-    width: 100%;
+.header-container {
+  width: 100%;
 }
 
-header{
-    width: 100%;
-    height: 10%;
-border-bottom: 2px solid;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   border-bottom: .019rem solid rgb(231, 231, 231) ;
+header {
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.019rem solid rgb(231, 231, 231);
 }
-.logo-div{
-width: 200px;
-height: 50px;
-padding: 10px;
-background-image: url('../../../src/assets/images/home-logo.png');
-background-repeat: cover;
-background-size: 100%;
-background-repeat: no-repeat;
+.logo-div {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  background-image: url("../../../src/assets/images/home-logo.png");
+  background-repeat: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .select {
-    border-radius: 15px;
-    padding: 10px;
-    background-color: rgb(248, 248, 248);
-    width: 25%;
-    position: absolute;
-    top: 21%;
-    left: 60%;
-    box-shadow: rgba(149, 157, 165, 0.3) 0px 10px 24px;
-  }
-.login-div {
-    display: flex;
-    align-items: center;
-      position: relative;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: rgb(248, 248, 248);
+  width: 25%;
+  position: absolute;
+  top: 21%;
+  left: 60%;
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 10px 24px;
 }
-.login-div h4{
-    font-size: 1.3rem;
-    font-weight: 900;
+.login-div {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.login-div h4 {
+  font-size: 1.3rem;
+  font-weight: 900;
 }
 img.avatar {
-    height: 30px;
-    width: 30px;
-    margin-right: 3px;
+  height: 30px;
+  width: 30px;
+  margin-right: 3px;
 }
-.logout-btn, .signin-btn {
-    margin-left: 15px;
-    border: .5px solid lightgray;
-    font-size: 1.1rem;
-    padding: 7px 10px 7px 10px;
-    border-radius: 20px;
-    transition: 300ms;
-}
-
-.signin-btn-link{
-    color: black;
-
-    font-size: 1.1rem;
-    text-decoration: none;
-    border-radius: 15px;
-}
-.logout-btn:hover, .signin-btn:hover {
-    border: 1px solid black;
+.logout-btn,
+.signin-btn {
+  margin-left: 15px;
+  border: 0.5px solid lightgray;
+  font-size: 1.1rem;
+  padding: 7px 10px 7px 10px;
+  border-radius: 20px;
+  transition: 300ms;
 }
 
+.signin-btn-link {
+  color: black;
 
-@media screen and (max-width: 1000px){
-    .header-container{
-        width: 100%;
-    }
-    
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 15px;
+}
+.logout-btn:hover,
+.signin-btn:hover {
+  border: 1px solid black;
+}
+
+.select-account {
+  border-radius: 15px;
+  padding: 10px;
+  z-index: 999;
+  background-color: rgb(248, 248, 248);
+  width: 100%;
+  position: absolute;
+  top: 90%;
+  left: -35%;
+  display: none;
+  box-shadow: rgba(149, 157, 165, 0.6) 0px 10px 24px;
+}
+.absolute-tip-for-account {
+  position: absolute;
+  top: 0;
+  right: 61%;
+  border-radius: 2px;
+  /* border: 1px solid blue; */
+  background-color: rgb(248, 248, 248);
+  width: 20px;
+  height: 20px;
+  z-index: 0;
+  transform: rotate(0.13turn);
+}
+.avatar-div:hover .select-account {
+  display: block;
+}
+.edit-account-div {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  width: 100%;
+  cursor: pointer;
+  padding-left: 5%;
+}
+.edit-account-div:hover {
+  width: 100%;
+  z-index: 999;
+  background-color: rgb(231, 231, 231);
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .header-container {
+    width: 100%;
+  }
 }
