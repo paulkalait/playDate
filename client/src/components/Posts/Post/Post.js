@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import DeleteIcon from "@material-ui/icons/DeleteForever";

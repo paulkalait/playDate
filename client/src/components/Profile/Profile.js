@@ -7,14 +7,19 @@ import EditIcon from "@material-ui/icons/Edit";
 import UserProfileForm from "./UserProfileForm/UserProfileForm";
 import AVATAR from "../../assets/images/account-logo.svg";
 import "./style.css";
+import Post from "../Posts/Post/Post";
 
 const Profile = () => {
   const [userId, setUserId] = useState(0);
   const [showEditModal, setShowEditModal] = useState(false);
   const { user } = useSelector((state) => state.user || {});
+  const { posts} = useSelector((state) => state.posts || {})
+  console.log({posts})
   console.log(user);
   const dispatch = useDispatch();
   const { id } = useParams();
+
+
 
   useEffect(() => {
     dispatch(getUser(id));
@@ -26,6 +31,10 @@ const Profile = () => {
   const closeEditForm = () => {
     setShowEditModal(false);
   };
+
+  //get the posts where the id (creator) matches user's Id
+const usersPosts = posts.filter(({creator}) => creator === id )
+console.log(usersPosts)
   return (
     <div className="profile-container">
       <UserProfileForm
@@ -71,6 +80,15 @@ const Profile = () => {
           </div>
           <p className="bio">Bio: {user.bio}</p>
         </div>
+      </div>
+      <div className="usersPosts">
+          {
+            usersPosts.map((post) => (
+              <div key={post._id} className="each-post">
+                <Post post={post} />
+              </div>
+            ))
+          }
       </div>
     </div>
   );
