@@ -19,7 +19,8 @@ const Profile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-
+  //get the posts where the id (creator) matches user's Id
+  const usersPosts = posts.filter(({creator}) => creator === id )
 
   useEffect(() => {
     dispatch(getUser(id));
@@ -32,8 +33,6 @@ const Profile = () => {
     setShowEditModal(false);
   };
 
-  //get the posts where the id (creator) matches user's Id
-const usersPosts = posts.filter(({creator}) => creator === id )
 console.log(usersPosts)
   return (
     <div className="profile-container">

@@ -6,6 +6,7 @@ import Home from "./components/Home/Home.js";
 import Auth from "./components/Auth/Auth.js";
 import PostDetails from "./components/PostDetails/PostDetails.js";
 import Profile from "./components/Profile/Profile";
+import Start from './components/Start/Start.js'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           {/* if localhost:3000/ it will redirect to localhost:3000/posts  */}
           <Route path="/" exact component={() => <Redirect to="/posts" />} />
+          <Route path="/start" exact component={Start} />
           <Route path="/posts" exact component={Home} />
           <Route path="/posts/search" exact component={Home} />
           <Route path="/posts/:id" exact component={PostDetails} />
