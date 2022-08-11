@@ -11,7 +11,6 @@
 .intro{
     min-width: 100vh;
     height: 100vh;
-    border: 1px solid pink;
     scroll-snap-align: start;
 }
 .slide-one, .slide-two{
@@ -22,7 +21,6 @@ flex-direction: row;
 .photo-side{
     width: 50%;
     height: 100%;
-    border: blue solid 1px;
     display: flex;
     align-items: center;
 }
@@ -43,6 +41,17 @@ flex-direction: row;
     margin: 0% !important;
     text-align: left;
     font-size: 4.00rem;
+}
+.play-date-div{
+    display: flex;
+}
+.Date{
+color: #3EC3B5 ;
+border-bottom: .5px solid rgb(168, 168, 168);
+border-top: .5px solid rgb(168, 168, 168);
+}
+.a-site-where{
+    font-size: 1.5rem;
 }
 .slide-two{
     background: linear-gradient(90deg, #ffffff 0%, #d9e4f9 100%);

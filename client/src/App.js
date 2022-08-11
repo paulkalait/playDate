@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <Switch>
           {/* if localhost:3000/ it will redirect to localhost:3000/posts  */}
-          <Route path="/" exact component={() => <Redirect to="/posts" />} />
+          <Route path="/" exact component={() => <Redirect to="/start" />} />
           <Route path="/start" exact component={Start} />
           <Route path="/posts" exact component={Home} />
           <Route path="/posts/search" exact component={Home} />

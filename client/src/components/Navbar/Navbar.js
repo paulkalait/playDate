@@ -45,7 +45,7 @@ const Navbar = () => {
     <div className="header-container">
       <header className="header" component={Link} to="/">
 
-        <Link to="/" >
+        <Link to="/posts" >
         <div className="logo-div"></div>
         </Link>
        

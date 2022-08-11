@@ -74,10 +74,15 @@
   align-items: center;
   align-content: center;
 }
-.user-info-container > h2 {
-  margin-left: 0%;
-}
+.companion-bio > h2 { 
+  margin-left: 0 !important;
 
+}
+.usersPosts {
+  margin-top: 3%;
+  display: flex;
+  overflow-x: scroll;
+}
 @media screen and (max-width: 900px) {
   .user-container {
     flex-direction: column;

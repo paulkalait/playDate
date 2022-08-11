@@ -43,7 +43,7 @@ console.log(usersPosts)
         setUserId={setUserId}
       />
       <div className="back-to-home">
-        <Link to="/">
+        <Link to="/posts">
           <div className="back-to-home-div">
             <ArrowBack style={{ color: "rgb(57, 57, 57)" }} />
             <span className="span">Back to home</span>

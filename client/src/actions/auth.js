@@ -12,7 +12,7 @@ export const signUp = (formData, router) => async (dispatch) => {
     dispatch({ type: AUTH, data });
 
     
-  router.push("/");
+  router.push("/posts");
   } catch (error) {
     console.error("error response",error.response?.data);
   }
@@ -26,7 +26,7 @@ export const signin = (formData, history) => async (dispatch) => {
 
     dispatch({ type: AUTH, data });
  
-  history.push("/");
+  history.push("/posts");
   } catch (error) {
     console.error("error response", error.response?.data);
   }
