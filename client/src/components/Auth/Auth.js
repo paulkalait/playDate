@@ -15,7 +15,8 @@ const Auth = () => {
   const [formData, setFormData] = useState(initialState)
 
   const [isSignup, setIsSignUp] = useState(false);
-
+  const [passwordError, setPasswordError] = useState('')
+  const [passwordLengthError, setPasswordLengthError] = useState('')
   const [showPassword, setShowPassword] = useState(false);
 
   const switchAuth = () => {
@@ -33,11 +34,17 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(formData)
-    if(isSignup){
-      dispatch(signUp(formData, history))
-    }else{
-      dispatch(signin(formData, history))
+    if(formData.confirmPassword !== formData.password){
+      setPasswordError("Passwords must match")
     }
+    if(formData.password.length < 5){
+      setPasswordLengthError("Password must be minimum 5 characters long")
+    }
+      if(isSignup){
+        dispatch(signUp(formData, history))
+      }else{
+        dispatch(signin(formData, history))
+      }
   };
   return (
     <div className=".container">
@@ -88,6 +95,7 @@ const Auth = () => {
               type={showPassword ? "text" : "password"}
               handleShowPassword={handleShowPassword}
             />
+          
             
             {isSignup && (
           
@@ -99,12 +107,26 @@ const Auth = () => {
                 type="password"
               />
             )}
+            {passwordError.length > 0  &&
+            (
+              <div className="password-error-container">
+                 <span className="password-error">Passwords must match!</span>
+              </div>
+             
+  )}{passwordLengthError.length > 0  &&
+    (
+      <div className="password-error-container">
+         <span className="password-error">Password must be minimum 5 characters long</span>
+      </div>
+     
+)}
           </div>
+       
 
           <div className="auth-form-button-containers">
             <span className="span-container">
               {isSignup ? "Already Have an account?" : "Dont Have an Account?"}
-              <button onClick={switchAuth} id="dont-have-account-btn" className="">
+              <button onClick={switchAuth} id="dont-have-account-btn" >
               {" "}
               {isSignup ? "Sign In" : " Sign Up"}{" "}
             </button>

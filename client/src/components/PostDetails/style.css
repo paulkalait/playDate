@@ -80,6 +80,12 @@ margin-left: 5px;
     border-radius: 15PX;
     border-bottom: 1px dashed rgb(232, 232, 232);
 }
+.postdetail-username-div > h2 {
+    cursor: pointer;
+
+}.postdetail-username-div > h2:hover{
+   text-decoration: underline;
+}
 .postdetail-title-div{
     margin-left: 3%;
 }
@@ -200,7 +206,7 @@ h5 {
     }
 
     .each-recommended-post{
-        width:fit-content;
+        min-width: 50%;
     }
     .post-image{
         width: 100%;

@@ -13,6 +13,7 @@ const PostDetails = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
   // get data from the useSelctor for the posts
   const { posts, post, isLoading } = useSelector((state) => state.posts);
+ 
   const [showModal, setShowModal] = useState(false)
   const [treat, setTreat] = useState(post?.dogTreats)
   const dispatch = useDispatch();
@@ -57,6 +58,9 @@ const PostDetails = () => {
   //current post cant be in recommneded post
   const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
 
+  const getProfile = () => { 
+    history.push(`/user/${post.creator}`)
+  }
   return (
     <div className="post-details-container">
 
@@ -85,7 +89,11 @@ const PostDetails = () => {
         </div>
 
         <div className="postdetail-username-div">
-          <h2>{post.name}</h2>
+          
+
+          <h2 onClick={getProfile}>{post.name}</h2>
+          
+         
           <h3 className="time">{moment(post.createdAt).fromNow()}</h3>
         </div>
 
