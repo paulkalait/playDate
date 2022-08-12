@@ -1,22 +1,18 @@
-*{
-    font-family: 'PT Sans', sans-serif;
+* {
+  font-family: "PT Sans", sans-serif;
 }
-.app-div{
-width: 100%;
+.app-div {
+  width: 100%;
 }
-.date{
-    color: rgb(202, 172, 156);
+.date {
+  color: rgb(202, 172, 156);
 }
-header img{ 
-    z-index: 999;
- height: 80px;
- width: 80px;
- border-radius: 50%;
+header img {
+  z-index: 999;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
-header h1{
-    margin-left: 1%;
+header h1 {
+  margin-left: 1%;
 }
-
-
-
-

@@ -12,6 +12,5 @@ export const COMMENT = 'COMMENT'
 export const ADD_DOG_TREAT = 'ADD_DOG_TREAT'
 export const END_LOADING = 'END_LOADING'
 export const UPDATE_USER = 'UPDATE_USER'
-
 //user action type
 export const FETCH_USER = "FETCH_USER"

@@ -1,30 +1,45 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 import Filebase from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
-import { useSelector } from 'react-redux'
-import { Link, useHistory} from 'react-router-dom'
-import UNLOCK from '../../assets/images/lock.svg'
+import { useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import UNLOCK from "../../assets/images/lock.svg";
 
-
-const Form = ({ currentId, setCurrentId}) => {
-  const history = useHistory()
-  const [postData, setPostData] = useState({ title: '', message: '', tags: '', size: '', selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
+const Form = ({ currentId, setCurrentId }) => {
+  const history = useHistory();
+  const [postData, setPostData] = useState({
+    title: "",
+    message: "",
+    tags: "",
+    size: "",
+    selectedFile: "",
+  });
+  const post = useSelector((state) =>
+    currentId
+      ? state.posts.posts.find((message) => message._id === currentId)
+      : null
+  );
   const dispatch = useDispatch();
 
   //retrieve from local storage in JS data structure
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
     if (post) setPostData(post);
   }, [post, currentId]);
 
   const clear = () => {
-    console.log('cleared')
+    console.log("cleared");
     setCurrentId(0);
-    setPostData({ title: '', message: '', tags: '', size: '', selectedFile: '' });
+    setPostData({
+      title: "",
+      message: "",
+      tags: "",
+      size: "",
+      selectedFile: "",
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -32,32 +47,39 @@ const Form = ({ currentId, setCurrentId}) => {
 
     if (currentId === 0) {
       dispatch(createPost({ ...postData, name: user?.result?.name }, history));
-    
     } else {
-      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
-     
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.result?.name })
+      );
     }
     clear();
   };
-  
-  if(!user?.result?.name){
-    return(
+
+  if (!user?.result?.name) {
+    return (
       <div className="please-sign-in-div">
-      <h1> Please <span><Link to='/auth' className="sign-in-link">Sign in</Link></span> to create and like a post</h1>
-      <div className="sign-in-image-container">
-      <img src={UNLOCK} alt="sign in to join" className="sign-in-image" />
+        <h1>
+          {" "}
+          Please{" "}
+          <span>
+            <Link to="/auth" className="sign-in-link">
+              Sign in
+            </Link>
+          </span>{" "}
+          to create and like a post
+        </h1>
+        <div className="sign-in-image-container">
+          <img src={UNLOCK} alt="sign in to join" className="sign-in-image" />
+        </div>
       </div>
-      </div>
-    )
+    );
   }
   return (
-// got rid of the onSubmit handler on the form tag
+    // got rid of the onSubmit handler on the form tag
     <div className="formContainer">
-    
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-        <h1>{currentId ? 'Edit Post of' : 'Post your'} Companion</h1>{" "}
+        <h1>{currentId ? "Edit Post of" : "Post your"} Companion</h1>{" "}
         {/* use spread operator to only affect name in this field*/}
-  
         <input
           name="title"
           variant="outlined"
@@ -68,16 +90,17 @@ const Form = ({ currentId, setCurrentId}) => {
         <input
           name="tags"
           variant="outlined"
-          placeholder="Tags"
+          placeholder="Tags (Seperate with Coma)"
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',')})}
+          onChange={(e) =>
+            setPostData({ ...postData, tags: e.target.value.split(",") })
+          }
         />
-        
         <select
           value={postData.size}
           onChange={(e) => setPostData({ ...postData, size: e.target.value })}
         >
-        <option>select size</option>
+          <option>select size</option>
           <option>small</option>
           <option>medium</option>
           <option>large</option>
@@ -103,13 +126,14 @@ const Form = ({ currentId, setCurrentId}) => {
           />
         </div>
         <div className="buttonContainer">
-          <button className="submit-button" type="submit">Submit</button>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
           <button className="clear-button" type="reset" onClick={clear}>
             Clear
-       </button>
+          </button>
         </div>
       </form>
-     
     </div>
   );
 };

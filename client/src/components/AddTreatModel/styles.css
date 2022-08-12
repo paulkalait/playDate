@@ -1,72 +1,71 @@
-.model-container-father{
-    width: 450px;
-    height: 550px;
-    position: absolute;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    border: 1px solid ;
-    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
-    border-radius: 15px;
+.model-container-father {
+  width: 450px;
+  height: 550px;
+  position: absolute;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+  border-radius: 15px;
 }
 
-.model-container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+.model-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.model-header-div{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: baseline;
+.model-header-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: baseline;
 }
-.model-container > h1{
-    text-align: center;
-    font-size: 2.2rem;
+.model-container > h1 {
+  text-align: center;
+  font-size: 2.2rem;
 }
-.treat{
-    margin-left: 5px;
-    color: rgb(62, 195, 181) 
+.treat {
+  margin-left: 5px;
+  color: rgb(62, 195, 181);
 }
-.model-container > span{ 
-    color: blue !important;
+.model-container > span {
+  color: blue !important;
 }
-.buttonContainer{
-    flex-direction: column;
-   align-items: center;
-   width: 100%;
+.buttonContainer {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-button.purchase-button, button.cancel-button{
-    width: 98%;
-    height: 40px;
-    border: none;
-    font-size: 1.3rem ;
-    font-weight: bolder;
-    color: rgb(70, 70, 70);
-    border: 2px solid black;
-    transition: 200ms;
+button.purchase-button,
+button.cancel-button {
+  width: 98%;
+  height: 40px;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: rgb(70, 70, 70);
+  border: 2px solid black;
+  transition: 200ms;
 }
-button.purchase-button{
-    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+button.purchase-button {
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 }
-button.purchase-button:hover{
-    transform: translateY(-5px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+button.purchase-button:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-button.cancel-button:hover{
-    transform: translateY(-5px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+button.cancel-button:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-@media  screen and (max-width: 800px) {
-    .model-container-father{
-        top: 90%;
-        left: 4%;
-    }
-    
+@media screen and (max-width: 800px) {
+  .model-container-father {
+    top: 90%;
+    left: 4%;
+  }
 }
