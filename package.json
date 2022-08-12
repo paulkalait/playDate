@@ -1,5 +1,5 @@
 {
-  "name": "memories-project",
+  "name": "playDate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulkalait/memories-project.git"
+    "url": "git+https://github.com/paulkalait/playDate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/paulkalait/memories-project/issues"
+    "url": "https://github.com/paulkalait/playDate/issues"
   },
-  "homepage": "https://github.com/paulkalait/memories-project#readme",
+  "homepage": "https://github.com/paulkalait/playDate#readme",
   "dependencies": {
     "concurrently": "^7.2.2",
     "react-redux": "^8.0.2",
