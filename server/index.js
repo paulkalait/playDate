@@ -26,6 +26,7 @@ app.use("/user", userRoutes);
 //host data base through the cloud
 const PORT = process.env.PORT || 3001;
 
+
 mongoose
   .connect(
     "mongodb+srv://memories:memories@cluster0.ruxvc.mongodb.net/?retryWrites=true&w=majority"
