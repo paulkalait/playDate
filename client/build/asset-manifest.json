@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.38cfc025.css",
+    "main.js": "/static/js/main.648cd5ca.js",
+    "static/media/home-logo.png": "/static/media/home-logo.87d2bc1cecb34af81a46.png",
+    "static/media/Social.svg": "/static/media/Social.392fc2851d4dc40e2364505df0799629.svg",
+    "static/media/doglogo.png": "/static/media/doglogo.a606dc7219ba9be4c5d6.png",
+    "static/media/comment.svg": "/static/media/comment.59bbb7140ea640ba908474bb7dc66110.svg",
+    "static/media/background.svg": "/static/media/background.a5fde0b1d74a6109dd7b.svg",
+    "static/media/relaxing-dog-walk.svg": "/static/media/relaxing-dog-walk.174f7ee0ce56e7a75e38dff06e77cc3e.svg",
+    "static/media/auth-login-walking.svg": "/static/media/auth-login-walking.ca1e031dbacb64411479b498a14a0ada.svg",
+    "static/media/giveTreat.svg": "/static/media/giveTreat.8d220716e40e698f571405349b45646c.svg",
+    "static/media/lock.svg": "/static/media/lock.df2355446d3c5f8c9846eb3e9aa3f3e2.svg",
+    "static/media/account-logo.svg": "/static/media/account-logo.a37abdff661249c1daf11ba903674705.svg",
+    "index.html": "/index.html",
+    "main.38cfc025.css.map": "/static/css/main.38cfc025.css.map",
+    "main.648cd5ca.js.map": "/static/js/main.648cd5ca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38cfc025.css",
+    "static/js/main.648cd5ca.js"
+  ]
+}
