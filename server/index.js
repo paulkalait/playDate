@@ -7,7 +7,7 @@ import cors from "cors";
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
 //call dotenv
-dotenv.config();
+dotenv.config({path: '/.env'});
 console.log(process.env.MONGODB_URI)
 //initialize this app
 const app = express();
