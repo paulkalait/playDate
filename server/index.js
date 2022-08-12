@@ -49,7 +49,7 @@ const PORT = process.env.PORT || 3001;
 
 mongoose
   .connect(
-    "mongodb+srv://memories:memories@cluster0.ruxvc.mongodb.net/?retryWrites=true&w=majority"
+    process.env.MONGODB_URI
   )
   .then(() =>
     app.listen(PORT, () => console.log(`server is running on port: ${PORT}`))
