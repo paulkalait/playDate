@@ -37,9 +37,9 @@ app.get('*', (request, response) => {
   response.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 
 //host data base through the cloud
@@ -47,7 +47,7 @@ const PORT = process.env.PORT || 3001;
 
 mongoose
   .connect(
-"mongodb+srv://memories:memories@cluster0.ruxvc.mongodb.net/?retryWrites=true&w=majority"
+process.env.MONGODB_URI
   )
   .then(() =>
     app.listen(PORT, () => console.log(`server is running on port: ${PORT}`))
