@@ -27,5 +27,8 @@
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "temp-dir": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.2"
   }
 }
