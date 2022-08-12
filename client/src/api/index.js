@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://playdate-mern-app.herokuapp.com" });
+const API = axios.create({ baseURL: "https://playdate-mern-app.herokuapp.com/" });
 
 // a function on each request. gets a request as first param to check if we are logged in
 //
