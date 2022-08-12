@@ -23,10 +23,13 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
-app.get('/', (req, res) => {
-  res.send('APP IS RUNNING')
-})
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 
 //host data base through the cloud
