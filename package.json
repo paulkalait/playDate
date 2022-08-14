@@ -2,7 +2,8 @@
   "name": "play-date",
   "version": "1.0.0",
   "engines": {
-    "node": "16.x"
+    "node": "16.x",
+    "npm": "8.11.0"
   },
   "description": "",
   "main": "index.js",
