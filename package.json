@@ -8,6 +8,7 @@
     "npm": "<=6.x.x"
   },
   "scripts": {
+    "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
     "install": "cd server && npm i && cd ../client && npm i ",
