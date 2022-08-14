@@ -41,6 +41,7 @@ console.log(usersPosts)
         close={closeEditForm}
         userId={userId}
         setUserId={setUserId}
+  
       />
       <div className="back-to-home">
         <Link to="/posts">

@@ -21,11 +21,10 @@ const UserProfileForm = ({ userId, show, close, setUserId }) => {
     setUserId(user._id);
   }, [user, userId, dispatch, setUserId]);
 
-  const handleSubmit = async () => {
-
+  const handleSubmit = async (e) => {
+e.preventDefault()
     try {
       dispatch(updateUser(userId, { ...userData, username: user.name }));
-      
     } catch (error) {
       console.log(error);
     }
@@ -75,7 +74,7 @@ const UserProfileForm = ({ userId, show, close, setUserId }) => {
         </div>
         </div>
         <div className='buttonContainer'>
-        <button type="submit" className="purchase-button">
+        <button type="submit" className="purchase-button" >
             Save
           </button>
           <button onClick={close} className='cancel-button'>Close</button>
