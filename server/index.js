@@ -47,6 +47,8 @@ app.get('/', (req, res) => {
 });
 
 
+//  web: npm run start
+
 //host data base through the cloud
 const PORT = process.env.PORT || 3001;
 
