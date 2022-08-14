@@ -10,9 +10,9 @@
   "scripts": {
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js",
+    "start": "cd server && node index.js",
     "install": "cd server && npm i && cd ../client && npm i ",
-    "develop":  "concurrently \"node server/index.js\" \"cd client && npm start\""
+    "develop":  "concurrently \"cd server && npm start\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",

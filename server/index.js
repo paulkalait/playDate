@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 //routes
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
+import { rmSync } from 'fs';
 dotenv.config()
 console.log(process.env.MONGODB_URI)
 const __filename = fileURLToPath(import.meta.url);
@@ -39,12 +40,20 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, '../client/build/index.html'));
+  response.sendFile(path.join(__dirname, '../client/build/index.html'), function(err){
+    if(err){
+      res.send(500).send(err)
+    }
+  });
 });
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '../client/build/index.html'), function(err){
+    if(err){
+      res.status(500).send(err)
+    }
+  });
 });
 
 
