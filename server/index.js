@@ -1,20 +1,20 @@
+import * as dotenv from 'dotenv'
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cors from "cors";
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 //routes
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
-
+dotenv.config()
+console.log(process.env.MONGODB_URI)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //call dotenv
-dotenv.config({path: '/.env'});
-console.log(process.env.MONGODB_URI)
+
 //initialize this app
 const app = express();
 

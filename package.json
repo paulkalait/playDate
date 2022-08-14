@@ -9,8 +9,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"node server/index.js\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i "
+    "start": "node server/index.js",
+    "install": "cd server && npm i && cd ../client && npm i ",
+    "develop":  "concurrently \"node server/index.js\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
