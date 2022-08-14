@@ -1,23 +1,33 @@
 {
   "files": {
-    "main.css": "/static/css/main.38cfc025.css",
-    "main.js": "/static/js/main.c73fbb18.js",
-    "static/media/home-logo.png": "/static/media/home-logo.87d2bc1cecb34af81a46.png",
-    "static/media/Social.svg": "/static/media/Social.392fc2851d4dc40e2364505df0799629.svg",
-    "static/media/doglogo.png": "/static/media/doglogo.a606dc7219ba9be4c5d6.png",
-    "static/media/comment.svg": "/static/media/comment.59bbb7140ea640ba908474bb7dc66110.svg",
-    "static/media/background.svg": "/static/media/background.a5fde0b1d74a6109dd7b.svg",
-    "static/media/relaxing-dog-walk.svg": "/static/media/relaxing-dog-walk.174f7ee0ce56e7a75e38dff06e77cc3e.svg",
-    "static/media/auth-login-walking.svg": "/static/media/auth-login-walking.ca1e031dbacb64411479b498a14a0ada.svg",
-    "static/media/giveTreat.svg": "/static/media/giveTreat.8d220716e40e698f571405349b45646c.svg",
-    "static/media/lock.svg": "/static/media/lock.df2355446d3c5f8c9846eb3e9aa3f3e2.svg",
-    "static/media/account-logo.svg": "/static/media/account-logo.a37abdff661249c1daf11ba903674705.svg",
+    "main.css": "/static/css/main.5a35fb80.chunk.css",
+    "main.js": "/static/js/main.092eafe4.chunk.js",
+    "main.js.map": "/static/js/main.092eafe4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.81534a39.js",
+    "runtime-main.js.map": "/static/js/runtime-main.81534a39.js.map",
+    "static/js/2.fd5d1015.chunk.js": "/static/js/2.fd5d1015.chunk.js",
+    "static/js/2.fd5d1015.chunk.js.map": "/static/js/2.fd5d1015.chunk.js.map",
     "index.html": "/index.html",
-    "main.38cfc025.css.map": "/static/css/main.38cfc025.css.map",
-    "main.c73fbb18.js.map": "/static/js/main.c73fbb18.js.map"
+    "precache-manifest.456871a0b89e8fd3328b1268d8769603.js": "/precache-manifest.456871a0b89e8fd3328b1268d8769603.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5a35fb80.chunk.css.map": "/static/css/main.5a35fb80.chunk.css.map",
+    "static/js/2.fd5d1015.chunk.js.LICENSE.txt": "/static/js/2.fd5d1015.chunk.js.LICENSE.txt",
+    "static/js/main.092eafe4.chunk.js.LICENSE.txt": "/static/js/main.092eafe4.chunk.js.LICENSE.txt",
+    "static/media/Social.svg": "/static/media/Social.1e1f89f5.svg",
+    "static/media/account-logo.svg": "/static/media/account-logo.895853c2.svg",
+    "static/media/auth-login-walking.svg": "/static/media/auth-login-walking.60e40e03.svg",
+    "static/media/styles.css": "/static/media/background.7d5397ec.svg",
+    "static/media/comment.svg": "/static/media/comment.aa0ec174.svg",
+    "static/media/doglogo.png": "/static/media/doglogo.014361bd.png",
+    "static/media/giveTreat.svg": "/static/media/giveTreat.08aab0b4.svg",
+    "static/media/style.css": "/static/media/home-logo.2ff7b68b.png",
+    "static/media/lock.svg": "/static/media/lock.d29fc147.svg",
+    "static/media/relaxing-dog-walk.svg": "/static/media/relaxing-dog-walk.2d1aaf78.svg"
   },
   "entrypoints": [
-    "static/css/main.38cfc025.css",
-    "static/js/main.c73fbb18.js"
+    "static/js/runtime-main.81534a39.js",
+    "static/js/2.fd5d1015.chunk.js",
+    "static/css/main.5a35fb80.chunk.css",
+    "static/js/main.092eafe4.chunk.js"
   ]
 }
