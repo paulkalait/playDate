@@ -9,6 +9,7 @@ import UNLOCK from "../../assets/images/lock.svg";
 
 const Form = ({ currentId, setCurrentId }) => {
   const history = useHistory();
+  const [errorMessage, setErrorMessage] = useState("")
   const [postData, setPostData] = useState({
     title: "",
     message: "",
@@ -31,7 +32,6 @@ const Form = ({ currentId, setCurrentId }) => {
   }, [post, currentId]);
 
   const clear = () => {
-    console.log("cleared");
     setCurrentId(0);
     setPostData({
       title: "",
@@ -54,6 +54,14 @@ const Form = ({ currentId, setCurrentId }) => {
     }
     clear();
   };
+
+  const handleChange = (e) => {
+    if(!e.target.value.length){
+      setErrorMessage(`${e.target.name} required`)
+    }else{
+      setErrorMessage("")
+    }
+  }
 
   if (!user?.result?.name) {
     return (
@@ -86,21 +94,23 @@ const Form = ({ currentId, setCurrentId }) => {
           placeholder="Title"
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
+          onBlur={handleChange}
         />
         <input
           name="tags"
           variant="outlined"
-          placeholder="Tags (Seperate with Coma)"
+          placeholder="Tags (seperate with comma)"
           value={postData.tags}
           onChange={(e) =>
             setPostData({ ...postData, tags: e.target.value.split(",") })
           }
+          onBlur={handleChange}
         />
         <select
           value={postData.size}
           onChange={(e) => setPostData({ ...postData, size: e.target.value })}
         >
-          <option>select size</option>
+          <option>Dog Size</option>
           <option>small</option>
           <option>medium</option>
           <option>large</option>
@@ -114,6 +124,7 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
+          onBlur={handleChange}
         />
         <div className="input-file">
           <Filebase
@@ -125,6 +136,14 @@ const Form = ({ currentId, setCurrentId }) => {
             className="filebase"
           />
         </div>
+
+            {errorMessage.length > 0 && (
+               <div className="password-error-container">
+                 <span className="password-error">{errorMessage}</span>
+       </div>
+            )}
+       
+
         <div className="buttonContainer">
           <button className="submit-button" type="submit">
             Submit

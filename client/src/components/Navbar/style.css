@@ -53,17 +53,17 @@ img.avatar {
   padding: 7px 10px 7px 10px;
   border-radius: 20px;
   transition: 300ms;
+  color: rgb(38, 38, 38);
 }
 
 .signin-btn-link {
   color: black;
-
   font-size: 1.1rem;
   text-decoration: none;
   border-radius: 15px;
 }
 .logout-btn:hover,
-.signin-btn:hover {
+.signin-btn:hover{
   border: 1px solid black;
 }
 

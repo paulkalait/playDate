@@ -3,15 +3,15 @@ import React from "react";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-const Input = ({ name, label, type, placeholder, handleShowPassword, handleChange }) => {
+const Input = ({ name,   autocomplete, label, type, placeholder, handleShowPassword, handleChange }) => {
   return (
     <div>
       <input
         name={name}
         onChange={handleChange}
         required
+        autocomplete
         placeholder={placeholder}
-        autoFocus
         label={label}
         type={type}
         inputprops={

@@ -111,12 +111,9 @@ border: none;
 /* error styling */
 .password-error{
   margin-left: 2%;
-margin-top: 2%;
-  border: 1.5px solid red;
+  margin-top: 2%;
   padding: 3px;
-  color: black;
-  background-color: rgba(248, 4, 4, 0.4);
-  border-radius: 10px;
+  color: red;
 }
 
 @media screen and (max-width: 900px) {

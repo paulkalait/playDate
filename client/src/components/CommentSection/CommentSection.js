@@ -32,9 +32,9 @@ const CommentSection = ({ post }) => {
   return (
     <div>
       <div className="comments-container">
-        <div className={comment ? "comments-content" : 'no-comments'} >
+        <div className={comments ? "comments-content" : 'no-comments'} >
           <h3>Comments</h3>
-          {comment ?  comments.map((c, i) => (
+          {comments.length ?  comments.map((c, i) => (
             <span className="comment-and-user-container">
               {" "}
               <span className="user-comment">{c.split(": ")[0]}</span>
@@ -43,7 +43,7 @@ const CommentSection = ({ post }) => {
               </div>
               
             </span>
-          )) : <div className="no-comments-container"><img className="comment-photo" src={COMMENTPHOTO} />     <p>No Comments {user ? ' be the first to leave a comment!' : 'please sign in to leave a comment' }</p></div>}
+          )) : <div className="no-comments-container"><img className="comment-photo" src={COMMENTPHOTO} />     <p>No comments yet..{user ? ' be the first to leave a comment!' : 'please sign in to leave a comment' }</p></div>}
          
           <div ref={commentsRef} />
         </div>

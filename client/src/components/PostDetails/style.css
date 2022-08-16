@@ -13,30 +13,31 @@ p {
   font-family: "PT Sans", sans-serif;
   color: rgb(95, 95, 95);
 }
-h2 {
-  height: 10px;
-}
 
 .time {
   margin-right: 3%;
 }
-.new-post-and-treat-div {
+.treat-div {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-right: 3%;
   width: 50%;
 }
-.new-post {
-  background-color: rgb(152, 237, 152, 0.6);
+.treat-value {
+  background-color: rgba(247, 192, 40, 0.6);
   padding: 5px;
   border-radius: 10px;
-  color: rgb(1, 73, 1);
+  color: black;
   margin-right: 3%;
+  font-size: 1rem;
 }
 .give-a-treat-btn {
   background-color: rgb(128, 1, 128, 0.3);
+  color: black;
   padding: 5px;
   border: none;
+  font-size: 1rem;
   cursor: pointer;
   border-radius: 10px;
   transition: 200ms;
@@ -56,9 +57,6 @@ h2 {
   /* min-height: 400px; */
   justify-content: start;
   margin-left: 5px;
-
-  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
-  /* background-color: white; */
 }
 .post-details {
   width: 100%;
@@ -71,6 +69,10 @@ h2 {
 
   margin-top: 2%;
 }
+.circle-loading{
+  display: flex;
+  justify-content: center;
+}
 .postdetail-username-div,
 .postdetail-description-div,
 .postdetail-title-div {
@@ -80,6 +82,7 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   margin: 5px;
+  padding: 5px;
   border-radius: 15px;
   border-bottom: 1px dashed rgb(232, 232, 232);
 }
@@ -106,9 +109,7 @@ h2 {
   margin-right: 30px;
   background: white;
 }
-.tag-div {
-  margin-top: 1%;
-}
+
 #postImage {
   background: white;
   width: 100%;
@@ -132,25 +133,20 @@ h2 {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-
   white-space: nowrap;
   flex-wrap: wrap;
   flex-direction: column;
-  /* flex-direction: column; */
 }
 
 .each-recommended-post {
-  width: 50%;
   background: white;
-  /* min-height: 100px; */
+  justify-content: space-between;
   height: 97%;
   width: 50%;
   margin: 3px;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  border: #e3d5ca 2px solid;
-  /* min-height: 100px; */
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition: 300ms ease-in-out;
 }

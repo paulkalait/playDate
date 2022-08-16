@@ -13,8 +13,8 @@ export const getUser = (id) => async (dispatch) => {
 export const updateUser = (id, user) => async (dispatch) => {
   try {
     const { data } = await api.updateUser(id, user);
-    console.log("updated User");
     dispatch({ type: UPDATE_USER, payload: data });
+    console.log("updated User");
   } catch (error) {
     console.log(error?.response.data);
   }

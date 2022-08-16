@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../actions/user";
+import { getUser, updateUser } from "../../actions/user";
 import { Link, useParams } from "react-router-dom";
 import ArrowBack from "@material-ui/icons/ArrowBackIos";
 import EditIcon from "@material-ui/icons/Edit";
@@ -13,12 +13,13 @@ const Profile = () => {
   const [userId, setUserId] = useState(0);
   const [showEditModal, setShowEditModal] = useState(false);
   const { user } = useSelector((state) => state.user || {});
+  const loggedInUser = JSON.parse(localStorage.getItem("profile"));
   const { posts} = useSelector((state) => state.posts || {})
-  console.log({posts})
-  console.log(user);
   const dispatch = useDispatch();
   const { id } = useParams();
 
+  console.log(loggedInUser)
+  console.log(user)
   //get the posts where the id (creator) matches user's Id
   const usersPosts = posts.filter(({creator}) => creator === id )
 
@@ -41,13 +42,14 @@ console.log(usersPosts)
         close={closeEditForm}
         userId={userId}
         setUserId={setUserId}
+
   
       />
       <div className="back-to-home">
         <Link to="/posts">
           <div className="back-to-home-div">
-            <ArrowBack style={{ color: "rgb(57, 57, 57)" }} />
-            <span className="span">Back to home</span>
+         
+            <span className="span">    <ArrowBack style={{ color: "rgb(57, 57, 57)" }} /> Back to home</span>
           </div>
         </Link>
       </div>
@@ -70,15 +72,18 @@ console.log(usersPosts)
         <div className="user-info-container">
           <div className="username-and-edit-button">
             <h1>{user.name}</h1>
-            <button onClick={openEditForm}>
-              <EditIcon />
-            </button>
+            {loggedInUser?.result?._id === user?._id && (
+  <button onClick={openEditForm}>
+  <EditIcon />
+</button>
+            )}
+          
           </div>
 
           <div className="companion-bio">
-            <h2>Companion {user.companion}</h2>
+            <h2>Pet Name: {user.companion}</h2>
           </div>
-          <p className="bio">Bio: {user.bio}</p>
+          <p className="bio"><span>Bio:</span> {user.bio}</p>
         </div>
       </div>
       <div className="usersPosts">

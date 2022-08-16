@@ -69,18 +69,19 @@
 .write-comment-div button{
     margin-left: 3%;
     margin-bottom: 2%;
+    border: none;
     padding: 5px 8px 5px 8px;
     background: transparent;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
     border-radius: 20px;
     transition: .4s ease-in-out;
+    color: rgb(72, 136, 115);
+    font-weight: bolder;
+    background-color: aquamarine;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 3px 4px;
 }
 .write-comment-div button:hover{
-    background-color: aquamarine;
-    font-weight: bolder;
     box-shadow: none;
-    color: rgb(72, 136, 115);
 }
 
 .no-comments-container{
@@ -96,3 +97,15 @@
 
 }
 
+@media screen and (max-width: 1000px) {
+    .write-comment-div button{
+        width: 98%;
+        margin-left: 5px;
+    }
+    .write-comment-div button:hover{
+        background-color: aquamarine;
+        font-weight: bolder;
+        box-shadow: none;
+        color: rgb(72, 136, 115);
+    }
+}

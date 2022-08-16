@@ -36,7 +36,7 @@ const PostDetails = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className="circle-loading">
         <CircularProgress size="3rem" />
       </div>
     );
@@ -73,9 +73,15 @@ const PostDetails = () => {
           <div className="postdetail-title-div">
             <h1>{post.title}</h1>
 
-            <div className="new-post-and-treat-div">
+            <div className="treat-div">
               {moment(post.createdAt).fromNow().includes("minutes") && (
                 <span className="new-post">new post</span>
+              )}
+
+              {post.dogTreats > 0 && (
+                <span className="treat-value">
+                  {post.dogTreats} {post.dogTreats > 1 ? `Treats` : `Treat`}{" "}
+                </span>
               )}
 
               <button
@@ -112,14 +118,14 @@ const PostDetails = () => {
       {/* post image*/}
       <div className="post-image">
         <img src={post.selectedFile} alt="postImage" id="postImage" />
-        {recommendedPosts && <h5>You might also like..</h5> } 
+        {!!recommendedPosts.length && <h5>You might also like..</h5>}
         {console.log(recommendedPosts)}
         {!!recommendedPosts.length && (
           <div className="recommended-post-container">
             <br></br>
             <div className="recommended-post">
               {recommendedPosts.map(
-                ({ title, message, name, selectedFile, _id }) => (
+                ({ title, selectedFile, _id }) => (
                   <div
                     onClick={() => openPost(_id)}
                     key={_id}
@@ -143,14 +149,8 @@ const PostDetails = () => {
                         {moment(post.createdAt).fromNow()}
                       </h5>
                     </div>
-                    <img
-                      src={selectedFile}
-                      alt="recommndedposttitle"
-                      id="recommended-image"
-                    />
+                    <img src={selectedFile} alt="recommndedposttitle" />
                     <h2>{title}</h2>
-                    <h2>{name}</h2>
-                    <p>{message}</p>
                   </div>
                 )
               )}

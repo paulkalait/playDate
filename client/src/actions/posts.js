@@ -10,6 +10,7 @@ import {
   LIKE,
   DELETE,
   COMMENT,
+  FETCH_USER,
 } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../../api";
+import { fetchUser, updateUser } from "../../../api";
 import './style.css'
 
 const UserProfileForm = ({ userId, show, close, setUserId }) => {
@@ -28,7 +28,7 @@ e.preventDefault()
     } catch (error) {
       console.log(error);
     }
-    
+    close()
   };
 
   if (!show) {

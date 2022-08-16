@@ -24,11 +24,10 @@
   font-family: "PT Sans", sans-serif;
   font-weight: 800;
   font-size: 1rem;
-}
-.username-and-edit-button {
   display: flex;
   align-items: center;
 }
+
 .username-and-edit-button > h1 {
   margin-right: 3%;
 }
@@ -52,6 +51,7 @@
   background: transparent;
   border: none;
   height: fit-content;
+  color: rgb(50, 50, 50);
 
   transition: 0.2s ease-in-out;
 }
@@ -62,12 +62,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 5px;
 }
 .bio {
-  margin-top: 20%;
+  margin-top: 3%;
   word-break: break-all;
   width: fit-content;
+  padding: 5px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  margin-left: 0 !important;
+}
+.bio > span{
+  font-weight: bolder;
 }
 .companion-bio {
   display: flex;
@@ -90,7 +96,7 @@
   .user-info-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
   }
   .user-info-container > h2 {
     margin-left: 0%;

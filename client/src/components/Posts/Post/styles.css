@@ -102,7 +102,7 @@ img {
   color: rgb(130, 130, 130);
 }
 .more {
-  z-index: 999;
+  z-index: 2;
   position: absolute;
   background: transparent;
   color: white;
@@ -232,7 +232,7 @@ button.thumbs-up {
     left: 70%;
   }
   .more {
-    left: 90%;
+    left: 85%;
   }
   img {
     height: 350px;
