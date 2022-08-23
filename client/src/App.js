@@ -7,6 +7,7 @@ import Auth from "./components/Auth/Auth.js";
 import PostDetails from "./components/PostDetails/PostDetails.js";
 import Profile from "./components/Profile/Profile";
 import Start from "./components/Start/Start.js";
+import Chat from "./components/Chat/Chat";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -34,6 +35,8 @@ function App() {
             component={() => (!user ? <Start /> : <Redirect to="/posts" />)}
           />
           <Route path="/user/:id" exact component={Profile} />
+          {/* <Route path="/chat" exact component={() => (user ? <Chat /> : <Redirect to="/start" />)} /> */}
+          <Route path="/chat" exact component={Chat} />
         </Switch>
       </div>
     </BrowserRouter>

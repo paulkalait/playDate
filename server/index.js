@@ -8,7 +8,8 @@ import { fileURLToPath } from 'url';
 //routes
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
-import { rmSync } from 'fs';
+import chatRoute from './routes/chats.js'
+import messageRoute from './routes/message.js'
 dotenv.config()
 console.log(process.env.MONGODB_URI)
 const __filename = fileURLToPath(import.meta.url);
@@ -29,6 +30,8 @@ app.use(cors());
 //use middleware for the prefix routes th post routes will be reached bu localhost:3001/posts/ ....
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
+app.use("/chat", chatRoute)
+app.use("/message", messageRoute)
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

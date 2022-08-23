@@ -18,6 +18,8 @@ import * as api from "../api/index.js";
 //reduc thunk allows an additonal function for async =>   =>
 
 //only fetch post for that specific page
+
+
 export const getPosts = (page) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

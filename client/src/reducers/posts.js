@@ -78,3 +78,4 @@ export default (state = { posts: [], isLoading: true }, action) => {
       return state;
   }
 };
+

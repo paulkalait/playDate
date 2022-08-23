@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://playdate-mern-app.herokuapp.com/" });
+const API = axios.create({ baseURL: "http://localhost:3001" });
+
+// "https://playdate-mern-app.herokuapp.com/"
+
 
 // a function on each request. gets a request as first param to check if we are logged in
 //
@@ -14,6 +17,8 @@ API.interceptors.request.use((req) => {
 
   return req;
 });
+
+
 
 //passes page data to the backend
 export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
@@ -38,3 +43,5 @@ export const signUp = (formData) => API.post("/user/signup", formData);
 export const fetchUser = (id) => API.get(`/user/${id}`);
 export const updateUser = (id, updatedUser) =>
   API.put(`/user/${id}`, updatedUser);
+  export const userChats = (userId) => API.get(`/chat/${userId}`)
+
