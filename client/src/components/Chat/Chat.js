@@ -1,11 +1,13 @@
 import Search from "@material-ui/icons/Search";
 import React, { useEffect, useState } from "react";
+import ChatBox from "../ChatBox/ChatBox";
 import Conversation from "../Conversation/Conversation";
 
 
 const Chat = () => {
   const [chats, setChats] = useState([]);
   const user = JSON.parse(localStorage.getItem("profile"));
+  const [currentChat, setCurrentChat] =  useState(null)
   console.log(user.result._id);
 
   let userId = user.result._id;
@@ -31,7 +33,7 @@ const Chat = () => {
           <h2>Chats</h2>
           <div className="chat-list">
               {chats.map((chat) => (
-                <div>
+                <div  onClick={() => setCurrentChat(chat)}>
                     <Conversation data={chat} currentUserId={userId} />
                 </div>
               ))}
@@ -39,7 +41,10 @@ const Chat = () => {
         </div>
       </div>
       {/* RIGHT SIDE */}
-      <div className="right-side">Right side</div>
+      <div className="right-side">
+        {/* chat  body */}
+        <ChatBox chat={currentChat} currentUser={userId}/>
+      </div>
     </div>
   );
 };

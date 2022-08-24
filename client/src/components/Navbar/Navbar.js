@@ -6,7 +6,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import decode from "jwt-decode";
 import EditIcon from "@material-ui/icons/Edit";
 import AVATAR from "../../assets/images/account-logo.svg";
-import CHAT from "../../assets/images/chat.svg"
+
 
 const Navbar = () => {
   const history = useHistory();

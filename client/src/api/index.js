@@ -44,4 +44,5 @@ export const fetchUser = (id) => API.get(`/user/${id}`);
 export const updateUser = (id, updatedUser) =>
   API.put(`/user/${id}`, updatedUser);
   export const userChats = (userId) => API.get(`/chat/${userId}`)
+  export const getMessages = (id) => API.get(`/message/${id}`)
 
