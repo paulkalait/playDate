@@ -1,16 +1,30 @@
 import Search from "@material-ui/icons/Search";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ChatBox from "../ChatBox/ChatBox";
 import Conversation from "../Conversation/Conversation";
+import {io} from 'socket.io-client'
 
 
 const Chat = () => {
   const [chats, setChats] = useState([]);
   const user = JSON.parse(localStorage.getItem("profile"));
   const [currentChat, setCurrentChat] =  useState(null)
+  const [onlineUsers, setOnlineUsers] = useState([])
+  const socket = useRef()
+  let userId = user.result._id;
+
+  useEffect(() => {
+    socket.current = io('http://localhost:8800')
+    socket.current.emit('new-user-add', userId)
+    socket.current.on("get-users", (users) => {
+      setOnlineUsers(users)
+      console.log(onlineUsers)
+    })
+  }, [user])
   console.log(user.result._id);
 
-  let userId = user.result._id;
+
+
 
   useEffect(() => {
     const getChats = async () => {

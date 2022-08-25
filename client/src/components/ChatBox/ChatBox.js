@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 import  InputEmoji from 'react-input-emoji'
+import { addMessages } from '../../api';
 import AVATAR from "../../assets/images/account-logo.svg";
 
 const ChatBox = ({chat, currentUser}) => {
@@ -30,6 +31,24 @@ const ChatBox = ({chat, currentUser}) => {
 
 const handleChange = (newMessages) => {
     setNewMessages(newMessages)
+}
+
+const handleSend = async(e) => {
+    e.preventDefault()
+    const message = {
+        senderId: currentUser,
+        text: newMessages,
+        chatId: chat._id
+    }
+
+    //send message to DB
+    try {
+        const {data} = await addMessages(message);
+        setMessages([...messages, data])
+        setNewMessages("")
+    } catch (error) {
+        console.log(error)
+    }
 }
     // fetch data for messages
     useEffect(() => {
@@ -82,8 +101,8 @@ const handleChange = (newMessages) => {
             onChange={handleChange}/>
         </div>
         <div>
-            <button>
-
+            <button onClick={handleSend}>
+Send
             </button>
         </div>
         </>) : (
