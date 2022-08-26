@@ -13,13 +13,14 @@ io.on("connection", (socket) => {
         if(!activeUsers.some((user)=> user.userId === newUserId))
         {
             activeUsers.push({
-                user: newUserId,
+                userId: newUserId,
                 socketId: socket.id
             })
         }
         console.log("connected users", activeUsers)
         io.emit('get-users', activeUsers)
     })
+
 
     socket.on("disconnect", () => { 
         //filter out the user that is trying to disconnect
@@ -28,4 +29,13 @@ io.on("connection", (socket) => {
         io.emit('get-users', activeUsers)
     })
 
+    socket.on("send-message", (data) => {
+        const {receiverId} = data;
+        const user = activeUsers.find((user) => user.userId === receiverId)
+        console.log("sending from socket to : " , receiverId)
+        console.log("data", data)
+        if(user) { 
+            io.to(user.socketId).emit("receive-message", data)
+        }
+    })
 })

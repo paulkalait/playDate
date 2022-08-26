@@ -1,0 +1,22 @@
+.chat-body {
+    height: 80%;
+    overflow-y: scroll;
+}
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.message-received, .own-message {
+    border: 1px solid;
+    width: 20%;
+    padding: 5px;
+    border-radius: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.own-message-container{
+    display: flex;
+    justify-content: flex-end;
+}

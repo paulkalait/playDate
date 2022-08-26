@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import AVATAR from "../../assets/images/account-logo.svg";
+import './Conversation.css'
 
 
 const Conversation = ({data, currentUserId}) => {
@@ -27,7 +28,7 @@ const Conversation = ({data, currentUserId}) => {
     <div>
       <div>
         <div>
-          <img src={userData?.userImage ? userData?.userImage : AVATAR } alt="" />
+          <img src={userData?.userImage ? userData?.userImage : AVATAR } alt="" className='chat-image' />
           <div style={{fontSize: ".8rem"}}>
             <span>{userData?.name}</span>
             <span>Online</span>
