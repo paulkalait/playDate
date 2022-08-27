@@ -7,6 +7,10 @@
     align-items: center;
     padding: 5px;
 }
+.chat-header-container{
+    display: flex;
+    padding: 5px;
+}
 .message-received, .own-message {
     border: 1px solid;
     width: 20%;

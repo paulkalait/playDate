@@ -82,8 +82,9 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
         {chat ? (
           <>
             <div className="chat-header">
-              <div>
+              <div className="chat-header-container">
                 <img
+                className='chat-image'
                   src={userData?.userImage ? userData?.userImage : AVATAR}
                   alt=""
                 />

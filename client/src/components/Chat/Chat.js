@@ -16,7 +16,7 @@ const Chat = () => {
   const [receiveMessage, setReceiveMessage] = useState(null)
   //socket IO
   const [onlineUsers, setOnlineUsers] = useState([])
-  let userId = user.result._id;
+  let userId = user?.result?._id;
 
   useEffect(() => {
     const getChats = async () => {

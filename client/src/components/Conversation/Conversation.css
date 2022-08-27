@@ -2,3 +2,11 @@
     width: 20px;
     height: 20px;
 }
+.each-conversations{
+    display: flex;
+    padding: 2px;
+
+}
+.each-conversations > img{
+    margin-right: 3px;
+}
