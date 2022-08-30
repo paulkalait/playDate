@@ -70,7 +70,14 @@ export const signup = async (req, res) => {
     console.log(error);
   }
 };
-
+export const getUsers = async (req, res) => {
+  try {
+    const userMessages = await User.find()
+    res.status(200).json(userMessages)
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+}
 export const getUser = async (req, res) => {
   const { id } = req.params;
 
@@ -108,3 +115,16 @@ export const updateUser = async (req, res) => {
     console.log(error);
   }
 };
+
+export const getUserBySearch = async (req, res) => {
+  const  searchQuery  = req.query.searchQuery
+  try {
+    const user = new RegExp(searchQuery, `i`)
+console.log(user)
+    //find the user's name using the name field
+    const userFound = await User.find({name: user})
+    res.json({data: userFound})
+  } catch (error) {
+    res.status(404).json({message: error.nessage})
+  }
+}

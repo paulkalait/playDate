@@ -30,7 +30,7 @@ const Conversation = ({data, currentUserId}) => {
         <div className='each-conversations'>
           <img src={userData?.userImage ? userData?.userImage : AVATAR } alt="" className='chat-image' />
           <div style={{fontSize: ".8rem"}}>
-            <span>{userData?.name}</span>
+            <span>{userData?.name} </span>
             <span>Online</span>
           </div>
         </div>

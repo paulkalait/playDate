@@ -38,6 +38,7 @@ export const comment = (value, id) =>
   API.post(`/posts/${id}/commentPost`, { value });
 export const addDogTreat = (id) => API.patch(`/posts/${id}/treat`);
 export const getUsers = () => API.get("/users");
+export const fetchUserBySearch = (searchQuery) => API.get(`/user/search?searchQuery=${searchQuery.searchUser}`)
 export const signin = (formData) => API.post("/user/signin", formData);
 export const signUp = (formData) => API.post("/user/signup", formData);
 export const fetchUser = (id) => API.get(`/user/${id}`);
