@@ -89,7 +89,7 @@ socket.current.on("receive-message", (data) =>
 
         {/* input for search */}
         <input value={searchUser} onChange={(e) => setSearchUser(e.target.value)} 
-        onKeyDown={handleKeyPress}/> 
+        onKeyDown={handleKeyPress} className="search-userInput"/> 
         <button onClick={searchUserFunction}>
           {" "}
         <SearchIcon />
