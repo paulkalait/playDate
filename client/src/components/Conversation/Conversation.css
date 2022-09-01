@@ -1,12 +1,38 @@
 .chat-image{
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    border: 2px solid white;
+    background-color: white;
+}
+.each-conversation-container{
+    width: 100%;
 }
 .each-conversations{
     display: flex;
+    align-items: center;
     padding: 2px;
+    cursor: pointer;
+}
 
+.username-online-div {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
 }
 .each-conversations > img{
     margin-right: 3px;
+}
+.online, .offline{ 
+ padding: 3px;
+ border-radius: 5px;
+}
+.offline{
+ background-color: rgb(217, 217, 217, .5);
+ color: grey;
+}
+.online{
+background-color: rgba(13, 201, 13, 0.3);
+border: 1px solid green;
+color: rgb(0, 98, 0);
 }

@@ -76,3 +76,16 @@
 .right-side {
   width: 70%;
 }
+
+@media screen and (max-width: 900px) {
+  .chat{ 
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+  .left-side{ 
+    height: 50%;
+  }
+  .left-side, .right-side{ 
+    width: 100%;
+  }
+}

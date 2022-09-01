@@ -36,8 +36,7 @@ function App() {
           />
           <Route path="/user/:id" exact component={Profile} />
           {/* <Route path="/chat" exact component={() => (user ? <Chat /> : <Redirect to="/start" />)} /> */}
-          <Route path="/chat" exact component={Chat} />
-          <Route path="/user/search" exact component={Chat} />
+          <Route path="/chat" exact component={() => (!user ? <Auth /> : <Chat />)} />
         </Switch>
       </div>
     </BrowserRouter>

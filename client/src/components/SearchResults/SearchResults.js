@@ -30,8 +30,7 @@ useEffect(() => {
     <>
     {results?.map((eachUser) => (
       //the list of other users that the current user can click on
-      
-        <span value={eachUser._id} key={eachUser._id}>{console.log(eachUser._id)}{eachUser.name}</span>
+        <span value={eachUser._id} key={eachUser._id}  onClick={() => createChat(eachUser._id)}>{eachUser.name}</span>
     ))}
     </>
   )

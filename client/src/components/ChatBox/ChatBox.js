@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import InputEmoji from "react-input-emoji";
 import { addMessages } from "../../api";
 import AVATAR from "../../assets/images/account-logo.svg";
@@ -9,6 +9,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessages, setNewMessages] = useState("");
+  const scroll = useRef()
 
   useEffect(() => {
     if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
@@ -76,19 +77,25 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
     if (chat !== null) fetchMessages();
   }, [chat]);
 
+
+  //scroll to last message 
+  useEffect(() => {
+    return scroll.current?.scrollIntoView({behavior: "smooth"})
+  }, [messages])
+
   return (
     <>
       <div className="chatbox-container">
         {chat ? (
           <>
-            <div className="chat-header">
+            <div>
               <div className="chat-header-container">
                 <img
                 className='chat-image'
                   src={userData?.userImage ? userData?.userImage : AVATAR}
                   alt=""
                 />
-                <div style={{ fontSize: ".8rem" }}>
+                <div style={{ fontSize: "1.2rem" }} className="chat-header-username">
                   <span>{userData?.name}</span>
                 </div>
               </div>
@@ -102,7 +109,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
                     message.senderId === currentUser && "own-message-container"
                   }
                 >
-                  <div
+                  <div ref={scroll}
                     className={
                       message.senderId === currentUser
                         ? "own-message"
@@ -110,7 +117,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
                     }
                   >
                     <span>{message.text}</span>
-                    <span>{moment(message.createdAt).fromNow()}</span>
+                    <span className="text-date">{moment(message.createdAt).fromNow()}</span>
                   </div>
                 </div>
               ))}
@@ -119,13 +126,17 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
             {/* CHAT SENDER */}
             <div className="chat-sender">
               <InputEmoji value={newMessages} onChange={handleChange} />
-            </div>
-            <div>
               <button onClick={handleSend}>Send</button>
             </div>
+     
+            
+          
           </>
         ) : (
-          <span>Tap on a Chat to start Conversation...</span>
+          <div className="chat-not-selected">
+               <span>Tap on a chat to start a conversation...</span>
+         </div>
+       
         )}
       </div>
     </>
