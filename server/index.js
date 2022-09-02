@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv'
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import { createServer } from 'http'
 import cors from "cors";
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,15 +11,18 @@ import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
 import chatRoute from './routes/chats.js'
 import messageRoute from './routes/message.js'
+import { Server } from 'socket.io';
 dotenv.config()
 console.log(process.env.MONGODB_URI)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 //call dotenv
 
 //initialize this app
 const app = express();
+const httpServer = createServer(app)
 
 //set up body parser
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -38,6 +42,52 @@ app.use(express.json());
 
 // Serve up static assets
 app.use('/images', express.static(path.join(__dirname, '../client/images')));
+
+
+
+const io = new Server(httpServer, {
+  cors: {
+      origin: "http://localhost:3000"
+  }
+})
+
+let activeUsers = []
+
+io.on("connection", (socket) => {
+  //add new User
+  socket.on('new-user-add', (newUserId) => {
+      //if user is not add peviously
+      if(!activeUsers.some((user)=> user.userId === newUserId))
+      {
+          activeUsers.push({
+              userId: newUserId,
+              socketId: socket.id
+          })
+      }
+      console.log("connected users", activeUsers)
+      io.emit('get-users', activeUsers)
+  })
+
+
+  socket.on("disconnect", () => { 
+      //filter out the user that is trying to disconnect
+      activeUsers = activeUsers.filter((user) = user.socketId !== socket.id)
+      console.log("User disconnected", activeUsers)
+      io.emit('get-users', activeUsers)
+  })
+
+  socket.on("send-message", (data) => {
+      const {receiverId} = data;
+      const user = activeUsers.find((user) => user.userId === receiverId)
+      console.log("sending from socket to : " , receiverId)
+      console.log("data", data)
+      if(user) { 
+          io.to(user.socketId).emit("receive-message", data)
+      }
+  })
+})
+
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
@@ -70,8 +120,9 @@ mongoose
 process.env.MONGODB_URI
   )
   .then(() =>
-    app.listen(PORT, () => console.log(`server is running on port: ${PORT}`))
+    httpServer.listen(PORT, () => console.log(`server is running on port: ${PORT}`))
   )
   .catch((error) => console.log(error));
 
 
+  
