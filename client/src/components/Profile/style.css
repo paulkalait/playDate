@@ -89,6 +89,9 @@
   display: flex;
   overflow-x: scroll;
 }
+.usersPosts::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   .user-container {
     flex-direction: column;

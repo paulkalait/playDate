@@ -12,7 +12,7 @@ const Chat = () => {
   const dispatch = useDispatch();
   //search user state
   const [searchUser, setSearchUser] = useState("");
-  const [bestMatch, setBestMatch] = useState(null);
+  const [bestMatch, setBestMatch] = useState([]);
   const { user } = useSelector((state) => state.user);
   console.log(user);
   //chat logic
@@ -66,14 +66,13 @@ const Chat = () => {
     }
   };
   const searchUserFunction = () => {
-    //if there is a value in the search user state then call the dispatch
+    //if there is a value in the search user state then proceed to call the dispatch
     if (searchUser.trim()) {
       dispatch(getUserBySearch({ searchUser }));
       setBestMatch(user);
       console.log(bestMatch);
     }
   };
-
 
   const checkOnlineStatus = (chat) => {
     //extract out the other member 

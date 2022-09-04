@@ -2,14 +2,17 @@ import moment from "moment";
 import React, { useEffect, useRef, useState } from "react";
 import InputEmoji from "react-input-emoji";
 import { addMessages } from "../../api";
+import { useHistory } from "react-router-dom";
 import AVATAR from "../../assets/images/account-logo.svg";
 import "./ChatBox.css";
 
 const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
+  const history = useHistory()
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessages, setNewMessages] = useState("");
   const scroll = useRef()
+  const userId = chat?.members?.find((id) => id !== currentUser);
 
   useEffect(() => {
     if (receiveMessage !== null && receiveMessage.chatId === chat._id) {
@@ -19,7 +22,6 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
   //fetching data for header
   useEffect(() => {
     console.log("Chat", chat);
-    const userId = chat?.members?.find((id) => id !== currentUser);
     const getUserData = async () => {
       try {
         const response = await fetch(`http://localhost:3001/user/${userId}`);
@@ -83,6 +85,10 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
     return scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [messages])
 
+  const getProfile = () => {
+    history.push(`/user/${userId}`)
+  }
+
   return (
     <>
       <div className="chatbox-container">
@@ -96,7 +102,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
                   alt=""
                 />
                 <div style={{ fontSize: "1.2rem" }} className="chat-header-username">
-                  <span>{userData?.name}</span>
+                  <span onClick={getProfile}>{userData?.name}</span>
                 </div>
               </div>
             </div>

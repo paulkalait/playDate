@@ -5,18 +5,15 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import decode from "jwt-decode";
 import EditIcon from "@material-ui/icons/Edit";
+import LOGOUT from "../../assets/images/log-out.svg"
 import AVATAR from "../../assets/images/account-logo.svg";
-
+import CHAT from  "../../assets/images/chat-logo.svg"
 
 const Navbar = () => {
   const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
-
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-
-  console.log(user);
-
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     history.push("/auth");
@@ -62,15 +59,19 @@ const Navbar = () => {
                       <button className="edit-icon-container">
                         <EditIcon />
                       </button>
-                      
+                    </div>
+                    <div className="edit-account-div" onClick={logout}>
+                      <h4>Logout</h4>
+                      <img src={LOGOUT} alt="logoutIcon" className="avatar" />
                     </div>
                   </div>
                 </div>
               </div>
-
-              <button className="logout-btn" onClick={logout}>
-                Logout
-              </button>
+              <div className="chat-div">
+                <Link to="/chat"className="avatar-div">
+                <img src={CHAT} alt="chatLogo" className="avatar" />
+                </Link>
+              </div>
             </div>
           ) : (
             <button className="signin-btn">
