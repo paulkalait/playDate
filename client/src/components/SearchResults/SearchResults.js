@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import './SearchResults.css'
-const SearchResults = ({results, userId, searchUser, setSearchUser}) => {
-
+const SearchResults = ({results, userId, searchUser,getChats, setSearchUser}) => {
 
 const createChat = async (param) => {
   // POST request using fetch inside useEffect React hook
@@ -14,13 +13,16 @@ const requestOptions = {
 //then fetch the chats for the current user logged in again
 const response = await fetch(`http://localhost:3001/chat/`, requestOptions)
  const newChat = await response.json()
-  console.log(newChat)
+  console.log("new chat sequence", newChat)
+  //create a chat then call chats again to update chat list
+  getChats()
   setSearchUser("")
 }
 
 useEffect(() => {
   if(searchUser?.length > 0 ){
     createChat()
+
   }
 }, []
 )

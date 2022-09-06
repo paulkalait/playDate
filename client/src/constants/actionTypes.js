@@ -15,3 +15,5 @@ export const UPDATE_USER = 'UPDATE_USER'
 //user action type
 export const FETCH_USER = "FETCH_USER"
 export const FETCH_USER_BY_SEARCH = "FETCH_USER_BY_SEARCH"
+//chat action types
+export const DELETE_CHAT = "DELETE_CHAT"

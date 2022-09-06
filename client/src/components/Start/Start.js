@@ -38,7 +38,8 @@ Aos.init({duration: 2000})
             <span className="meet">Meet Friends</span>
             <span>Share Photos</span>
             <div className="give-a-treat-text">
-              <span>Give a </span> <span className="treat-text"> Treat</span>
+              <span>Give </span>
+             {""}<span className="treat-text"> Treats</span>
             </div>
           </div>
         </div>

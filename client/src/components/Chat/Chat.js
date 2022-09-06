@@ -8,11 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserBySearch } from "../../actions/user";
 import SearchResults from "../SearchResults/SearchResults";
 
+
 const Chat = () => {
   const dispatch = useDispatch();
   //search user state
   const [searchUser, setSearchUser] = useState("");
-  const [bestMatch, setBestMatch] = useState([]);
   const { user } = useSelector((state) => state.user);
   console.log(user);
   //chat logic
@@ -26,15 +26,15 @@ const Chat = () => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   let userId = userFromLocalStorage?.result?._id;
 
+  const getChats = async () => {
+    const response = await fetch(`http://localhost:3001/chat/${userId}`);
+    const newData = await response.json();
+    console.log(newData);
+    setChats(newData);
+  };
   useEffect(() => {
-    const getChats = async () => {
-      const response = await fetch(`http://localhost:3001/chat/${userId}`);
-      const newData = await response.json();
-      console.log(newData);
-      setChats(newData);
-    };
     getChats();
-  }, [userId]);
+  }, [userId, ]);
 
   // Connect to Socket.io
   useEffect(() => {
@@ -62,17 +62,21 @@ const Chat = () => {
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
-      searchUser();
+      searchUserFunction();
     }
   };
+
   const searchUserFunction = () => {
     //if there is a value in the search user state then proceed to call the dispatch
     if (searchUser.trim()) {
       dispatch(getUserBySearch({ searchUser }));
-      setBestMatch(user);
-      console.log(bestMatch);
+      // setBestMatch(user);
+      // console.log(bestMatch);
     }
   };
+
+
+ 
 
   const checkOnlineStatus = (chat) => {
     //extract out the other member 
@@ -81,6 +85,7 @@ const Chat = () => {
     const online = onlineUsers.find((user) => user.userId === chatMembers)
     return online ? true : false
   }
+  
   return (
     <div className="chat">
       {/* LEFT SIDE */}
@@ -102,10 +107,12 @@ const Chat = () => {
             <div className="search-results-container">
               <SearchResults
                 inputValue={searchUser}
-                results={bestMatch}
+                //  results={bestMatch}
+                results={user}
                 setChats={setChats}
                 userId={userId}
                 setSearchUser={setSearchUser}
+                getChats={getChats}
               />
             </div>
           )}
@@ -114,7 +121,7 @@ const Chat = () => {
         <div className="chat-container">
           <h2>Chats</h2>
           <div className="chat-list">
-            {chats.map((chat) => (
+            {chats?.map((chat) => (
               <div onClick={() => setCurrentChat(chat)} className="other-user">
                 <Conversation data={chat} currentUserId={userId} online={checkOnlineStatus(chat)} />
               </div>
@@ -128,6 +135,8 @@ const Chat = () => {
         <ChatBox
           chat={currentChat}
           currentUser={userId}
+          setSearchUser={setSearchUser}
+         getChats={getChats}
           setSendMessage={setSendMessage}
           receiveMessage={receiveMessage}
         />

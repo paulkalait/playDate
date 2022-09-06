@@ -14,7 +14,7 @@ const Conversation = ({data, currentUserId, online}) => {
           try {
             const response = await fetch(`http://localhost:3001/user/${userId}`)
             const otherUser = await response.json()
-            console.log(otherUser)
+            console.log("Other users", otherUser)
             setUserData(otherUser)
           } catch (error) {
             console.log(error)

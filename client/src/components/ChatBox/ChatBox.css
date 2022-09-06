@@ -17,12 +17,26 @@
     padding: 15px;
     border-radius: 20px;
 }
-
 .chat-header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+.delete-chat-div{
+    margin-right: 5px;
+}
+.delete-chat-div > span{ 
+    background: rgb(246, 1, 1, .5);
+    color: darkred;
+    font-size: .8rem;
+    padding: 3px;
+    border-radius: 7px;
+}
+.chat-header{
     display: flex;
     align-items: center;
     padding: 5px;
-    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 }
 .chat-header-username > span { 
     cursor: pointer;

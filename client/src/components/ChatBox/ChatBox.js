@@ -5,8 +5,12 @@ import { addMessages } from "../../api";
 import { useHistory } from "react-router-dom";
 import AVATAR from "../../assets/images/account-logo.svg";
 import "./ChatBox.css";
+import { useDispatch } from "react-redux";
 
-const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
+
+
+const ChatBox = ({ chat, getChats, currentUser, setSendMessage, receiveMessage }) => {
+  const dispatch = useDispatch()
   const history = useHistory()
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -21,7 +25,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
   }, [receiveMessage]);
   //fetching data for header
   useEffect(() => {
-    console.log("Chat", chat);
+    console.log("Chats", chat);
     const getUserData = async () => {
       try {
         const response = await fetch(`http://localhost:3001/user/${userId}`);
@@ -62,6 +66,12 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
     setSendMessage({ ...message, receiverId });
   };
 
+const handleDelete = async() => {
+const response = await fetch(`http://localhost:3001/chat/${chat._id}`, {method: "DELETE"})
+const deletedChat = await response.json()
+console.log(deletedChat)
+getChats()
+}
   // fetch data for messages
   useEffect(() => {
     const fetchMessages = async () => {
@@ -94,8 +104,9 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
       <div className="chatbox-container">
         {chat ? (
           <>
-            <div>
+            <div >
               <div className="chat-header-container">
+              <div className="chat-header">
                 <img
                 className='chat-image'
                   src={userData?.userImage ? userData?.userImage : AVATAR}
@@ -104,7 +115,14 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receiveMessage }) => {
                 <div style={{ fontSize: "1.2rem" }} className="chat-header-username">
                   <span onClick={getProfile}>{userData?.name}</span>
                 </div>
+                </div>
+                <div onClick={handleDelete} className="delete-chat-div">
+                  <span>delete chat</span>
+                </div>
               </div>
+               
+               
+                
             </div>
 
             {/* CHAT BOX MESSAGES */}

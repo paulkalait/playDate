@@ -4,7 +4,6 @@ const API = axios.create({ baseURL: "http://localhost:3001" });
 
 // "https://playdate-mern-app.herokuapp.com/"
 
-
 // a function on each request. gets a request as first param to check if we are logged in
 //
 API.interceptors.request.use((req) => {
@@ -14,11 +13,8 @@ API.interceptors.request.use((req) => {
       JSON.parse(localStorage.getItem("profile")).token
     }`;
   }
-
   return req;
 });
-
-
 
 //passes page data to the backend
 export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
@@ -38,13 +34,15 @@ export const comment = (value, id) =>
   API.post(`/posts/${id}/commentPost`, { value });
 export const addDogTreat = (id) => API.patch(`/posts/${id}/treat`);
 export const getUsers = () => API.get("/users");
-export const fetchUserBySearch = (searchQuery) => API.get(`/user/search?searchQuery=${searchQuery.searchUser}`)
+export const fetchUserBySearch = (searchQuery) =>
+  API.get(`/user/search?searchQuery=${searchQuery.searchUser}`);
 export const signin = (formData) => API.post("/user/signin", formData);
 export const signUp = (formData) => API.post("/user/signup", formData);
 export const fetchUser = (id) => API.get(`/user/${id}`);
 export const updateUser = (id, updatedUser) =>
   API.put(`/user/${id}`, updatedUser);
-  export const userChats = (userId) => API.get(`/chat/${userId}`)
-  export const getMessages = (id) => API.get(`/message/${id}`)
-  export const addMessages = (data) => API.post(`/message`, data )
-
+//CHAT api calls
+export const userChats = (userId) => API.get(`/chat/${userId}`);
+export const getMessages = (id) => API.get(`/message/${id}`);
+export const addMessages = (data) => API.post(`/message`, data);
+export const deleteChat = (id) => API.delete(`/chat/${id}`)

@@ -11,6 +11,8 @@ import Chat from "./components/Chat/Chat";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("profile"));
+  let userId = user?.result?._id;
+  console.log("APP" , userId)
   return (
     <BrowserRouter>
       <div className="app-div">
@@ -27,12 +29,12 @@ function App() {
           <Route
             path="/auth"
             exact
-            component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
+            component={() => (!userId ? <Auth /> : <Redirect to="/posts" />)}
           />
           <Route
             path="start"
             exact
-            component={() => (!user ? <Start /> : <Redirect to="/posts" />)}
+            component={() => (!userId ? <Start /> : <Redirect to="/posts" />)}
           />
           <Route path="/user/:id" exact component={Profile} />
           {/* <Route path="/chat" exact component={() => (user ? <Chat /> : <Redirect to="/start" />)} /> */}

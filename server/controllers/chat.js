@@ -1,6 +1,21 @@
 
+import mongoose from "mongoose";
+import express from "express";
 import chatModel from "../models/chatModel.js";
+const router = express.Router();
 
+
+// export const getChat = async (req, res) => {
+//     const { id } = req.params;
+  
+//     try {
+//       const chat = await chatModel.findById(id);
+  
+//       res.status(200).json(chat);
+//     } catch (error) {
+//       res.status(404).json({ message: error.message });
+//     }
+//   };
 export const createChat = async(req, res) => {
     const newChat = new chatModel({
         members: [req.body.senderId, req.body.receiverId]
@@ -39,3 +54,13 @@ export const findChat = async(req, res) => {
         res.status(404).json(error)
     }
 }
+export const deleteChat = async (req, res) => {
+    const { id} = req.params
+    if(!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("no chat with this id to delete")
+    await chatModel.findByIdAndRemove(id)
+    console.log("chat deleted")
+    res.json({message: "Chat deleted"})
+}
+
+export default router
