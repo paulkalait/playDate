@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUser, updateUser } from "../../../api";
+import { getUser } from "../../../actions/user";
+import {  updateUser } from "../../../api";
 import './style.css'
 
 const UserProfileForm = ({ userId, show, close, setUserId }) => {
@@ -13,6 +14,9 @@ const UserProfileForm = ({ userId, show, close, setUserId }) => {
     companion: "",
     bio: "",
     userImage: "",
+    tikTok: "",
+    facebook: "",
+    instagram: "",
   });
   // const userStorage = JSON.parse(localStorage.getItem("profile"));
 
@@ -22,14 +26,17 @@ const UserProfileForm = ({ userId, show, close, setUserId }) => {
   }, [user, userId, dispatch, setUserId]);
 
   const handleSubmit = async (e) => {
-e.preventDefault()
+  e.preventDefault()
     try {
       dispatch(updateUser(userId, { ...userData, username: user.name }));
+      
     } catch (error) {
       console.log(error);
     }
+    dispatch(getUser(userId))
     close()
   };
+
 
   if (!show) {
     return null;
@@ -56,6 +63,31 @@ e.preventDefault()
             setUserData({ ...userData, companion: e.target.value })
           }
         />
+        <input
+          name="tikTok"
+          placeholder="TikTok username"
+          value={userData.tikTok}
+          onChange={(e) =>
+            setUserData({ ...userData, tikTok: e.target.value })
+          }
+        />
+        <input
+          name="instagram"
+          placeholder="Instagram username"
+          value={userData.instagram}
+          onChange={(e) =>
+            setUserData({ ...userData, instagram: e.target.value })
+          }
+        />
+        <input
+          name="facebook"
+          placeholder="Facebook username"
+          value={userData.facebook}
+          onChange={(e) =>
+            setUserData({ ...userData, facebook: e.target.value })
+          }
+        />
+
         <textarea
           name="bio"
           placeholder="Tell us about yourself"

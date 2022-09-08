@@ -93,7 +93,7 @@ export const getUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { name, companion, bio, email, password, userImage } = req.body;
+  const { name, companion, bio, email, password, userImage, instagram, tikTok, facebook } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(401).send("no use with this id found");
@@ -106,6 +106,9 @@ export const updateUser = async (req, res) => {
     email,
     password,
     userImage,
+    instagram,
+    tikTok,
+    facebook,
     _id: id,
   };
   try {

@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect, useHistory } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import React from "react";
@@ -8,17 +8,21 @@ import PostDetails from "./components/PostDetails/PostDetails.js";
 import Profile from "./components/Profile/Profile";
 import Start from "./components/Start/Start.js";
 import Chat from "./components/Chat/Chat";
+import { useEffect } from "react";
 
 function App() {
+const history = useHistory()
   const user = JSON.parse(localStorage.getItem("profile"));
   let userId = user?.result?._id;
   console.log("APP" , userId)
+
+
   return (
     <BrowserRouter>
       <div className="app-div">
         <Navbar />
         <Switch>
-          {/* if localhost:3000/ it will redirect to localhost:3000/posts  */}
+          {/* if localhost:3000/ it will redirect to localhost:3000/start  */}
           <Route path="/" exact component={() => <Redirect to="/start" />} />
           <Route path="/start" exact component={Start} />
           <Route path="/posts" exact component={Home} />
