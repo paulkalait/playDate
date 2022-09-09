@@ -3,14 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 import InputEmoji from "react-input-emoji";
 import { addMessages } from "../../api";
 import { useHistory } from "react-router-dom";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import DeleteIcon from "@material-ui/icons/DeleteForever";
 import AVATAR from "../../assets/images/account-logo.svg";
 import "./ChatBox.css";
-import { useDispatch } from "react-redux";
-
-
 
 const ChatBox = ({ chat, getChats, currentUser, setSendMessage, receiveMessage }) => {
-  const dispatch = useDispatch()
   const history = useHistory()
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -69,7 +67,6 @@ const ChatBox = ({ chat, getChats, currentUser, setSendMessage, receiveMessage }
 const handleDelete = async() => {
 const response = await fetch(`http://localhost:3001/chat/${chat._id}`, {method: "DELETE"})
 const deletedChat = await response.json()
-console.log(deletedChat)
 getChats()
 }
   // fetch data for messages
@@ -116,18 +113,27 @@ getChats()
                   <span onClick={getProfile}>{userData?.name}</span>
                 </div>
                 </div>
-                <div onClick={handleDelete} className="delete-chat-div">
-                  <span>delete chat</span>
-                </div>
+                <div className="div-more">
+            <button className="delete-chat-div">
+              {" "}
+              <MoreHorizIcon className="more-icon" />
+            </button>
+            <div className="delete-chat-select">
+              <div className="delete-chat-tip"></div>
+              <div className="delete-select-div" onClick={handleDelete}>
+                <h4>Delete Chat</h4>
+                <button className="delete-icon-container" >
+                  <DeleteIcon className="delete-icon" />
+                </button>
               </div>
-               
-               
-                
+            </div>
+          </div>
+              </div>
             </div>
 
             {/* CHAT BOX MESSAGES */}
             <div className="chat-body">
-              {messages.map((message) => (
+              {messages?.map((message) => (
                 <div
                   className={
                     message.senderId === currentUser && "own-message-container"

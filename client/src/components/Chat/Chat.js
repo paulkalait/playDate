@@ -5,6 +5,7 @@ import Conversation from "../Conversation/Conversation";
 import { io } from "socket.io-client";
 import "./Chat.css";
 import { useDispatch, useSelector } from "react-redux";
+import NOCHATS from '../../assets/images/create-chat.svg'
 import { getUserBySearch } from "../../actions/user";
 import SearchResults from "../SearchResults/SearchResults";
 
@@ -121,12 +122,22 @@ const Chat = () => {
         <div className="chat-container">
           <h2>Chats</h2>
           <div className="chat-list">
-            {chats?.map((chat) => (
-              <div onClick={() => setCurrentChat(chat)} className="other-user">
-                <Conversation data={chat} currentUserId={userId} online={checkOnlineStatus(chat)} />
-              </div>
-            ))}
+            {chats?.length > 0 ? (
+              <>
+             
+{chats?.map((chat) => (
+  <div onClick={() => setCurrentChat(chat)} className="other-user">
+    <Conversation data={chat} currentUserId={userId} online={checkOnlineStatus(chat)} />
+  </div>
+))}
+ </>
+            ) : <div className="no-chats-yet-div">
+              <img src={NOCHATS} /> 
+              <span>No chats yet. Search a user to start a chat.</span>
+              </div>}
+            
           </div>
+      
         </div>
       </div>
       {/* RIGHT SIDE */}

@@ -140,17 +140,6 @@ const Post = ({ post, setCurrentId }) => {
             <Likes />
           </button>
         </div>
-
-        {/* {user?.result?._id === post?.creator && (
-          <div>
-            <button
-              
-              className="delete-icon-container"
-            >
-              <DeleteIcon />
-            </button>
-          </div>
-        )} */}
       </div>
     </div>
   );
