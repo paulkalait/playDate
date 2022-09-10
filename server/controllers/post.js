@@ -61,6 +61,18 @@ export const getPostBySearch = async (req, res) => {
   }
 };
 
+export const getSize  = async (req, res) => {
+  const searchSize = req.query.searchSize
+  try {
+    const findSize =  new RegExp(searchSize, `i`)
+    console.log(findSize)
+    const postFound = await PostMessage.find({size: findSize})
+    res.status(200).json({data: postFound})
+  } catch (error) {
+    res.status(404).json({message: error.message})
+  }
+  
+}
 export const createPost = async (req, res) => {
   const post = req.body;
 

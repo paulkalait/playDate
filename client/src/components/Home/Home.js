@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import Posts from "../Posts/Posts.js";
 import Paginate from "../Pagination.js";
 import "./styles.css";
+import FilterBySizeOption from "../FilterBySizeOption/FilterBySizeOption.js";
 // import BACKGROUND from '../../assets/images/background.svg'
 
 const useQuery = () => {
@@ -24,7 +25,6 @@ const Home = () => {
   const [currentId, setCurrentId] = useState(0);
   //reassgn as useDispatch
   const dispatch = useDispatch();
-
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -50,6 +50,8 @@ const Home = () => {
     }
   };
 
+ 
+
   // const handleDelete = (tagToDelete) =>
   //   setTags(tags.filter((tags) => tags !== tagToDelete));
   return (
@@ -68,6 +70,13 @@ const Home = () => {
             {" "}
             <SearchIcon />
           </button>
+          <div className="filter-options">
+          <FilterBySizeOption />
+          <FilterBySizeOption />
+          <FilterBySizeOption />
+          </div>
+          
+    
         </div>
       </nav>
 

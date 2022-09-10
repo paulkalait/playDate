@@ -9,7 +9,9 @@ import {
   START_LOADING,
   END_LOADING,
   COMMENT,
-  ADD_DOG_TREAT
+  ADD_DOG_TREAT,
+  FETCH_USER_BY_SIZE,
+  FETCH_POST_BY_SIZE
 } from "../constants/actionTypes";
 
 export default (state = { posts: [], isLoading: true }, action) => {
@@ -35,6 +37,11 @@ export default (state = { posts: [], isLoading: true }, action) => {
         ...state,
         posts: action.payload,
       };
+    case FETCH_POST_BY_SIZE:
+      return {
+        state, 
+        posts: action.payload
+      }
     case LIKE:
       return {
         ...state,

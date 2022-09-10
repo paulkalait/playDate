@@ -128,6 +128,6 @@ console.log(user)
     const userFound = await User.find({name: user})
     res.json({data: userFound})
   } catch (error) {
-    res.status(404).json({message: error.nessage})
+    res.status(404).json({message: error.message})
   }
 }

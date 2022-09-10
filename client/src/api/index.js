@@ -25,6 +25,7 @@ export const fetchPostBySearch = (searchQuery) =>
       searchQuery.tags
     }`
   );
+export const fetchPostBySize  = (searchSize) => API.get(`/posts/filter?searchSize=${searchSize}`)
 export const createPost = (newPost) => API.post("/posts", newPost);
 export const updatePost = (id, updatedPost) =>
   API.patch(`/posts/${id}`, updatedPost);

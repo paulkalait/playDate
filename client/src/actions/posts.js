@@ -3,6 +3,7 @@ import {
   FETCH_POST,
   ADD_DOG_TREAT,
   FETCH_BY_SEARCH,
+  FETCH_POST_BY_SIZE,
   START_LOADING,
   END_LOADING,
   CREATE,
@@ -10,6 +11,7 @@ import {
   LIKE,
   DELETE,
   COMMENT,
+
 } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
@@ -67,6 +69,18 @@ export const getPostBySearch = (searchQuery) => async (dispatch) => {
   }
 };
 
+export const fetchPostBySize = (searchSize) => async (dispatch) => {
+  try {
+    dispatch({type: START_LOADING})
+    const { 
+      data: {data}
+    } = await api.fetchPostBySize(searchSize)
+    dispatch({type: FETCH_POST_BY_SIZE, payload: data})
+    dispatch({type: END_LOADING})
+  } catch (error) {
+    console.log(error)
+  }
+}
 export const createPost = (post, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

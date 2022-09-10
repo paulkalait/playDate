@@ -30,7 +30,7 @@ input:focus, textarea:focus {
 select{
     height: fit-content;
     font-size: 1.1rem;
-    width: 92% !important;
+    width: 94% !important;
     color: rgb(121, 121, 121)
 }
 .buttonContainer{

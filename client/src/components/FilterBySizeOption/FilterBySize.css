@@ -1,0 +1,48 @@
+.filter-container-parent {
+  height: 100px;
+  width: 100px !important;
+  margin: 5px;
+}
+.filter-container {
+  height: 100px;
+  width: 100px !important;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column-reverse !important;
+  align-items: center;
+}
+.filter-container > img {
+  height: 80%;
+  width: 90%;
+}
+.filter-container > span {
+  height: 20%;
+}
+
+.filter-container-options {
+  background-color: white;
+  z-index: 999;
+  top: 2%;
+  height: 125px;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 10px 24px;
+  width: 100px !important;
+  display: flex !important;
+  flex-direction: column !important ;
+  opacity: 0;
+  transition: 200ms ease-in;
+}
+.filter-container-parent:hover .filter-container-options {
+  opacity: 1;
+}
+.filter-container-options > button {
+  font-size: larger;
+  font-weight: bolder;
+  position: relative !important;
+  z-index: 999;
+}
+.filter-container-options > button:hover {
+  background-color: rgb(231, 231, 231);
+  border-radius: 15px;
+}

@@ -44,7 +44,6 @@ nav.search-nav > h1{
   font-size: 2.00rem;
 }
 nav.search-nav div {
-  width: 50%;
   justify-content: center;
   flex-direction: row;
   position: relative;
@@ -52,7 +51,7 @@ nav.search-nav div {
 
 .search-input {
   background: white;
-  width: 100%;
+  width: 500px;
   border-radius: 20px;
   transition: 300ms;
 }
@@ -102,7 +101,10 @@ nav.search-nav div button {
   }
 }
 
-
+.filter-options{
+  display: flex;
+  flex-direction: row;
+}
 @media screen and (max-width: 900px) {
 
   .search-input-container {
