@@ -6,15 +6,16 @@
 .filter-container {
   height: 100px;
   width: 100px !important;
-  border: 1px solid lightgrey;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 15px;
   display: flex;
   flex-direction: column-reverse !important;
   align-items: center;
 }
+
 .filter-container > img {
-  height: 80%;
-  width: 90%;
+  height: 40%;
+  width: 40%;
 }
 .filter-container > span {
   height: 20%;

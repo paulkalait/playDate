@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPosts, getPost, createPost, updatePost, deletePost, likePost, commentPost, getPostBySearch, giveTreat, getSize } from '../controllers/post.js'
+import { getPosts, getPost, createPost, updatePost, deletePost, likePost, commentPost, getPostBySearch, giveTreat, getSize, getPopular } from '../controllers/post.js'
 const router = express.Router()
 
 
@@ -10,6 +10,7 @@ import auth from '../middleware/auth.js'
 router.get('/search', getPostBySearch )
 router.get('/', getPosts)
 router.get('/filter', getSize)
+router.get('/popular', getPopular)
 router.get('/:id', getPost)
 router.post('/', auth,createPost)
 router.patch('/:id', auth, updatePost)

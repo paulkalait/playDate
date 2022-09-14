@@ -19,6 +19,7 @@ API.interceptors.request.use((req) => {
 //passes page data to the backend
 export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
 export const fetchPost = (id) => API.get(`/posts/${id}`);
+// FILTERING POSTS
 export const fetchPostBySearch = (searchQuery) =>
   API.get(
     `/posts/search?searchQuery=${searchQuery.search || "none"}&tags=${
@@ -26,6 +27,8 @@ export const fetchPostBySearch = (searchQuery) =>
     }`
   );
 export const fetchPostBySize  = (searchSize) => API.get(`/posts/filter?searchSize=${searchSize}`)
+export const fetchPostByMostPopular = (searchPopular) => API.get(`/posts/popular?searchPopular=${searchPopular}`)
+// FILTERING POSTS apis end
 export const createPost = (newPost) => API.post("/posts", newPost);
 export const updatePost = (id, updatedPost) =>
   API.patch(`/posts/${id}`, updatedPost);

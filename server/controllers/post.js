@@ -61,6 +61,37 @@ export const getPostBySearch = async (req, res) => {
   }
 };
 
+export const getPopular = async (req, res) => {
+  const searchPopular = req.query.searchPopular
+  //get current time
+  let currentTime = new Date()
+  //let within one day
+  let oneDay = currentTime.setDate(currentTime.getDate()-1)
+  //get from 7 days ago
+  let sevenDays = currentTime.setDate(currentTime.getDate()-7)
+  try {
+    if(searchPopular === "twentyFourHours"){ 
+      const twentyFourHours = await PostMessage.find({createdAt: { $gt: oneDay}}).sort({likes: -1}).limit(10)
+      console.log(searchPopular)
+    res.status(200).json(twentyFourHours)
+    }
+    //sort posts by most likes and within 7 days ago, but with a max of 50 posts
+    if(searchPopular === "sevenDays"){
+      const sevenDaysMostPopular = await PostMessage.find({createdAt: { $gt: sevenDays}}).sort({likes: -1}).limit(10)
+      console.log(searchPopular)
+      res.status(200).json(sevenDaysMostPopular)
+    }
+    //all time query
+    if(searchPopular === "allTime"){ 
+      const allTime = await PostMessage.find().sort({likes: -1}).limit(10)
+      console.log(searchPopular)
+      res.status(200).json(allTime)
+    }
+} catch (error) {
+    res.status(500).json(error)
+}
+}
+
 export const getSize  = async (req, res) => {
   const searchSize = req.query.searchSize
   try {

@@ -78,26 +78,23 @@ const Post = ({ post, setCurrentId }) => {
 
         <div className="name-size">
           <h2>{post.title}</h2>
-
-          {/*   <h5 className="size">{post.size}</h5>*/}
-
-          {post.size.includes("medium") ? (
-            <img src={dog} alt="doglogo" className="mediumdog" />
+          {post.size.includes("small") ? (
+            <span className="dog-size">small</span>
           ) : (
             ""
           )}
-          {post.size.includes("small") ? (
-            <img src={dog} alt="doglogo" className="smalldog" />
+          {post.size.includes("medium") ? (
+          <span className="dog-size">medium</span>
           ) : (
             ""
           )}
           {post.size.includes("large") ? (
-            <img src={dog} alt="doglogo" className="largedog" />
+          <span className="dog-size">large</span>
           ) : (
             ""
           )}
         </div>
-
+  
         {user?.result?._id === post?.creator && (
           <div className="div-more">
             <button className="more">

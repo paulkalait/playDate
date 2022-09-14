@@ -59,6 +59,7 @@ const PostDetails = () => {
   const getProfile = () => {
     history.push(`/user/${post.creator}`);
   };
+
   return (
     <div className="post-details-container">
       <AddTreatModel
@@ -74,9 +75,11 @@ const PostDetails = () => {
             <h1>{post.title}</h1>
 
             <div className="treat-div">
-              {moment(post.createdAt).fromNow().includes("minutes") && (
-                <span className="new-post">new post</span>
-              )}
+              {moment(post.createdAt).fromNow().includes("hours") ||
+                moment(post.createdAt).fromNow().includes("seconds") ||
+                (moment(post.createdAt).fromNow().includes("minutes") && (
+                  <span className="new-post">new post</span>
+                ))}
 
               {post.dogTreats > 0 && (
                 <span className="treat-value">
@@ -124,36 +127,32 @@ const PostDetails = () => {
           <div className="recommended-post-container">
             <br></br>
             <div className="recommended-post">
-              {recommendedPosts.map(
-                ({ title, selectedFile, _id }) => (
-                  <div
-                    onClick={() => openPost(_id)}
-                    key={_id}
-                    className="each-recommended-post"
-                  >
-                    <div className="title-date">
-                      <div className="username-div">
-                        {user?.userImage ? (
-                          <img src={user.userImage} alt="userprofile" />
-                        ) : (
-                          <img
-                            src={AVATAR}
-                            alt="userprofileimage"
-                            className="avatar"
-                            id="recommended-post-avatar"
-                          />
-                        )}
-                        <h5 className="username">{post.name}</h5>
-                      </div>
-                      <h5 className="time">
-                        {moment(post.createdAt).fromNow()}
-                      </h5>
+              {recommendedPosts.map(({ title, selectedFile, _id }) => (
+                <div
+                  onClick={() => openPost(_id)}
+                  key={_id}
+                  className="each-recommended-post"
+                >
+                  <div className="title-date">
+                    <div className="username-div">
+                      {user?.userImage ? (
+                        <img src={user.userImage} alt="userprofile" />
+                      ) : (
+                        <img
+                          src={AVATAR}
+                          alt="userprofileimage"
+                          className="avatar"
+                          id="recommended-post-avatar"
+                        />
+                      )}
+                      <h5 className="username">{post.name}</h5>
                     </div>
-                    <img src={selectedFile} alt="recommndedposttitle" />
-                    <h2>{title}</h2>
+                    <h5 className="time">{moment(post.createdAt).fromNow()}</h5>
                   </div>
-                )
-              )}
+                  <img src={selectedFile} alt="recommndedposttitle" />
+                  <h2>{title}</h2>
+                </div>
+              ))}
             </div>
           </div>
         )}

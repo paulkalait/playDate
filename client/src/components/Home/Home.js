@@ -8,6 +8,7 @@ import Posts from "../Posts/Posts.js";
 import Paginate from "../Pagination.js";
 import "./styles.css";
 import FilterBySizeOption from "../FilterBySizeOption/FilterBySizeOption.js";
+import FilterByPopular from "../FilterByPopular/FilterByPopular"
 // import BACKGROUND from '../../assets/images/background.svg'
 
 const useQuery = () => {
@@ -72,7 +73,7 @@ const Home = () => {
           </button>
           <div className="filter-options">
           <FilterBySizeOption />
-          <FilterBySizeOption />
+          <FilterByPopular />
           <FilterBySizeOption />
           </div>
           

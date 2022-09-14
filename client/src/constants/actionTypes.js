@@ -18,3 +18,4 @@ export const FETCH_USER_BY_SEARCH = "FETCH_USER_BY_SEARCH"
 export const FETCH_POST_BY_SIZE = "FETCH_USER_BY_SIZE"
 //chat action types
 export const DELETE_CHAT = "DELETE_CHAT"
+export const FETCH_POST_BY_MOST_POPULAR = "FETCH_POST_BY_MOST_POPULAR"

@@ -9,7 +9,7 @@ const Posts = ({ setCurrentId}) => {
   const { posts, isLoading }  = useSelector((state) =>  state.posts); // [] => { posts: []}
   if(!posts?.length && !isLoading) return 'No Posts'
 
-  console.log({posts})
+  console.log({posts}) 
   return (
     <div className='postsContainer'>
     {isLoading ? <div className='circular-loading'><CircularProgress /> </div>: (

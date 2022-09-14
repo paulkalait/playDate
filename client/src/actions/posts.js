@@ -11,7 +11,7 @@ import {
   LIKE,
   DELETE,
   COMMENT,
-
+  FETCH_POST_BY_MOST_POPULAR,
 } from "../constants/actionTypes.js";
 //will allow  to import everything from api file into to this file
 import * as api from "../api/index.js";
@@ -19,7 +19,6 @@ import * as api from "../api/index.js";
 //reduc thunk allows an additonal function for async =>   =>
 
 //only fetch post for that specific page
-
 
 export const getPosts = (page) => async (dispatch) => {
   try {
@@ -70,17 +69,34 @@ export const getPostBySearch = (searchQuery) => async (dispatch) => {
 };
 
 export const fetchPostBySize = (searchSize) => async (dispatch) => {
+  console.log(searchSize)
   try {
-    dispatch({type: START_LOADING})
-    const { 
-      data: {data}
-    } = await api.fetchPostBySize(searchSize)
-    dispatch({type: FETCH_POST_BY_SIZE, payload: data})
-    dispatch({type: END_LOADING})
+    dispatch({ type: START_LOADING });
+    const {
+      data: { data },
+    } = await api.fetchPostBySize(searchSize);
+    
+    dispatch({ type: FETCH_POST_BY_SIZE, payload: data });
+    dispatch({ type: END_LOADING });
   } catch (error) {
-    console.log(error)
+    console.log(error.message);
   }
-}
+};
+
+export const fetchPostByMostPopular = (searchPopular) => async (dispatch) => {
+  console.log(searchPopular)
+  try {
+    dispatch({ type: START_LOADING });
+    const {
+      data: data,
+    } = await api.fetchPostByMostPopular(searchPopular);
+    dispatch({ type: FETCH_POST_BY_MOST_POPULAR, payload: data });
+    dispatch({ type: END_LOADING });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const createPost = (post, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
