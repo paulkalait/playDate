@@ -29,8 +29,8 @@ const Conversation = ({data, currentUserId, online}) => {
       <div>
         <div className='each-conversations'>
           <img src={userData?.userImage ? userData?.userImage : AVATAR } alt="" className='chat-image' />
-          <div style={{fontSize: ".8rem"}} className="username-online-div">
-            <span>{userData?.name} </span>
+          <div className="username-online-div">
+            <h2>{userData?.name} </h2>
            {online ? (<span className='online'>online</span>): (<span className='offline'>offline</span>)}
           </div>
         </div>

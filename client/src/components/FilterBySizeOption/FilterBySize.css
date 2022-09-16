@@ -19,6 +19,8 @@
 }
 .filter-container > span {
   height: 20%;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 35px;
 }
 
 .filter-container-options {

@@ -42,7 +42,7 @@ const history = useHistory()
           />
           <Route path="/user/:id" exact component={Profile} />
           {/* <Route path="/chat" exact component={() => (user ? <Chat /> : <Redirect to="/start" />)} /> */}
-          <Route path="/chat" exact component={() => (!user ? <Auth /> : <Chat />)} />
+          <Route path="/chat" exact component={() => (!userId ? <Auth /> : <Chat />)} />
         </Switch>
       </div>
     </BrowserRouter>

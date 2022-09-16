@@ -20,6 +20,14 @@
     display: flex;
     justify-content: space-between;
 }
+.username-online-div > h2, .chat-header-username > span { 
+    margin: 0;
+    color: #1f1c2e;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 20px;
+    font-size: 18px;
+}
 .each-conversations > img{
     margin-right: 3px;
 }

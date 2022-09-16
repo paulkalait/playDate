@@ -10,7 +10,6 @@ import moment from "moment";
 import "./styles.css";
 import { useDispatch } from "react-redux";
 import { deletePost, likePost } from "../../../actions/posts.js";
-import dog from "../../../assets/images/doglogo.png";
 import PLACEHOLDER from "../../../assets/images/placeholder-image.png";
 
 const Post = ({ post, setCurrentId }) => {
@@ -71,6 +70,9 @@ const Post = ({ post, setCurrentId }) => {
         {post.selectedFile ? (
           <div className="post-image-container">
             <img src={post.selectedFile} alt="usersimage" />
+            {moment(post.createdAt).fromNow().includes("hours") && (
+                  <span className="new-post">new post</span>
+                )}
           </div>
         ) : (
           <img src={PLACEHOLDER} alt="usersimage" />

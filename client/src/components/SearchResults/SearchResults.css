@@ -1,8 +1,6 @@
 .choose-user{
 padding: 10px;
 cursor: pointer;
-}
-.choose-user:hover{
-    background-color: rgb(238, 238, 238);
-    border-radius: 15px;
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
 }

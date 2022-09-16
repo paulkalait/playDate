@@ -5,10 +5,9 @@ import Conversation from "../Conversation/Conversation";
 import { io } from "socket.io-client";
 import "./Chat.css";
 import { useDispatch, useSelector } from "react-redux";
-import NOCHATS from '../../assets/images/create-chat.svg'
+import NOCHATS from "../../assets/images/create-chat.svg";
 import { getUserBySearch } from "../../actions/user";
 import SearchResults from "../SearchResults/SearchResults";
-
 
 const Chat = () => {
   const dispatch = useDispatch();
@@ -35,7 +34,7 @@ const Chat = () => {
   };
   useEffect(() => {
     getChats();
-  }, [userId, ]);
+  }, [userId]);
 
   // Connect to Socket.io
   useEffect(() => {
@@ -76,17 +75,14 @@ const Chat = () => {
     }
   };
 
-
- 
-
   const checkOnlineStatus = (chat) => {
-    //extract out the other member 
-    const chatMembers = chat.members.find((member) => member !== userId)
+    //extract out the other member
+    const chatMembers = chat.members.find((member) => member !== userId);
     //is this other member in the online users array?
-    const online = onlineUsers.find((user) => user.userId === chatMembers)
-    return online ? true : false
-  }
-  
+    const online = onlineUsers.find((user) => user.userId === chatMembers);
+    return online ? true : false;
+  };
+
   return (
     <div className="chat">
       {/* LEFT SIDE */}
@@ -124,20 +120,26 @@ const Chat = () => {
           <div className="chat-list">
             {chats?.length > 0 ? (
               <>
-             
-{chats?.map((chat) => (
-  <div onClick={() => setCurrentChat(chat)} className="other-user">
-    <Conversation data={chat} currentUserId={userId} online={checkOnlineStatus(chat)} />
-  </div>
-))}
- </>
-            ) : <div className="no-chats-yet-div">
-              <img src={NOCHATS} /> 
-              <span>No chats yet. Search a user to start a chat.</span>
-              </div>}
-            
+                {chats?.map((chat) => (
+                  <div
+                    onClick={() => setCurrentChat(chat)}
+                    className="other-user"
+                  >
+                    <Conversation
+                      data={chat}
+                      currentUserId={userId}
+                      online={checkOnlineStatus(chat)}
+                    />
+                  </div>
+                ))}
+              </>
+            ) : (
+              <div className="no-chats-yet-div">
+                <img src={NOCHATS} />
+                <span>No chats yet. Search a user to start a chat.</span>
+              </div>
+            )}
           </div>
-      
         </div>
       </div>
       {/* RIGHT SIDE */}
@@ -147,7 +149,7 @@ const Chat = () => {
           chat={currentChat}
           currentUser={userId}
           setSearchUser={setSearchUser}
-         getChats={getChats}
+          getChats={getChats}
           setSendMessage={setSendMessage}
           receiveMessage={receiveMessage}
         />

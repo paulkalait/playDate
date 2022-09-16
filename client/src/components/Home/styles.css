@@ -72,7 +72,6 @@ nav.search-nav div button {
 
 .MuiPagination-ul {
   display: flex;
-
   width: 100%;
   padding: 0;
   flex-wrap: wrap;

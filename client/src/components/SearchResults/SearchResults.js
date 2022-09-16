@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react'
 import './SearchResults.css'
+import AVATAR from "../../assets/images/account-logo.svg";
 const SearchResults = ({results, userId, searchUser,getChats, setSearchUser}) => {
 
 const createChat = async (param) => {
@@ -32,7 +33,11 @@ useEffect(() => {
     <>
     {results?.map((eachUser) => (
       //the list of other users that the current user can click on
+      <div className='each-conversations'>
+      <img src={eachUser?.userImage ? eachUser?.userImage : AVATAR } alt="" className='chat-image' />
         <span value={eachUser._id} key={eachUser._id}  onClick={() => createChat(eachUser._id)} className='choose-user'>{eachUser.name}</span>
+      </div>
+    
     ))}
     </>
   )

@@ -8,6 +8,9 @@
     background-color: white;
     border-radius: 20px;
 }
+.comments-content::-webkit-scrollbar {
+    display: none;
+  }
 .comments-content h3{
  margin-top: 2%;
 }
