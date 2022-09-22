@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import decode from "jwt-decode";
 import EditIcon from "@material-ui/icons/Edit";
-import LOGOUT from "../../assets/images/log-out.svg"
+import { FaBars, FaTimes } from 'react-icons/fa'
+import LOGOUT from "../../assets/images/log-out.svg";
+import SIGNIN from '../../assets/images/signin-profile.svg'
 import AVATAR from "../../assets/images/account-logo.svg";
-import CHAT from  "../../assets/images/chat-logo.svg"
+import CHAT from "../../assets/images/chat-logo.svg";
 
 const Navbar = () => {
+  const [mobileNav, setMobileNav] = useState(false)
   const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -37,15 +40,42 @@ const Navbar = () => {
   const getProfile = () => {
     history.push(`/user/${user.result._id}`);
   };
-  //  <img alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</img>
+
+
+
+  const handleClick = () => {
+    let mobileMenuEl = document.querySelector(".mobileNavMenu")
+    if(!mobileNav){
+      mobileMenuEl.style.display = "block";
+    }
+    else{
+      mobileMenuEl.style.display = "none"
+
+    }
+    setMobileNav((mobileNav) => !mobileNav)
+  }
+
+  const toAuth = () => {
+    history.push('/auth')
+    let mobileMenuEl = document.querySelector(".mobileNavMenu")
+    mobileMenuEl.style.display = "none";
+    setMobileNav(false)
+  }
   return (
     <div className="header-container">
-      <header className="header" component={Link} to="/">
+     
+        <header className="header" component={Link} to="/">
         <Link to="/posts">
           <div className="logo-div"></div>
         </Link>
 
         <nav>
+            <div onClick={handleClick}>
+               {!mobileNav  ? (
+                <button className="mobile-icons"><FaBars /></button>
+            ) : <button className="mobile-icons"><FaTimes /></button> }
+            </div>
+
           {user ? (
             <div className="login-div">
               <div className="avatar-div">
@@ -68,8 +98,8 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="chat-div">
-                <Link to="/chat"className="avatar-div">
-                <img src={CHAT} alt="chatLogo" className="avatar" />
+                <Link to="/chat" className="avatar-div">
+                  <img src={CHAT} alt="chatLogo" className="avatar" />
                 </Link>
               </div>
             </div>
@@ -82,6 +112,31 @@ const Navbar = () => {
           )}
         </nav>
       </header>
+
+{/* mobile nav menu */}
+
+
+<div className="mobileNavMenu">
+  {user ? 
+  (
+    <div className="nav-menu">
+      <div>
+      <img src={AVATAR} alt="userprofileimage" className="avatar" />
+    <h4>{user?.result.name}</h4>
+      </div>
+    </div>
+  ) : (
+
+    <div className="nav-menu">
+      <img src={SIGNIN} />
+      <h1 onClick={toAuth}>Sign in</h1>
+      <h3>To View Account</h3>
+   </div>
+    
+  )}
+ 
+
+</div>
     </div>
   );
 };

@@ -66,12 +66,11 @@ const Chat = () => {
     }
   };
 
-  const searchUserFunction = () => {
+  const searchUserFunction = (e) => {
+    setSearchUser(e.target.value)
     //if there is a value in the search user state then proceed to call the dispatch
     if (searchUser.trim()) {
       dispatch(getUserBySearch({ searchUser }));
-      // setBestMatch(user);
-      // console.log(bestMatch);
     }
   };
 
@@ -92,7 +91,7 @@ const Chat = () => {
           {/* input for search */}
           <input
             value={searchUser}
-            onChange={(e) => setSearchUser(e.target.value)}
+            onChange={searchUserFunction}
             onKeyDown={handleKeyPress}
             className="search-userInput"
           />
